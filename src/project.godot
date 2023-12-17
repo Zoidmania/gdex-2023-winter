@@ -21,7 +21,12 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1280
 window/size/viewport_height=800
-window/stretch/scale_mode="integer"
+
+[importer_defaults]
+
+animation_library={
+"animation/fps": 30.0
+}
 
 [input]
 
