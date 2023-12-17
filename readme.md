@@ -11,7 +11,7 @@ Project brainstorming and asset storage are on [Google Drive][drive].
 [itch]: https://zoidmania.itch.io/winter-gdex-2023
 [drive]: https://drive.google.com/drive/folders/1_vYqE5lANCQOMpH3VYHCQLlzXFNhHwyi?usp=drive_link
 
-Team members and responsibilities:
+We registered as Team Beeg Chungus. Team members and responsibilities:
 
 | **Member**       | **Role**      |
 |------------------|---------------|
@@ -20,3 +20,4 @@ Team members and responsibilities:
 | LordAmonkira     | Programming   |
 | Shawnedia        | Art           |
 | EasterIslandDice | Music and SFX |
+
