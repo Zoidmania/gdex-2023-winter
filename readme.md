@@ -3,7 +3,7 @@
 Project creates for the [GDEX Winter 2023 Game Jam][gdex]. The Jam ran 08 Dec 2023 to 08 Jan 2024.
 The theme is "giving".
 
-Our project is posted to [Itch.io][itch].
+Our project is posted to [Itch.io][itch]. Made with Godot 4.2.1.
 
 Project brainstorming and asset storage are on [Google Drive][drive].
 
