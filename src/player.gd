@@ -46,15 +46,21 @@ func shoot():
 func start(pos):
     position = pos
     show()
-    $CollisionShape2D.disabled = true
+    #$CollisionShape2D.disabled = false
 
 
-func _on_Player_body_entered(_body):
 
-    if(_body.is_in_group('enemy_projectile')):
+   
+
+
+func _on_body_entered(body):
+    print(body)
+    if(body.is_in_group('enemy_projectile')):
         health -= 1
+        print(health)
+        body.queue_free()
         if(health <= 0):
             hide()
 
     # Must be deferred as we can't change physics properties on a physics callback.
-    $CollisionShape2D.set_deferred(&"disabled", true)
+    #$CollisionShape2D.set_deferred(&"disabled", true) # Replace with function body.

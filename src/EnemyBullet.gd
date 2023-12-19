@@ -13,10 +13,13 @@ func _process(delta):
     pass
 
 
-func _on_body_entered(body):
-
-    queue_free()
-         # Replace with function body.
+#func _on_body_entered(body):
+    #print(body)
+    #if(body.name == 'Player'):
+        #
+        #body.queue_free()
+        #queue_free()
+         ## Replace with function body.
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
@@ -24,5 +27,5 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 func _physics_process(delta):
-    position += transform.y * speed * delta
+    position += transform.x * speed * delta
 

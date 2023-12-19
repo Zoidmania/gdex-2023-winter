@@ -8,6 +8,8 @@
 size = Vector2(53, 53)
 
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
+collision_mask = 0
+gravity_scale = 0.0
 script = ExtResource("1_1n31u")
 enemyBullet = ExtResource("2_va6sq")
 
@@ -26,6 +28,7 @@ position = Vector2(0, 70)
 
 [node name="EnemyWeapon" type="Marker2D" parent="Node2D"]
 rotation = 1.5708
+gizmo_extents = 82.1
 
 [node name="WeaponTimer" type="Timer" parent="."]
 autostart = true

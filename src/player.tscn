@@ -24,3 +24,5 @@ position = Vector2(0, -45)
 
 [node name="Muzzle" type="Marker2D" parent="Node2D"]
 rotation = -1.55509
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
