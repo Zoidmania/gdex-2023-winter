@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dp6sj"]
 size = Vector2(32, 32)
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" groups=["player_bullet"]]
 script = ExtResource("1_gs80t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,5 +19,4 @@ shape = SubResource("RectangleShape2D_dp6sj")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
