@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_toxam"]
 size = Vector2(73, 65)
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" groups=["player"]]
 script = ExtResource("1_xqqea")
 Bullet = ExtResource("2_d0low")
 

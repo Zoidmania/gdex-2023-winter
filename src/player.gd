@@ -1,7 +1,7 @@
 extends Area2D
 
 signal hit
-
+@export var health = 100
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 @export var Bullet: PackedScene
@@ -52,7 +52,10 @@ func start(pos):
 
 func _on_Player_body_entered(_body):
     
-    hide() # Player disappears after being hit.
-    hit.emit()
+    if(_body.is_in_group('enemy_projectile')):
+        health -= 1
+        if(health <= 0):
+            hide()
+    
     # Must be deferred as we can't change physics properties on a physics callback.
     $CollisionShape2D.set_deferred(&"disabled", true)
