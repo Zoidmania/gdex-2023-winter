@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://t7g7fre5eokw"]
+
+[ext_resource type="Texture2D" uid="uid://drygxekih80xx" path="res://CANE FILLED.png" id="2_5vv4d"]
+[ext_resource type="Texture2D" uid="uid://ddywxhnm83016" path="res://CANE EMPTY.png" id="3_ipwu7"]
+[ext_resource type="Script" path="res://health.gd" id="3_vy6vy"]
+
+[node name="Control" type="Node2D"]
+script = ExtResource("3_vy6vy")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_right = 604.0
+offset_bottom = 512.0
+fill_mode = 1
+texture_under = ExtResource("3_ipwu7")
+texture_progress = ExtResource("2_5vv4d")
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 11.0
+offset_top = 521.0
+offset_right = 603.0
+offset_bottom = 537.0
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
