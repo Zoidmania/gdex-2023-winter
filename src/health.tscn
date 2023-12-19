@@ -9,13 +9,6 @@
 [node name="HealthBar" type="Node2D"]
 script = ExtResource("3_vy6vy")
 
-[node name="HSlider" type="HSlider" parent="."]
-offset_left = 17.0
-offset_top = 353.0
-offset_right = 609.0
-offset_bottom = 369.0
-max_value = 20.0
-
 [node name="CurveHealth" type="TextureProgressBar" parent="."]
 offset_right = 512.0
 offset_bottom = 308.0
@@ -37,5 +30,3 @@ max_value = 20.0
 value = 10.0
 texture_under = ExtResource("4_flw6v")
 texture_progress = ExtResource("5_vi6ai")
-
-[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
