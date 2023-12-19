@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0utt7w4r4u2r"]
 
 [ext_resource type="Script" path="res://Mob.gd" id="1_1n31u"]
-[ext_resource type="PackedScene" uid="uid://cx85xgka17jb6" path="res://enemy_bullet.tscn" id="2_va6sq"]
+[ext_resource type="PackedScene" uid="uid://cx85xgka17jb6" path="res://enemyBullet.tscn" id="2_73nhc"]
 [ext_resource type="Texture2D" uid="uid://b1nps51me5px6" path="res://assets/kenney-prototyping/PNG/Dark/texture_04.png" id="2_vbwel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7o51d"]
@@ -11,7 +11,7 @@ size = Vector2(53, 53)
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_1n31u")
-enemyBullet = ExtResource("2_va6sq")
+enemyBullet = ExtResource("2_73nhc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.101758, 0.101758)

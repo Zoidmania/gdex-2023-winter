@@ -1,19 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://cx85xgka17jb6"]
 
-[ext_resource type="Script" path="res://EnemyBullet.gd" id="1_j8tvd"]
-[ext_resource type="Texture2D" uid="uid://tnet4wqa3bwx" path="res://icon.svg" id="2_p4mkd"]
+[ext_resource type="Script" path="res://EnemyBullet.gd" id="1_bq0s8"]
+[ext_resource type="Texture2D" uid="uid://tnet4wqa3bwx" path="res://icon.svg" id="2_jyj3u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klf2l"]
 size = Vector2(32, 32)
 
 [node name="EnemyBullet" type="Area2D" groups=["enemy_projectile"]]
-collision_mask = 0
-script = ExtResource("1_j8tvd")
+script = ExtResource("1_bq0s8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_p4mkd")
+texture = ExtResource("2_jyj3u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_klf2l")

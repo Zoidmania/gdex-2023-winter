@@ -53,14 +53,14 @@ func start(pos):
    
 
 
-func _on_body_entered(body):
-    print(body)
-    if(body.is_in_group('enemy_projectile')):
+func _on_area_entered(area):
+    
+    if(area.is_in_group('enemy_projectile')):
         health -= 1
         print(health)
-        body.queue_free()
+        area.queue_free()
         if(health <= 0):
-            hide()
+            queue_free()
 
     # Must be deferred as we can't change physics properties on a physics callback.
     #$CollisionShape2D.set_deferred(&"disabled", true) # Replace with function body.
