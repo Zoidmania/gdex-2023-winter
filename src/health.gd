@@ -11,5 +11,6 @@ func _process(delta):
     pass
 
 func _on_h_slider_value_changed(health):
-     $TextureProgressBar.value = health# Replace with function body.
-
+    print(health)
+    $CurveHealth.value = health
+    $StraightHealth.value = health

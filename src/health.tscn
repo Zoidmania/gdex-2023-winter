@@ -1,23 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://t7g7fre5eokw"]
+[gd_scene load_steps=6 format=3 uid="uid://t7g7fre5eokw"]
 
-[ext_resource type="Texture2D" uid="uid://drygxekih80xx" path="res://CANE FILLED.png" id="2_5vv4d"]
-[ext_resource type="Texture2D" uid="uid://ddywxhnm83016" path="res://CANE EMPTY.png" id="3_ipwu7"]
+[ext_resource type="Texture2D" uid="uid://37p274epq4r1" path="res://assets/healthBar/cane empty curve.png" id="2_cif0n"]
+[ext_resource type="Texture2D" uid="uid://b77r3otmjmqm" path="res://assets/healthBar/CANE FILLED curve.png" id="3_ltxuk"]
 [ext_resource type="Script" path="res://health.gd" id="3_vy6vy"]
+[ext_resource type="Texture2D" uid="uid://g8vqepc6txaf" path="res://assets/healthBar/CANE EMPTY straight.png" id="4_flw6v"]
+[ext_resource type="Texture2D" uid="uid://hpn4hed0upio" path="res://assets/healthBar/CANE FILLED straight.png" id="5_vi6ai"]
 
 [node name="Control" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("3_vy6vy")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_right = 604.0
-offset_bottom = 512.0
-fill_mode = 1
-texture_under = ExtResource("3_ipwu7")
-texture_progress = ExtResource("2_5vv4d")
-
 [node name="HSlider" type="HSlider" parent="."]
-offset_left = 11.0
-offset_top = 521.0
-offset_right = 603.0
-offset_bottom = 537.0
+offset_left = 17.0
+offset_top = 353.0
+offset_right = 609.0
+offset_bottom = 369.0
+max_value = 20.0
+
+[node name="CurveHealth" type="TextureProgressBar" parent="."]
+offset_right = 512.0
+offset_bottom = 308.0
+size_flags_horizontal = 0
+max_value = 10.0
+rounded = true
+fill_mode = 5
+texture_under = ExtResource("2_cif0n")
+texture_progress = ExtResource("3_ltxuk")
+radial_fill_degrees = 180.0
+radial_center_offset = Vector2(-62, 0)
+
+[node name="StraightHealth" type="TextureProgressBar" parent="."]
+offset_left = 183.0
+offset_top = 238.0
+offset_right = 566.0
+offset_bottom = 308.0
+min_value = 10.0
+max_value = 20.0
+value = 10.0
+texture_under = ExtResource("4_flw6v")
+texture_progress = ExtResource("5_vi6ai")
 
 [connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

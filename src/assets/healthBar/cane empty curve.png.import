@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drygxekih80xx"
-path="res://.godot/imported/CANE FILLED.png-e137f33cc08757a77308e21cadca558c.ctex"
+uid="uid://37p274epq4r1"
+path="res://.godot/imported/cane empty curve.png-889e89c6c8301de0db047c8201c949ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CANE FILLED.png"
-dest_files=["res://.godot/imported/CANE FILLED.png-e137f33cc08757a77308e21cadca558c.ctex"]
+source_file="res://assets/healthBar/cane empty curve.png"
+dest_files=["res://.godot/imported/cane empty curve.png-889e89c6c8301de0db047c8201c949ef.ctex"]
 
 [params]
 
