@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://swwwlgj2grwf"]
+[gd_scene load_steps=6 format=3 uid="uid://swwwlgj2grwf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_s1lub"]
+[ext_resource type="PackedScene" uid="uid://b0utt7w4r4u2r" path="res://mob.tscn" id="2_4srta"]
 [ext_resource type="PackedScene" uid="uid://da37ofci4bbmy" path="res://player.tscn" id="2_qwume"]
 [ext_resource type="PackedScene" uid="uid://dt47ouy0h30vr" path="res://hud.tscn" id="3_rweck"]
 
+[sub_resource type="Curve2D" id="Curve2D_x7d3c"]
+
 [node name="Main" type="Node"]
 script = ExtResource("1_s1lub")
+mob_scene = ExtResource("2_4srta")
 
 [node name="Player" parent="." instance=ExtResource("2_qwume")]
 
@@ -14,3 +18,18 @@ script = ExtResource("1_s1lub")
 [node name="HUD" parent="." instance=ExtResource("3_rweck")]
 
 [node name="BG_Music" type="AudioStreamPlayer" parent="."]
+
+[node name="MobSpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="GameStartTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="MobSpawnPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_x7d3c")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPath"]
+
+[connection signal="timeout" from="MobSpawnTimer" to="." method="_on_mob_spawn_timer_timeout"]
+[connection signal="timeout" from="GameStartTimer" to="." method="_on_game_start_timer_timeout"]
