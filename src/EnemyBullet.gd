@@ -13,15 +13,6 @@ func _process(delta):
     pass
 
 
-#func _on_body_entered(body):
-    #print(body)
-    #if(body.name == 'Player'):
-        #
-        #body.queue_free()
-        #queue_free()
-         ## Replace with function body.
-
-
 func _on_visible_on_screen_notifier_2d_screen_exited():
     queue_free() # Replace with function body.
 
