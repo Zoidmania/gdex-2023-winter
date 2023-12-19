@@ -28,4 +28,8 @@ func _on_weapon_timer_timeout():
 
 
 func _on_area_entered(area):
-    print(area) # Replace with function body.
+    if(area.is_in_group('player_bullet')):
+        health -= 1
+        if(health <= 0):
+            queue_free()
+        area.queue_free()
