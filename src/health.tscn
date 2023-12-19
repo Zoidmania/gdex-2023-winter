@@ -6,8 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://g8vqepc6txaf" path="res://assets/healthBar/CANE EMPTY straight.png" id="4_flw6v"]
 [ext_resource type="Texture2D" uid="uid://hpn4hed0upio" path="res://assets/healthBar/CANE FILLED straight.png" id="5_vi6ai"]
 
-[node name="Control" type="Node2D"]
-scale = Vector2(0.5, 0.5)
+[node name="HealthBar" type="Node2D"]
 script = ExtResource("3_vy6vy")
 
 [node name="HSlider" type="HSlider" parent="."]
@@ -22,7 +21,6 @@ offset_right = 512.0
 offset_bottom = 308.0
 size_flags_horizontal = 0
 max_value = 10.0
-rounded = true
 fill_mode = 5
 texture_under = ExtResource("2_cif0n")
 texture_progress = ExtResource("3_ltxuk")
@@ -32,7 +30,7 @@ radial_center_offset = Vector2(-62, 0)
 [node name="StraightHealth" type="TextureProgressBar" parent="."]
 offset_left = 183.0
 offset_top = 238.0
-offset_right = 566.0
+offset_right = 512.0
 offset_bottom = 308.0
 min_value = 10.0
 max_value = 20.0
