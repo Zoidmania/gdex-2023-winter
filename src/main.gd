@@ -13,6 +13,7 @@ func _process(delta):
     pass
 
 # Reset the game state. Also good for initialization.
+# TO DO: The main menu should include a start button that calls this.
 func new_game():
 
     # delete all lingering mobs
