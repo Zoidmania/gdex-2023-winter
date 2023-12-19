@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://swwwlgj2grwf"]
+[gd_scene load_steps=4 format=3 uid="uid://swwwlgj2grwf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_s1lub"]
+[ext_resource type="PackedScene" uid="uid://da37ofci4bbmy" path="res://player.tscn" id="2_qwume"]
+[ext_resource type="PackedScene" uid="uid://dt47ouy0h30vr" path="res://hud.tscn" id="3_rweck"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_s1lub")
+
+[node name="Player" parent="." instance=ExtResource("2_qwume")]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("3_rweck")]
+
+[node name="BG_Music" type="AudioStreamPlayer" parent="."]
