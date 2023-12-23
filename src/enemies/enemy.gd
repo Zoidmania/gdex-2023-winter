@@ -21,11 +21,22 @@ extends Node2D
 
 @onready var score_component: ScoreComponent = $ScoreComponent
 
+# Needs to be one-shot and autostarting. The timer is reset on spawns.
+@onready var spawn_timer: Timer = $SpawnTimer
+
+# Set in ready().
+var x_margin: int
+var y_margin: int
+
 
 ## Called when the node enters the scene tree for the first time.
 ##
 ## Ensures that the enemy dequeues when leaving the viewport, or is destroyed.
 func _ready() -> void:
+
+    # Set the margin for this enemy equal to half the width of the visibility notifier.
+    x_margin = visible_on_screen_notifier_2d.rect.size.x / 2
+    y_margin = visible_on_screen_notifier_2d.rect.size.y / 2
 
     stats_component.no_health.connect(func():
         score_component.adjust_score()
