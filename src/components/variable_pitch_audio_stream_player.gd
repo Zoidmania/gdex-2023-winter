@@ -1,5 +1,9 @@
 class_name VariablePitchAudioStreamPlayer
 extends AudioStreamPlayer
+## Plays an audio stream with variable pitch.
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
 @export var pitch_min = 0.6

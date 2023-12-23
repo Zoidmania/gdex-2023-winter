@@ -1,5 +1,12 @@
 class_name FlashComponent
 extends Node
+## Momentarily applies a "flash" effect to a given [CanvasItem] when triggered.
+##
+## The original material for the [CanvasItem] is reapplied after
+## [member FlashComponent.flash_duration] seconds after triggering.
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
 ## Flash material to produce this effect. It turns the whole sprite white.
@@ -19,7 +26,6 @@ var original_sprite_material: Material
 func _ready() -> void:
 
     add_child(flash_duration_timer)
-
     original_sprite_material = sprite.material
 
 

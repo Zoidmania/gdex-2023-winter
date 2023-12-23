@@ -1,9 +1,15 @@
 class_name StatsComponent
 extends Node
+## Tracks statistics about an actor.
+##
+## So far, only `health` (int) is tracked. Emits signals for when the health value changed and when
+## it reaches 0.
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
-## Sets this actor's health. Also emits a signal that the health value changed. If the health is
-## `0`, also emits another signal.
+## Dynamically sets this actor's health, and emits signals.
 @export var health:= 1:
     set(value):
 

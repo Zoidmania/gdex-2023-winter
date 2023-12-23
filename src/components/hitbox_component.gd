@@ -1,5 +1,14 @@
 class_name HitboxComponent
 extends Area2D
+## An [Area2D] that emits [signal HitboxComponent.hit_hurtbox] when a child [CollisionShape2D]
+## intersects a [HurtboxComponent].
+##
+## Also causes the the intersecting [HurtboxComponent] to be hurt by
+## [member HitboxComponent.damage].
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
+
 
 ## The amount of damage this hitbox deals.
 @export var damage = 1.0

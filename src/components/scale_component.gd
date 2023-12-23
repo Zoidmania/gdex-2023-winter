@@ -1,5 +1,12 @@
 class_name ScaleComponent
 extends Node
+## "Bursts" a node's scaling and tweens it back to 1.0 scaling over a duration.
+##
+## Nota bene: consider that this always scales to a value of 1, which doesn't work for sprites that
+## aren't scaled to 1 in both directions before this component is activated.
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
 @export var sprite: Node2D
@@ -20,7 +27,5 @@ func tween_scale() -> void:
     # Next, scale the sprite to the scale amount (in 1/10th of the scale duration).
     tween.tween_property(sprite, "scale", scale_amount, scale_duration * 0.1).from_current()
 
-    # Finally, scale back to a value of 1 for the other 9/10ths of the scale duration.
-    # Nota bene: consider that this always scales to a value of 1, which doesn't work for sprites
-    # that aren't scaled to 1 in either direction.
+    # Finally, scale to a value of 1 for the other 9/10ths of the scale duration.
     tween.tween_property(sprite, "scale", Vector2.ONE, scale_duration * 0.9).from(scale_amount)

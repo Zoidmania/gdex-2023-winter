@@ -1,5 +1,12 @@
 class_name PositionClampComponent
 extends Node2D
+## Clamps a Node2D's global position on the x-axis to a given range, with an optional margin.
+##
+## Nota bene: does [i]not[/i] clamp on the y-axis.
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
+
 
 @export var actor: Node2D
 @export var margin: = 8

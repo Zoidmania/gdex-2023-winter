@@ -1,8 +1,14 @@
 class_name ScoreComponent
 extends Node
+## Tracks a player's score.
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
+
 
 @export var game_stats: GameStats
 @export var adjust_amount = 5
+
 
 ## Adjusts the linked [member GameStats.score] value but the amount specified.
 ##

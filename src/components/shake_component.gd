@@ -1,8 +1,13 @@
 class_name ShakeComponent
 extends Node
+## Spawns an instance of a scene at a given global position.
+##
+## Nota bene: shake the [i]sprite[/i] and not the root node or you'll get unexpected behavior since
+## we are manipulating the position of the node and moving it to <0,0>.
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
-# You should shake the sprite and not the root node or you'll get unexpected behavior
-# since we are manipulating the position of the node and moving it to 0,0
 
 @export var node: Node2D
 @export var shake_amount: = 2.0   # The initial shake amount.

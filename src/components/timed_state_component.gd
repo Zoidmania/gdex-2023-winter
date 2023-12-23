@@ -1,5 +1,9 @@
 class_name TimedStateComponent
 extends StateComponent
+## A StateComponent that disables itself after a duration.
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
 @export var duration: float = 1.0

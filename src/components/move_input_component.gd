@@ -1,5 +1,9 @@
 class_name MoveInputComponent
 extends Node
+## Handles wiring input events to a [MovementComponent].
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
 @export var move_component: MoveComponent

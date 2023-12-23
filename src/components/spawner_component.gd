@@ -1,5 +1,9 @@
 class_name SpawnerComponent
 extends Node2D
+## Spawns an instance of a scene at a given global position.
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
 ## The scene that will be spawned by this component.

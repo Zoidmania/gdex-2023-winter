@@ -1,5 +1,9 @@
 class_name OnetimeAnimatedEffect
 extends AnimatedSprite2D
+## Runs a [AnimatedSprite2D]'s animation [i]once[/i], then destroys itself.
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
 ## Init.

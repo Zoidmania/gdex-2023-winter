@@ -1,5 +1,10 @@
 class_name DestroyedComponent
 extends Node
+## Wires up destruction behavior when an actor runs out of health.
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
+
 
 @export var actor: Node2D
 @export var stats_component: StatsComponent

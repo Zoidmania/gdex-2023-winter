@@ -1,5 +1,12 @@
 class_name BorderBounceComponent
 extends Node
+## Causes a moving actor to "bounce" off of the left or right borders of the viewport.
+##
+## Nota bene: this component does [i]not[/i] cause bouncing behavior on the top or bottom borders of
+## the viewport, only on the left and right.
+##
+## Written by HeartBeast. Amended by Zoidmania.
+## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
 @export var margin:= 8
