@@ -44,14 +44,14 @@ func end_game():
 func spawn_new_mob():
 
     var mob = mob_scene.instantiate()
-    
+
     # choose a random location along the spawn path to place the new mob instance
-   
+
     var mob_spawn_location = get_node("MobSpawnPath/MobSpawnLocation")
     mob_spawn_location.progress_ratio = randf()
-   
+
     mob.position = mob_spawn_location.position
-    
+
     add_child(mob)
 
 

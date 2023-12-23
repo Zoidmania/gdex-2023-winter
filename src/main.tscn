@@ -29,7 +29,6 @@ position = Vector2(642, 738)
 wait_time = 3.0
 
 [node name="GameStartTimer" type="Timer" parent="."]
-wait_time = 0.01
 one_shot = true
 
 [node name="MobSpawnPath" type="Path2D" parent="."]
