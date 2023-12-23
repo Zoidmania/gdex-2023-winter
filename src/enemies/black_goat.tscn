@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c4au4tc0qqgbm" path="res://assets/goat-proto/black.png" id="3_xfeca"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_soyl6"]
-radius = 32.1403
+radius = 18.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ai06l"]
-size = Vector2(64, 64)
+size = Vector2(36, 37)
 
 [node name="BlackGoat" instance=ExtResource("1_rl5lf")]
 script = ExtResource("2_kn77k")
@@ -17,13 +17,14 @@ script = ExtResource("2_kn77k")
 texture = ExtResource("3_xfeca")
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="1"]
-position = Vector2(1.90735e-06, 1.90735e-06)
-scale = Vector2(3.2, 3.2)
+position = Vector2(1.43051e-06, 0.500001)
+scale = Vector2(1.8, 1.85)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_soyl6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ai06l")
 debug_color = Color(0.92549, 0.196078, 0.478431, 0.419608)
 

@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://d1fhjbj01e62t" path="res://assets/goat-proto/purple.png" id="3_1c0x5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t10bl"]
-radius = 24.0
+radius = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of1yw"]
-size = Vector2(48, 48)
+size = Vector2(24, 24)
 
 [node name="PurpleGoat" instance=ExtResource("1_die8d")]
 script = ExtResource("2_00ano")
@@ -17,8 +17,8 @@ script = ExtResource("2_00ano")
 texture = ExtResource("3_1c0x5")
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="1"]
-position = Vector2(4.76837e-07, 4.76837e-07)
-scale = Vector2(2.4, 2.4)
+position = Vector2(-9.53674e-07, -9.53674e-07)
+scale = Vector2(1.2, 1.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_t10bl")

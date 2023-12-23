@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://enemies/green_goat.gd" id="2_x3y4g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_55eco"]
-radius = 24.0
+radius = 12.1655
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_frijb"]
-size = Vector2(48, 48)
+size = Vector2(24, 24)
 
 [node name="GreenGoat" instance=ExtResource("1_mxpgr")]
 script = ExtResource("2_x3y4g")
@@ -17,8 +17,8 @@ script = ExtResource("2_x3y4g")
 texture = ExtResource("2_3gjps")
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="1"]
-position = Vector2(-4.76837e-07, 4.76837e-07)
-scale = Vector2(2.4, 2.4)
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(1.2, 1.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_55eco")
