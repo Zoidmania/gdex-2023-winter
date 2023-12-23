@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://y0utk1nx72vy"]
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_ep3g3"]
-[ext_resource type="Texture2D" uid="uid://tnet4wqa3bwx" path="res://icon.svg" id="2_8xosr"]
+[ext_resource type="Texture2D" uid="uid://bt08avtj7hdli" path="res://assets/kenney-prototyping/PNG/Dark/texture_09.png" id="2_2jnrm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_efn7n"]
 radius = 44.139
@@ -12,7 +12,8 @@ size = Vector2(128, 128)
 [node name="GreyGoat" instance=ExtResource("1_ep3g3")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_8xosr")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_2jnrm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 position = Vector2(0, 4.5)
