@@ -21,3 +21,9 @@ We registered as Team Beeg Chungus. Team members and responsibilities:
 | Shawnedia        | Art           |
 | EasterIslandDice | Music and SFX |
 
+## Acknowledgements
+
+Some code was based on [HeartBeast's 2D Space Shooter tutorial][hb-tut].
+
+[hb-tut]: https://github.com/uheartbeast/Galaxy-Defiance
+

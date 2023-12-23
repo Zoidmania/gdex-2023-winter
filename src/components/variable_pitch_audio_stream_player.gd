@@ -11,6 +11,7 @@ extends AudioStreamPlayer
 
 @export var auto_play_with_variance: = false
 
+
 ## Init.
 ##
 ## Plays the audio stream if [member VariablePitchAudioStreamPlayer.auto_play_with_variance] is
