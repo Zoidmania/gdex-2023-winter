@@ -16,7 +16,7 @@ extends Node2D
 
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
-@onready var stats_component: StatsComponent = $StatsComponent
+@onready var health_component: HealthComponent = $HealthComponent
 @onready var destroyed_component: DestroyedComponent = $DestroyedComponent
 
 @onready var score_component: ScoreComponent = $ScoreComponent
@@ -35,7 +35,7 @@ func _ready() -> void:
     x_margin = visible_on_screen_notifier_2d.get_rect().size.x / 2
     y_margin = visible_on_screen_notifier_2d.get_rect().size.y / 2
 
-    stats_component.no_health.connect(func():
+    health_component.no_health.connect(func():
         score_component.adjust_score()
     )
 
@@ -47,5 +47,5 @@ func _ready() -> void:
         shake_component.tween_shake()
     )
 
-    stats_component.no_health.connect(queue_free)
+    health_component.no_health.connect(queue_free)
     hitbox_component.hit_hurtbox.connect(destroyed_component.destroy.unbind(1))

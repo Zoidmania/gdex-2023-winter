@@ -7,7 +7,7 @@ extends Node
 
 
 @export var actor: Node2D
-@export var stats_component: StatsComponent
+@export var health_component: HealthComponent
 # Export and grab access to a spawner component so we can create an effect on death
 @export var destroy_effect_spawner_component: SpawnerComponent
 
@@ -17,7 +17,7 @@ extends Node
 ## Connects the `no_health` signal on our stats to the `destroy` function.
 func _ready() -> void:
 
-    stats_component.no_health.connect(destroy)
+    health_component.no_health.connect(destroy)
 
 
 ## Creates an effect from the associated `destroy_effect_spawner_component` and frees the associated

@@ -6,7 +6,8 @@ extends Area2D
 ## Based on the component written by HeartBeast.
 
 
-@export var stats_component: StatsComponent
+@export var health_component: HealthComponent
+@export var scale_component: ScaleComponent
 
 
 ## Indicates that this [HurtboxComponent] cannot be damaged, meaning that all child collision shapes
@@ -33,6 +34,8 @@ signal hurt(hitbox: HitboxComponent)
 ## equal to the damage from the associated [HitBoxComponent].
 func _ready() -> void:
 
-    self.hurt.connect(func(hitbox_component: HitboxComponent):
-        stats_component.health -= hitbox_component.damage
+    self.hurt.connect(
+        func(hitbox_component: HitboxComponent):
+            health_component.health -= hitbox_component.damage
+            scale_component.tween_scale()
     )

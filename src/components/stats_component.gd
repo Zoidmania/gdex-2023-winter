@@ -1,4 +1,4 @@
-class_name StatsComponent
+class_name HealthComponent
 extends Node
 ## Tracks statistics about an actor.
 ##

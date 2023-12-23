@@ -28,4 +28,6 @@ func tween_scale() -> void:
     tween.tween_property(sprite, "scale", scale_amount, scale_duration * 0.1).from_current()
 
     # Finally, scale to a value of 1 for the other 9/10ths of the scale duration.
-    tween.tween_property(sprite, "scale", Vector2.ONE, scale_duration * 0.9).from(scale_amount)
+    tween.tween_property(
+        sprite, "scale", Vector2.ONE, scale_duration * 0.9
+    ).from(scale_amount)

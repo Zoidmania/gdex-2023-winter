@@ -1,14 +1,16 @@
+class_name Sleigh
 extends Node2D
+## Represents the player sleigh.
 
 
-@onready var muzzle: Marker2D = $Muzzle
-@onready var projectile_spawner_component: SpawnerComponent = $ProjectileSpawnerComponent
+## Must be a subclass of Projectile
+@export var weapon: PackedScene
 
-@onready var fire_rate_timer: Timer = $FireRateTimer
 
 @onready var scale_component: ScaleComponent = $ScaleComponent
 @onready var move_component: MoveComponent = $MoveComponent
 @onready var bounding_box: CollisionShape2D = $HurtboxComponent/CollisionShape2D
+@onready var weapon_mount: Marker2D = $SpriteAnchor/WeaponMount
 
 
 # Set in ready().
@@ -23,26 +25,32 @@ var bottom_border = ProjectSettings.get_setting("display/window/size/viewport_he
 
 ## Called when the node enters the scene tree for the first time.
 ##
-## Connects the fire rate timeout.
+## Computes the margins of the actor, and mounts the default weapon.
 func _ready() -> void:
-
-    fire_rate_timer.timeout.connect(fire_projectile)
 
     # Set the margin equal to half the width of the hurtbox..
     x_margin = bounding_box.shape.get_rect().size.x / 2
     y_margin = bounding_box.shape.get_rect().size.y / 2
 
-## Spawns lasers from the muzzle locations.
-func fire_projectile() -> void:
+    # Mount the starting weapon on init.
+    switch_weapon(weapon)
 
-    projectile_spawner_component.spawn(muzzle.global_position)
-    scale_component.tween_scale()
+
+## Switches the weapon mounted on the sleigh to the given weapon scene.
+func switch_weapon(scene: PackedScene) -> void:
+
+    weapon = scene
+    var instance = weapon.instantiate()
+    weapon_mount.add_child(instance)
+    instance.global_position = weapon_mount.global_position
 
 
 ## Called every frame.
 ##
 ## Clamps the position of the assocaited actor within the borders of the playable area, accounting
 ## for the associated margin.
+##
+## Also scales the sleigh briefly when firing.
 func _process(delta: float) -> void:
 
     self.global_position.x = clamp(
@@ -52,3 +60,6 @@ func _process(delta: float) -> void:
     self.global_position.y = clamp(
         self.global_position.y, top_border+y_margin, bottom_border-y_margin
     )
+
+    if Input.is_action_just_pressed("santa_shoot"):
+        scale_component.tween_scale()
