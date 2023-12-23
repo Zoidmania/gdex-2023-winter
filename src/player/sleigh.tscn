@@ -27,6 +27,7 @@ weapon = ExtResource("3_hbrjt")
 texture = ExtResource("2_m5w7w")
 
 [node name="WeaponMount" type="Marker2D" parent="SpriteAnchor"]
+position = Vector2(0, -20)
 
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "scale_component")]
 collision_mask = 0
