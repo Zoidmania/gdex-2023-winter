@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bh6x3atb6ibqq"]
+[gd_scene load_steps=15 format=3 uid="uid://bh6x3atb6ibqq"]
 
 [ext_resource type="Script" path="res://player/sleigh.gd" id="1_1sigw"]
 [ext_resource type="Texture2D" uid="uid://7khkam8vpnix" path="res://assets/player-proto/sleigh.png" id="2_m5w7w"]
 [ext_resource type="Script" path="res://components/hurtbox_component.gd" id="4_6y4jf"]
-[ext_resource type="Script" path="res://components/hurt_component.gd" id="5_qvml2"]
 [ext_resource type="Script" path="res://components/destroyed_component.gd" id="6_lkdr4"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="7_3bsw0"]
 [ext_resource type="Script" path="res://components/move_input_component.gd" id="8_47fyc"]
@@ -29,18 +28,14 @@ texture = ExtResource("2_m5w7w")
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(0, -22)
 
-[node name="HurtboxComponent" type="Area2D" parent="."]
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("stats_component")]
 collision_mask = 0
 script = ExtResource("4_6y4jf")
+stats_component = NodePath("../StatsComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("RectangleShape2D_mcae1")
 debug_color = Color(0.917647, 0.196078, 0.517647, 0.419608)
-
-[node name="HurtComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "hurtbox_component")]
-script = ExtResource("5_qvml2")
-stats_component = NodePath("../StatsComponent")
-hurtbox_component = NodePath("../HurtboxComponent")
 
 [node name="DestroyedComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "destroy_effect_spawner_component")]
 script = ExtResource("6_lkdr4")
@@ -71,7 +66,7 @@ script = ExtResource("10_7c0i7")
 scene = ExtResource("11_ugahy")
 
 [node name="FireRateTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.25
 autostart = true
 
 [node name="StatsComponent" type="Node" parent="."]

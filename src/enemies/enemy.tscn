@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5j0erwnwdkwd"]
+[gd_scene load_steps=15 format=3 uid="uid://b5j0erwnwdkwd"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_0aqhb"]
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="1_jqks7"]
 [ext_resource type="Script" path="res://components/hurtbox_component.gd" id="2_butr8"]
 [ext_resource type="Texture2D" uid="uid://tnet4wqa3bwx" path="res://icon.svg" id="2_xi7h8"]
-[ext_resource type="Script" path="res://components/hurt_component.gd" id="3_20oc2"]
 [ext_resource type="Script" path="res://components/destroyed_component.gd" id="4_6hkh1"]
 [ext_resource type="Script" path="res://components/flash_component.gd" id="5_204rd"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="6_ls6r2"]
@@ -28,15 +27,11 @@ texture = ExtResource("2_xi7h8")
 collision_layer = 0
 script = ExtResource("1_jqks7")
 
-[node name="HurtboxComponent" type="Area2D" parent="."]
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("stats_component")]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("2_butr8")
-
-[node name="HurtComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "hurtbox_component")]
-script = ExtResource("3_20oc2")
 stats_component = NodePath("../StatsComponent")
-hurtbox_component = NodePath("../HurtboxComponent")
 
 [node name="DestroyedComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "destroy_effect_spawner_component")]
 script = ExtResource("4_6hkh1")
