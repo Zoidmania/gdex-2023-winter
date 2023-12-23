@@ -21,9 +21,6 @@ extends Node2D
 
 @onready var score_component: ScoreComponent = $ScoreComponent
 
-# Needs to be one-shot and autostarting. The timer is reset on spawns.
-@onready var spawn_timer: Timer = $SpawnTimer
-
 # Set in ready().
 var x_margin: int
 var y_margin: int
