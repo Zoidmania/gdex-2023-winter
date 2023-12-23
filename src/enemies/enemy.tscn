@@ -16,7 +16,7 @@
 
 [node name="Enemy" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
@@ -39,15 +39,14 @@ destroy_effect_spawner_component = NodePath("../SpawnerComponent")
 
 [node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("5_204rd")
-sprite = NodePath("../AnimatedSprite2D")
+sprite = NodePath("../Sprite2D")
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("6_ls6r2")
 actor = NodePath("..")
 
-[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+[node name="ScaleComponent" type="Node" parent="."]
 script = ExtResource("7_ne6op")
-sprite = NodePath("../AnimatedSprite2D")
 
 [node name="ScoreComponent" type="Node" parent="."]
 script = ExtResource("8_k3tsv")
@@ -55,7 +54,7 @@ game_stats = ExtResource("9_syojo")
 
 [node name="ShakeComponent" type="Node" parent="." node_paths=PackedStringArray("node")]
 script = ExtResource("9_bkvpd")
-node = NodePath("../AnimatedSprite2D")
+node = NodePath("../Sprite2D")
 
 [node name="SpawnerComponent" type="Node2D" parent="."]
 script = ExtResource("10_cklcf")
