@@ -9,7 +9,7 @@ extends Node2D
 
 @onready var spawner_component: SpawnerComponent = $SpawnerComponent
 
-var viewport_width = ProjectSettings.get_setting("display/window/size/viewport_width")
+var play_area_width = ProjectSettings.get_setting("display/window/size/playable_area_width")
 
 
 ## Spawns enemies at a random location above the screen.
@@ -20,13 +20,16 @@ func handle_spawn(enemy_scene: PackedScene, timer: Timer, time_offset: float = 1
 
     # instance the enemy _now_ instead of letting spawn() do it so we can access its margin values
     var instance: Enemy = enemy_scene.instantiate()
+    # An instance's `_ready()` isn't called until the instance joins the tree, so we add it here so
+    # margins get set.
+    get_tree().current_scene.add_child(instance)
     var x_margin = instance.x_margin
     var y_margin = instance.y_margin
 
     spawner_component.scene = enemy_scene
     spawner_component.spawn(
         # random horizontal, always just above the viewport
-        Vector2(randf_range(x_margin, viewport_width-x_margin), 0-(y_margin*2)),
+        Vector2(randf_range(x_margin, play_area_width-(x_margin*2)), 0-(y_margin*2)),
         get_tree().current_scene, # the root of the scene tree
         instance # an instanced enemy scene
     )

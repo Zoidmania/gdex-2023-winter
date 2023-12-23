@@ -14,7 +14,7 @@ extends Node
 @export var move_component: MoveComponent
 
 var left_border:= 0
-var right_border = ProjectSettings.get_setting("display/window/size/viewport_width")
+var right_border = ProjectSettings.get_setting("display/window/size/playable_area_width")
 
 
 ## Called every frame.

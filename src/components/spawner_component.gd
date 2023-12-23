@@ -13,6 +13,9 @@ extends Node2D
 ## Spawn an instance of the scene at a specific global position on a parent.
 ##
 ## By default, the `parent` is the root scene.
+##
+## By default, an instance is created for you, and it's added to the `parent`. If passing an
+## instance, you must add the instance to the parent yourself.
 func spawn(
     global_spawn_position: Vector2 = global_position,
     parent: Node = get_tree().current_scene,
@@ -23,7 +26,7 @@ func spawn(
 
     if not instance:
         instance = scene.instantiate()
-    parent.add_child(instance)
+        parent.add_child(instance)
     instance.global_position = global_spawn_position
 
     return instance
