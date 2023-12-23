@@ -1,3 +1,4 @@
+class_name EnemyGenerator
 extends Node2D
 ## Generates enemies in a scene.
 ##
@@ -30,11 +31,12 @@ func handle_spawn(enemy_scene: PackedScene, timer: Timer, time_offset: float = 1
         instance # an instanced enemy scene
     )
 
-    time_offset = abs(time_offset)
-
+    # TO DO: decide whether to keep this mechanic, and whether to scale on score or time.
     # Gently increase the spawn rate based on the current score. That is, spawn rate, which is the
     # delta between when spawns occur, gets smaller, which increases spawn frequency. Asymptotically
     # approaches 0.
-    var spawn_rate = time_offset / (0.5 + game_stats.score * 0.01)
+    #time_offset = abs(time_offset)
+    #var spawn_rate = time_offset / (0.5 + game_stats.score * 0.01)
+    #timer.start(spawn_rate + randf_range(0.25, 0.5))
 
-    timer.start(spawn_rate + randf_range(0.25, 0.5))
+    timer.start()

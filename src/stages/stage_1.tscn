@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://blke6hd32d6xy"]
+
+[ext_resource type="PackedScene" uid="uid://cyfrv23x7cjxg" path="res://stages/stage_1_enemy_generator.tscn" id="1_s5i7o"]
+[ext_resource type="PackedScene" uid="uid://y0utk1nx72vy" path="res://enemies/grey_goat.tscn" id="2_dfvkc"]
+
+[node name="Stage1" type="Node2D"]
+
+[node name="Stage1EnemyGenerator" parent="." instance=ExtResource("1_s5i7o")]
+grey_goat_scene = ExtResource("2_dfvkc")

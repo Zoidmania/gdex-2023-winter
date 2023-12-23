@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyfrv23x7cjxg"]
+
+[ext_resource type="PackedScene" uid="uid://c1adeqxtlje6x" path="res://stages/enemy_generator.tscn" id="1_0hxi0"]
+[ext_resource type="Script" path="res://stages/stage_1_enemy_generator.gd" id="2_b7hnh"]
+
+[node name="Stage1EnemyGenerator" instance=ExtResource("1_0hxi0")]
+script = ExtResource("2_b7hnh")
+grey_goat_scene = null
+
+[node name="GreyGoatTimer" type="Timer" parent="." index="1"]
+wait_time = 4.0
+one_shot = true
+autostart = true
