@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://vsowsrc06r1n"]
+
+[ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_ihi6f"]
+[ext_resource type="Texture2D" uid="uid://c6xsmdrpuiqxx" path="res://assets/kenney-prototyping/PNG/Red/texture_10.png" id="2_lfgu4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7mgx"]
+radius = 43.0116
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjax2"]
+size = Vector2(102, 102)
+
+[node name="RedGoat" instance=ExtResource("1_ihi6f")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_lfgu4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_b7mgx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_rjax2")
+debug_color = Color(0.960784, 0, 0.521569, 0.419608)
+
+[node name="StatsComponent" parent="." index="12"]
+health = 5

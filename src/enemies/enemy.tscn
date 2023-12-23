@@ -38,7 +38,7 @@ hurtbox_component = NodePath("../HurtboxComponent")
 script = ExtResource("4_6hkh1")
 actor = NodePath("..")
 stats_component = NodePath("../StatsComponent")
-destroy_effect_spawner_component = NodePath("../SpawnerComponent")
+destroy_effect_spawner_component = NodePath("../DestroyedSpawnerComponent")
 
 [node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("5_204rd")
@@ -60,7 +60,7 @@ game_stats = ExtResource("9_syojo")
 script = ExtResource("9_bkvpd")
 node = NodePath("../Sprite2D")
 
-[node name="SpawnerComponent" type="Node2D" parent="."]
+[node name="DestroyedSpawnerComponent" type="Node2D" parent="."]
 script = ExtResource("10_cklcf")
 scene = ExtResource("11_qjag2")
 
