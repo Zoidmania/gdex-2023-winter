@@ -17,3 +17,7 @@ script = ExtResource("1_he18o")
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("2_y5e0e")
 sprite = NodePath("../WeaponSprite")
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true

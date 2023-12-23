@@ -19,7 +19,7 @@ size = Vector2(32, 40)
 
 [node name="Sleigh" type="Node2D"]
 script = ExtResource("1_1sigw")
-weapon = ExtResource("3_hbrjt")
+default_weapon = ExtResource("3_hbrjt")
 
 [node name="SleighSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_m5w7w")

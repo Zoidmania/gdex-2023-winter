@@ -10,7 +10,7 @@ extends Node2D
 
 @onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
-@onready var flash_component: FlashComponent = $FlashComponent
+@onready var flash_component: FlashComponent = $HurtFlashComponent
 @onready var scale_component: ScaleComponent = $ScaleComponent
 @onready var shake_component: ShakeComponent = $ShakeComponent
 

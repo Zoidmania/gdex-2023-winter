@@ -4,13 +4,15 @@ extends Node2D
 
 
 ## Must be a subclass of Projectile
-@export var weapon: PackedScene
+@export var default_weapon: PackedScene
 
 
 @onready var scale_component: ScaleComponent = $ScaleComponent
 @onready var move_component: MoveComponent = $MoveComponent
 @onready var bounding_box: CollisionShape2D = $HurtboxComponent/CollisionShape2D
 @onready var weapon_mount: Marker2D = $WeaponMount
+
+var weapon: Weapon
 
 
 # Set in ready().
@@ -33,16 +35,22 @@ func _ready() -> void:
     y_margin = bounding_box.shape.get_rect().size.y / 2
 
     # Mount the starting weapon on init.
-    switch_weapon(weapon)
+    switch_weapon(default_weapon)
 
 
 ## Switches the weapon mounted on the sleigh to the given weapon scene.
+##
+## Also connects to the weapon's [signal Weapon.fired] to the [member Sleigh.scale_component]'s
+## tween function, for juice.
 func switch_weapon(scene: PackedScene) -> void:
 
-    weapon = scene
-    var instance = weapon.instantiate()
-    weapon_mount.add_child(instance)
-    instance.global_position = weapon_mount.global_position
+    weapon = scene.instantiate()
+    weapon_mount.add_child(weapon)
+    weapon.global_position = weapon_mount.global_position
+
+    weapon.fired.connect(func():
+        scale_component.tween_scale()
+    )
 
 
 ## Called every frame.
@@ -61,5 +69,4 @@ func _process(delta: float) -> void:
         self.global_position.y, top_border+y_margin, bottom_border-y_margin
     )
 
-    if Input.is_action_just_pressed("santa_shoot"):
-        scale_component.tween_scale()
+
