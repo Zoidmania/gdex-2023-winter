@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5j0erwnwdkwd"]
+[gd_scene load_steps=16 format=3 uid="uid://b5j0erwnwdkwd"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_0aqhb"]
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="1_jqks7"]
 [ext_resource type="Script" path="res://components/hurtbox_component.gd" id="2_butr8"]
+[ext_resource type="Texture2D" uid="uid://tnet4wqa3bwx" path="res://icon.svg" id="2_xi7h8"]
 [ext_resource type="Script" path="res://components/hurt_component.gd" id="3_20oc2"]
 [ext_resource type="Script" path="res://components/destroyed_component.gd" id="4_6hkh1"]
 [ext_resource type="Script" path="res://components/flash_component.gd" id="5_204rd"]
@@ -19,6 +20,7 @@
 script = ExtResource("1_0aqhb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xi7h8")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 

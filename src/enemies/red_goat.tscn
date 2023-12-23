@@ -2,20 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_ihi6f"]
 [ext_resource type="Script" path="res://enemies/red_goat.gd" id="2_248rr"]
-[ext_resource type="Texture2D" uid="uid://c6xsmdrpuiqxx" path="res://assets/kenney-prototyping/PNG/Red/texture_10.png" id="2_lfgu4"]
+[ext_resource type="Texture2D" uid="uid://d1cdxhwchvmxe" path="res://assets/goat-proto/red.png" id="3_c32gt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b7mgx"]
-radius = 43.0116
+radius = 24.0208
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjax2"]
-size = Vector2(102, 102)
+size = Vector2(48, 48)
 
 [node name="RedGoat" instance=ExtResource("1_ihi6f")]
 script = ExtResource("2_248rr")
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_lfgu4")
+texture = ExtResource("3_c32gt")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="1"]
+position = Vector2(4.76837e-07, 4.76837e-07)
+scale = Vector2(2.4, 2.4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_b7mgx")

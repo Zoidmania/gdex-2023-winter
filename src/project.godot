@@ -23,8 +23,10 @@ ResourceStash="*res://resource_stash.gd"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=960
+window/size/viewport_width=320
+window/size/viewport_height=320
+window/size/window_width_override=960
+window/size/window_height_override=960
 window/stretch/mode="canvas_items"
 
 [importer_defaults]
