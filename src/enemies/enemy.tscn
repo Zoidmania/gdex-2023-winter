@@ -27,12 +27,13 @@ texture = ExtResource("2_xi7h8")
 collision_layer = 0
 script = ExtResource("1_jqks7")
 
-[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "scale_component")]
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "scale_component", "flash_component")]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("2_butr8")
 health_component = NodePath("../HealthComponent")
 scale_component = NodePath("../ScaleComponent")
+flash_component = NodePath("../HurtFlashComponent")
 
 [node name="DestroyedComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "health_component", "destroy_effect_spawner_component")]
 script = ExtResource("4_6hkh1")
@@ -40,9 +41,10 @@ actor = NodePath("..")
 health_component = NodePath("../HealthComponent")
 destroy_effect_spawner_component = NodePath("../DestroyedSpawnerComponent")
 
-[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+[node name="HurtFlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("5_204rd")
 sprite = NodePath("../Sprite2D")
+flash_duration = 0.1
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("6_ls6r2")

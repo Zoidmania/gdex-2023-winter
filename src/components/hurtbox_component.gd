@@ -8,6 +8,7 @@ extends Area2D
 
 @export var health_component: HealthComponent
 @export var scale_component: ScaleComponent
+@export var flash_component: FlashComponent
 
 
 ## Indicates that this [HurtboxComponent] cannot be damaged, meaning that all child collision shapes
@@ -38,4 +39,5 @@ func _ready() -> void:
         func(hitbox_component: HitboxComponent):
             health_component.health -= hitbox_component.damage
             scale_component.tween_scale()
+            flash_component.flash()
     )

@@ -21,23 +21,27 @@ size = Vector2(32, 40)
 script = ExtResource("1_1sigw")
 weapon = ExtResource("3_hbrjt")
 
-[node name="SpriteAnchor" type="Node2D" parent="."]
-
-[node name="SleighSprite" type="Sprite2D" parent="SpriteAnchor"]
+[node name="SleighSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_m5w7w")
 
-[node name="WeaponMount" type="Marker2D" parent="SpriteAnchor"]
+[node name="WeaponMount" type="Marker2D" parent="."]
 position = Vector2(0, -20)
 
-[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "scale_component")]
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "scale_component", "flash_component")]
 collision_mask = 0
 script = ExtResource("4_6y4jf")
 health_component = NodePath("../HealthComponent")
 scale_component = NodePath("../ScaleComponent")
+flash_component = NodePath("../HurtFlashComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("RectangleShape2D_mcae1")
 debug_color = Color(0.917647, 0.196078, 0.517647, 0.419608)
+
+[node name="HurtFlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("11_2kk36")
+sprite = NodePath("../SleighSprite")
+flash_duration = 0.1
 
 [node name="DestroyedComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "health_component", "destroy_effect_spawner_component")]
 script = ExtResource("6_lkdr4")
@@ -64,12 +68,8 @@ actor = NodePath("..")
 
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("10_21hik")
-sprite = NodePath("../SpriteAnchor/SleighSprite")
+sprite = NodePath("../SleighSprite")
 scale_amount = Vector2(1.2, 1.2)
-
-[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
-script = ExtResource("11_2kk36")
-sprite = NodePath("../SpriteAnchor/SleighSprite")
 
 [node name="ExplosionSpawnerComponent" type="Node2D" parent="."]
 script = ExtResource("10_7c0i7")

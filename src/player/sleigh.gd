@@ -10,7 +10,7 @@ extends Node2D
 @onready var scale_component: ScaleComponent = $ScaleComponent
 @onready var move_component: MoveComponent = $MoveComponent
 @onready var bounding_box: CollisionShape2D = $HurtboxComponent/CollisionShape2D
-@onready var weapon_mount: Marker2D = $SpriteAnchor/WeaponMount
+@onready var weapon_mount: Marker2D = $WeaponMount
 
 
 # Set in ready().
