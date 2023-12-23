@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://y0utk1nx72vy"]
+
+[ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_ep3g3"]
+[ext_resource type="Texture2D" uid="uid://tnet4wqa3bwx" path="res://icon.svg" id="2_8xosr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_efn7n"]
+radius = 44.139
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_we7jl"]
+size = Vector2(128, 128)
+
+[node name="GreyGoat" instance=ExtResource("1_ep3g3")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_8xosr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(0, 4.5)
+shape = SubResource("CircleShape2D_efn7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_we7jl")
+debug_color = Color(0.937255, 0.129412, 0.537255, 0.419608)
+
+[node name="MoveComponent" parent="." index="7"]
+velocity = Vector2(0, 20)
