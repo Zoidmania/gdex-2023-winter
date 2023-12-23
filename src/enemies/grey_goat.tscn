@@ -28,4 +28,4 @@ shape = SubResource("RectangleShape2D_we7jl")
 debug_color = Color(0.937255, 0.129412, 0.537255, 0.419608)
 
 [node name="MoveComponent" parent="." index="7"]
-velocity = Vector2(0, 20)
+velocity = Vector2(0, 40)

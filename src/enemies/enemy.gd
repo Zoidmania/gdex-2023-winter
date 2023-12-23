@@ -32,8 +32,8 @@ var y_margin: int
 func _ready() -> void:
 
     # Set the margin for this enemy equal to half the width of the visibility notifier.
-    x_margin = visible_on_screen_notifier_2d.rect.size.x / 2
-    y_margin = visible_on_screen_notifier_2d.rect.size.y / 2
+    x_margin = visible_on_screen_notifier_2d.get_rect().size.x / 2
+    y_margin = visible_on_screen_notifier_2d.get_rect().size.y / 2
 
     stats_component.no_health.connect(func():
         score_component.adjust_score()
