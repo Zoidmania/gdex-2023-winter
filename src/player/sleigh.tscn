@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bh6x3atb6ibqq"]
+[gd_scene load_steps=14 format=3 uid="uid://bh6x3atb6ibqq"]
 
 [ext_resource type="Script" path="res://player/sleigh.gd" id="1_1sigw"]
 [ext_resource type="Texture2D" uid="uid://7khkam8vpnix" path="res://assets/player-proto/sleigh.png" id="2_m5w7w"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://components/destroyed_component.gd" id="6_lkdr4"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="7_3bsw0"]
 [ext_resource type="Script" path="res://components/move_input_component.gd" id="8_47fyc"]
-[ext_resource type="Resource" uid="uid://o32mc2itor0f" path="res://player/sleigh_move_stats.tres" id="9_nfscu"]
 [ext_resource type="Script" path="res://components/position_clamp_component.gd" id="9_upmwn"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="10_7c0i7"]
 [ext_resource type="Script" path="res://components/scale_component.gd" id="10_21hik"]
@@ -50,7 +49,7 @@ actor = NodePath("..")
 [node name="MoveInputComponent" type="Node" parent="." node_paths=PackedStringArray("move_component")]
 script = ExtResource("8_47fyc")
 move_component = NodePath("../MoveComponent")
-move_stats = ExtResource("9_nfscu")
+speed = 200
 
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("10_21hik")

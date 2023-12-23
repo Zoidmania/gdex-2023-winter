@@ -20,4 +20,4 @@ shape = SubResource("CircleShape2D_huq54")
 
 [node name="MoveComponent" parent="." index="5" node_paths=PackedStringArray("actor")]
 actor = NodePath("..")
-velocity = Vector2(0, -120)
+velocity = Vector2(0, -250)
