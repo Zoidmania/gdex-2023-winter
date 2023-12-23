@@ -17,5 +17,11 @@ extends Node
 ## [member MoveInputComponent.move_component]'s [member MoveComponent.velocity] to it.
 func _input(event: InputEvent) -> void:
 
-    var input_axis = Input.get_axis("ui_left", "ui_right")
-    move_component.velocity = Vector2(input_axis * move_stats.speed, 0)
+    var x_axis = Input.get_axis("ui_left", "ui_right")
+    var y_axis = Input.get_axis("ui_up", "ui_down")
+    var velocity = Vector2(x_axis, y_axis)
+
+    if velocity.length() > 0:
+        velocity = velocity.normalized() * move_stats.speed
+
+    move_component.velocity = velocity
