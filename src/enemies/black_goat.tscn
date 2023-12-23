@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxhp2tkvgacrk"]
+[gd_scene load_steps=6 format=3 uid="uid://dxhp2tkvgacrk"]
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_rl5lf"]
 [ext_resource type="Texture2D" uid="uid://bt08avtj7hdli" path="res://assets/kenney-prototyping/PNG/Dark/texture_09.png" id="2_0pn2r"]
+[ext_resource type="Script" path="res://enemies/black_goat.gd" id="2_kn77k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_soyl6"]
 radius = 64.0
@@ -10,6 +11,7 @@ radius = 64.0
 size = Vector2(154, 154)
 
 [node name="BlackGoat" instance=ExtResource("1_rl5lf")]
+script = ExtResource("2_kn77k")
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.15, 0.15)
