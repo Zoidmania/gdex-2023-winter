@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://blke6hd32d6xy"]
+[gd_scene load_steps=4 format=3 uid="uid://d1op0dhpjdb7l"]
 
-[ext_resource type="PackedScene" uid="uid://dt47ouy0h30vr" path="res://hud.tscn" id="1_nff42"]
+[ext_resource type="PackedScene" uid="uid://cv75r8ff33mru" path="res://stages/stage.tscn" id="1_o1ghk"]
 [ext_resource type="PackedScene" uid="uid://cyfrv23x7cjxg" path="res://stages/stage_1_enemy_generator.tscn" id="1_s5i7o"]
 [ext_resource type="PackedScene" uid="uid://y0utk1nx72vy" path="res://enemies/grey_goat.tscn" id="2_dfvkc"]
 
-[node name="Stage1" type="Node2D"]
+[node name="Stage1" instance=ExtResource("1_o1ghk")]
 
-[node name="HUD" parent="." instance=ExtResource("1_nff42")]
-
-[node name="Stage1EnemyGenerator" parent="." instance=ExtResource("1_s5i7o")]
+[node name="Stage1EnemyGenerator" parent="." index="1" instance=ExtResource("1_s5i7o")]
 grey_goat_scene = ExtResource("2_dfvkc")
