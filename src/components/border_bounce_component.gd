@@ -45,4 +45,3 @@ func _process(delta: float) -> void:
         # Remember, the wall normal is the direction of the face of the wall. A wall on the left
         # would have a wall face with a normal of RIGHT.
         move_component.velocity = move_component.velocity.bounce(Vector2.LEFT)
-
