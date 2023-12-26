@@ -25,3 +25,5 @@ extends Resource
 
 signal score_changed(new_score: int)
 signal health_changed(new_health: int)
+# Player emits this to prevent timing issues with initializing the HUD.
+signal health_initialized

@@ -43,6 +43,7 @@ func _ready() -> void:
 
     # Configure the health bar
     game_stats.player_health = health_component.health
+    game_stats.health_initialized.emit()
     health_component.health_changed.connect(func(health):
         game_stats.player_health = health
     )
