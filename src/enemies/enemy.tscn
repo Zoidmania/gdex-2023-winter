@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://c7pb7has64jr8" path="res://game_stats.tres" id="9_syojo"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="10_cklcf"]
 [ext_resource type="PackedScene" uid="uid://d4du2p75v33rv" path="res://effects/explosion_effect.tscn" id="11_qjag2"]
-[ext_resource type="Script" path="res://components/stats_component.gd" id="11_qxrex"]
+[ext_resource type="Script" path="res://components/health_component.gd" id="14_45fnn"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_0aqhb")
@@ -67,4 +67,4 @@ script = ExtResource("10_cklcf")
 scene = ExtResource("11_qjag2")
 
 [node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("11_qxrex")
+script = ExtResource("14_45fnn")

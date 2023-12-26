@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv75r8ff33mru"]
 
-[ext_resource type="PackedScene" uid="uid://dt47ouy0h30vr" path="res://hud.tscn" id="1_ofi62"]
+[ext_resource type="PackedScene" uid="uid://dt47ouy0h30vr" path="res://hud-ui/hud.tscn" id="1_ofi62"]
 [ext_resource type="PackedScene" uid="uid://bh6x3atb6ibqq" path="res://player/sleigh.tscn" id="2_ch66l"]
 
 [node name="Stage" type="Node2D"]

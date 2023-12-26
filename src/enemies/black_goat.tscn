@@ -33,6 +33,9 @@ debug_color = Color(0.92549, 0.196078, 0.478431, 0.419608)
 [node name="MoveComponent" parent="." index="6"]
 velocity = Vector2(0, 30)
 
+[node name="ScoreComponent" parent="." index="8"]
+adjust_amount = 10
+
 [node name="HealthComponent" parent="." index="11"]
 health = 10
 

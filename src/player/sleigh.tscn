@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://bh6x3atb6ibqq"]
+[gd_scene load_steps=16 format=3 uid="uid://bh6x3atb6ibqq"]
 
 [ext_resource type="Script" path="res://player/sleigh.gd" id="1_1sigw"]
+[ext_resource type="Resource" uid="uid://c7pb7has64jr8" path="res://game_stats.tres" id="2_hjant"]
 [ext_resource type="Texture2D" uid="uid://7khkam8vpnix" path="res://assets/player-proto/sleigh.png" id="2_m5w7w"]
 [ext_resource type="PackedScene" uid="uid://btkcgktcgydvg" path="res://weapons/snowball_cannon.tscn" id="3_hbrjt"]
 [ext_resource type="Script" path="res://components/hurtbox_component.gd" id="4_6y4jf"]
@@ -10,7 +11,7 @@
 [ext_resource type="Script" path="res://components/position_clamp_component.gd" id="9_upmwn"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="10_7c0i7"]
 [ext_resource type="Script" path="res://components/scale_component.gd" id="10_21hik"]
-[ext_resource type="Script" path="res://components/stats_component.gd" id="11_1edf7"]
+[ext_resource type="Script" path="res://components/health_component.gd" id="11_1edf7"]
 [ext_resource type="Script" path="res://components/flash_component.gd" id="11_2kk36"]
 [ext_resource type="PackedScene" uid="uid://d4du2p75v33rv" path="res://effects/explosion_effect.tscn" id="13_oytdb"]
 
@@ -19,6 +20,7 @@ size = Vector2(32, 40)
 
 [node name="Sleigh" type="Node2D"]
 script = ExtResource("1_1sigw")
+game_stats = ExtResource("2_hjant")
 default_weapon = ExtResource("3_hbrjt")
 
 [node name="SleighSprite" type="Sprite2D" parent="."]

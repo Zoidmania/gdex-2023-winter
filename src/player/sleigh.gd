@@ -3,6 +3,8 @@ extends Node2D
 ## Represents the player sleigh.
 
 
+@export var game_stats: GameStats
+
 ## Must be a subclass of Projectile
 @export var default_weapon: PackedScene
 
@@ -12,8 +14,10 @@ extends Node2D
 @onready var bounding_box: CollisionShape2D = $HurtboxComponent/CollisionShape2D
 @onready var weapon_mount: Marker2D = $WeaponMount
 
-var weapon: Weapon
+@onready var health_component: HealthComponent = $HealthComponent
 
+
+var weapon: Weapon
 
 # Set in ready().
 var x_margin: int
@@ -36,6 +40,12 @@ func _ready() -> void:
 
     # Mount the starting weapon on init.
     switch_weapon(default_weapon)
+
+    # Configure the health bar
+    game_stats.player_health = health_component.health
+    health_component.health_changed.connect(func(health):
+        game_stats.player_health = health
+    )
 
 
 ## Switches the weapon mounted on the sleigh to the given weapon scene.
