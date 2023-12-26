@@ -1,8 +1,10 @@
 extends EnemyGenerator
 
 @export var grey_goat_scene: PackedScene
+@export var black_goat_scene: PackedScene
 
 @onready var grey_goat_timer: Timer = $GreyGoatTimer
+@onready var black_goat_timer: Timer = $BlackGoatTimer
 
 
 ## Init.
@@ -12,4 +14,8 @@ func _ready() -> void:
 
     grey_goat_timer.timeout.connect(
         handle_spawn.bind(grey_goat_scene, grey_goat_timer)
+    )
+
+    black_goat_timer.timeout.connect(
+        handle_spawn.bind(black_goat_scene, black_goat_timer)
     )

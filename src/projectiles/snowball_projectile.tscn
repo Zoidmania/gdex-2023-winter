@@ -18,6 +18,5 @@ scale = Vector2(0.6, 0.6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_huq54")
 
-[node name="MoveComponent" parent="." index="5" node_paths=PackedStringArray("actor")]
-actor = NodePath("..")
+[node name="MoveComponent" parent="." index="5"]
 velocity = Vector2(0, -250)

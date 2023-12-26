@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxhp2tkvgacrk"]
+[gd_scene load_steps=8 format=3 uid="uid://dxhp2tkvgacrk"]
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_rl5lf"]
 [ext_resource type="Script" path="res://enemies/black_goat.gd" id="2_kn77k"]
 [ext_resource type="Texture2D" uid="uid://c4au4tc0qqgbm" path="res://assets/goat-proto/black.png" id="3_xfeca"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="4_i4siy"]
+[ext_resource type="PackedScene" uid="uid://doawf0diikjik" path="res://projectiles/black_goat_projectile.tscn" id="5_ghwbu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_soyl6"]
 radius = 18.0
@@ -28,5 +30,20 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ai06l")
 debug_color = Color(0.92549, 0.196078, 0.478431, 0.419608)
 
-[node name="StatsComponent" parent="." index="12"]
+[node name="MoveComponent" parent="." index="6"]
+velocity = Vector2(0, 30)
+
+[node name="HealthComponent" parent="." index="11"]
 health = 10
+
+[node name="ProjectileSpawner" type="Node2D" parent="." index="12"]
+script = ExtResource("4_i4siy")
+scene = ExtResource("5_ghwbu")
+
+[node name="FireTimer" type="Timer" parent="." index="13"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Muzzle" type="Marker2D" parent="." index="14"]
+position = Vector2(0, 16)
