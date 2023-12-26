@@ -1,8 +1,13 @@
 class_name HealthBar
 extends Node2D
+## A health bar UI object.
+##
+## Written by jgotty777. Amended by Zoidmania.
 
 
 @export var game_stats: GameStats
+
+var max_health: int
 
 
 ## Init.
@@ -14,10 +19,12 @@ func _ready() -> void:
     game_stats.health_changed.connect(set_health)
 
 
-## Confgiures boundaries of the health bar components given a maximum value.
+## Configures boundaries of the health bar components given a maximum value.
 ##
 ## Should only be called when the maximum health of the player changes, like on instantiation.
-func configure_bounds(max_health: int) -> void:
+func configure_bounds(new_max_health: int) -> void:
+
+    max_health = new_max_health
 
     var midPoint = max_health / 2
     $CurveHealth.min_value = 0
@@ -26,6 +33,10 @@ func configure_bounds(max_health: int) -> void:
     $StraightHealth.max_value = max_health
 
 
+## Udpates the tracked health value to the new one.
 func set_health(new_health: int) -> void:
+
+    # Ensure health is within bounds.
+    new_health = clamp(new_health, 0, max_health)
 
     print(new_health)
