@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://i2xyvfr5imbt" path="res://projectiles/snowball_projectile.tscn" id="3_taycd"]
 
 [node name="SnowballCannon" instance=ExtResource("1_7sp4p")]
+fire_rate = 0.25
 
 [node name="WeaponSprite" parent="." index="0"]
 texture = ExtResource("2_sj14q")

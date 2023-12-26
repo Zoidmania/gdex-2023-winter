@@ -18,6 +18,10 @@ script = ExtResource("1_he18o")
 script = ExtResource("2_y5e0e")
 sprite = NodePath("../WeaponSprite")
 
-[node name="FireTimer" type="Timer" parent="."]
-wait_time = 0.25
+[node name="FireRateTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="FireRateTimer" to="." method="fire_projectile"]
