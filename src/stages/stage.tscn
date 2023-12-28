@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv75r8ff33mru"]
+
+[ext_resource type="PackedScene" uid="uid://dt47ouy0h30vr" path="res://hud-ui/hud.tscn" id="1_ofi62"]
+[ext_resource type="PackedScene" uid="uid://bh6x3atb6ibqq" path="res://player/sleigh.tscn" id="2_ch66l"]
+[ext_resource type="PackedScene" uid="uid://bb4s3arc7qjne" path="res://menus/pause_menu.tscn" id="3_vv644"]
+
+[node name="Stage" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_ofi62")]
+
+[node name="Sleigh" parent="." instance=ExtResource("2_ch66l")]
+position = Vector2(120, 290)
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_vv644")]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://coo15k2x2toor"]
+
+[ext_resource type="PackedScene" uid="uid://cv75r8ff33mru" path="res://stages/stage.tscn" id="1_fb6cy"]
+[ext_resource type="PackedScene" uid="uid://cc4p8au360qx8" path="res://stages/stage_africa_enemy_generator.tscn" id="2_jtivc"]
+
+[node name="StageAfrica" instance=ExtResource("1_fb6cy")]
+
+[node name="StageAfricaEnemyGenerator" parent="." index="1" instance=ExtResource("2_jtivc")]

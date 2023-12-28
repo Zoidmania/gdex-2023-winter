@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyfrv23x7cjxg"]
+
+[ext_resource type="PackedScene" uid="uid://c1adeqxtlje6x" path="res://stages/enemy_generator.tscn" id="1_0hxi0"]
+[ext_resource type="Script" path="res://stages/stage_na_enemy_generator.gd" id="2_b7hnh"]
+[ext_resource type="PackedScene" uid="uid://y0utk1nx72vy" path="res://enemies/grey_goat.tscn" id="3_e1a0h"]
+[ext_resource type="PackedScene" uid="uid://dxhp2tkvgacrk" path="res://enemies/black_goat.tscn" id="4_1ywwr"]
+
+[node name="StageNAEnemyGenerator" instance=ExtResource("1_0hxi0")]
+script = ExtResource("2_b7hnh")
+grey_goat_scene = ExtResource("3_e1a0h")
+black_goat_scene = ExtResource("4_1ywwr")
+
+[node name="GreyGoatTimer" type="Timer" parent="." index="1"]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="BlackGoatTimer" type="Timer" parent="." index="2"]
+wait_time = 9.0
+one_shot = true
+autostart = true

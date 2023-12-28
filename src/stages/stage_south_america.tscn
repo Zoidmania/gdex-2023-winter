@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://nstrgpendh25"]
+
+[ext_resource type="PackedScene" uid="uid://cv75r8ff33mru" path="res://stages/stage.tscn" id="1_dod5f"]
+[ext_resource type="PackedScene" uid="uid://cdn0k8k5tvwsk" path="res://stages/stage_sa_enemy_generator.tscn" id="2_6w5vu"]
+
+[node name="StageSouthAmerica" instance=ExtResource("1_dod5f")]
+
+[node name="StageSAEnemyGenerator" parent="." index="1" instance=ExtResource("2_6w5vu")]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://t7g7fre5eokw"]
+
+[ext_resource type="Script" path="res://hud-ui/health_bar.gd" id="1_aqlcu"]
+[ext_resource type="Texture2D" uid="uid://37p274epq4r1" path="res://assets/healthBar/cane empty curve.png" id="2_m4x1q"]
+[ext_resource type="Resource" uid="uid://c7pb7has64jr8" path="res://game_stats.tres" id="2_rvlaa"]
+[ext_resource type="Texture2D" uid="uid://b77r3otmjmqm" path="res://assets/healthBar/CANE FILLED curve.png" id="3_d4d3m"]
+[ext_resource type="Texture2D" uid="uid://g8vqepc6txaf" path="res://assets/healthBar/CANE EMPTY straight.png" id="4_8kjfr"]
+[ext_resource type="Texture2D" uid="uid://hpn4hed0upio" path="res://assets/healthBar/CANE FILLED straight.png" id="5_x6lc7"]
+
+[node name="HealthBar" type="Node2D"]
+scale = Vector2(0.15, 0.15)
+script = ExtResource("1_aqlcu")
+game_stats = ExtResource("2_rvlaa")
+
+[node name="CurveHealth" type="TextureProgressBar" parent="."]
+offset_right = 512.0
+offset_bottom = 308.0
+size_flags_horizontal = 0
+max_value = 10.0
+fill_mode = 5
+texture_under = ExtResource("2_m4x1q")
+texture_progress = ExtResource("3_d4d3m")
+radial_fill_degrees = 180.0
+radial_center_offset = Vector2(-62, 0)
+
+[node name="StraightHealth" type="TextureProgressBar" parent="."]
+offset_left = 183.0
+offset_top = 238.0
+offset_right = 512.0
+offset_bottom = 308.0
+min_value = 10.0
+max_value = 20.0
+value = 10.0
+texture_under = ExtResource("4_8kjfr")
+texture_progress = ExtResource("5_x6lc7")

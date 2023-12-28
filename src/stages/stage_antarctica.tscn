@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdcj5lytm5658"]
+
+[ext_resource type="PackedScene" uid="uid://cv75r8ff33mru" path="res://stages/stage.tscn" id="1_t5mki"]
+[ext_resource type="PackedScene" uid="uid://3yahcs5b6i42" path="res://stages/stage_antarctica_enemy_generator.tscn" id="2_ci7bq"]
+
+[node name="StageAntarctica" instance=ExtResource("1_t5mki")]
+
+[node name="StageAntarcticaEnemyGenerator" parent="." index="1" instance=ExtResource("2_ci7bq")]

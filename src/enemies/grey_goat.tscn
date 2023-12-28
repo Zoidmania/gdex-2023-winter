@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://y0utk1nx72vy"]
+
+[ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_ep3g3"]
+[ext_resource type="Script" path="res://enemies/grey_goat.gd" id="2_5ff6s"]
+[ext_resource type="Texture2D" uid="uid://buiu8vvlh228g" path="res://assets/goat-proto/grey.png" id="3_o2mxf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_efn7n"]
+radius = 12.0416
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_we7jl"]
+size = Vector2(24, 24)
+
+[node name="GreyGoat" instance=ExtResource("1_ep3g3")]
+script = ExtResource("2_5ff6s")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_o2mxf")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="1"]
+position = Vector2(-9.53674e-07, -9.53674e-07)
+scale = Vector2(1.2, 1.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_efn7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_we7jl")
+debug_color = Color(0.937255, 0.129412, 0.537255, 0.419608)
+
+[node name="MoveComponent" parent="." index="6"]
+velocity = Vector2(0, 40)

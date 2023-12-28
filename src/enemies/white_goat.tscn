@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://djveeg6dft4nr"]
+
+[ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_px8h7"]
+[ext_resource type="Script" path="res://enemies/white_goat.gd" id="2_qdfma"]
+[ext_resource type="Texture2D" uid="uid://j6r87u4mpi4d" path="res://assets/goat-proto/white.png" id="2_suvcx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_50g1u"]
+radius = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1d77"]
+size = Vector2(24, 24)
+
+[node name="WhiteGoat" instance=ExtResource("1_px8h7")]
+script = ExtResource("2_qdfma")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_suvcx")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="1"]
+position = Vector2(-9.53674e-07, -4.76837e-07)
+scale = Vector2(1.2, 1.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_50g1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_v1d77")
+debug_color = Color(0.929412, 0.196078, 0.470588, 0.419608)
+
+[node name="StatsComponent" parent="." index="12"]
+health = 3

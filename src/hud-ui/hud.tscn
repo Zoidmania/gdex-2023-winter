@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt47ouy0h30vr"]
+
+[ext_resource type="Script" path="res://hud-ui/hud.gd" id="1_wj5ib"]
+[ext_resource type="PackedScene" uid="uid://t7g7fre5eokw" path="res://hud-ui/health_bar.tscn" id="3_qexwg"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_wj5ib")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 240
+dragger_visibility = 2
+
+[node name="GameViewport" type="ReferenceRect" parent="HSplitContainer"]
+layout_mode = 2
+border_color = Color(0.898039, 0, 0.764706, 1)
+
+[node name="UIPanel" type="Panel" parent="HSplitContainer"]
+layout_mode = 2
+
+[node name="HealthBar" parent="HSplitContainer/UIPanel" instance=ExtResource("3_qexwg")]
+position = Vector2(1, 270)

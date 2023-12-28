@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b55y0uan4si8m"]
+
+[ext_resource type="PackedScene" uid="uid://cv75r8ff33mru" path="res://stages/stage.tscn" id="1_3rxo6"]
+[ext_resource type="PackedScene" uid="uid://cgq5uccfkfq15" path="res://stages/stage_asia_enemy_generator.tscn" id="2_b0uh5"]
+
+[node name="StageAsia" instance=ExtResource("1_3rxo6")]
+
+[node name="StageAsiaEnemyGenerator" parent="." index="1" instance=ExtResource("2_b0uh5")]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=16 format=3 uid="uid://bh6x3atb6ibqq"]
+
+[ext_resource type="Script" path="res://player/sleigh.gd" id="1_1sigw"]
+[ext_resource type="Resource" uid="uid://c7pb7has64jr8" path="res://game_stats.tres" id="2_hjant"]
+[ext_resource type="Texture2D" uid="uid://7khkam8vpnix" path="res://assets/player-proto/sleigh.png" id="2_m5w7w"]
+[ext_resource type="PackedScene" uid="uid://btkcgktcgydvg" path="res://weapons/snowball_cannon.tscn" id="3_hbrjt"]
+[ext_resource type="Script" path="res://components/hurtbox_component.gd" id="4_6y4jf"]
+[ext_resource type="Script" path="res://components/destroyed_component.gd" id="6_lkdr4"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="7_3bsw0"]
+[ext_resource type="Script" path="res://components/move_input_component.gd" id="8_47fyc"]
+[ext_resource type="Script" path="res://components/position_clamp_component.gd" id="9_upmwn"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="10_7c0i7"]
+[ext_resource type="Script" path="res://components/scale_component.gd" id="10_21hik"]
+[ext_resource type="Script" path="res://components/health_component.gd" id="11_1edf7"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="11_2kk36"]
+[ext_resource type="PackedScene" uid="uid://d4du2p75v33rv" path="res://effects/explosion_effect.tscn" id="13_oytdb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcae1"]
+size = Vector2(32, 40)
+
+[node name="Sleigh" type="Node2D"]
+script = ExtResource("1_1sigw")
+game_stats = ExtResource("2_hjant")
+default_weapon = ExtResource("3_hbrjt")
+
+[node name="SleighSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_m5w7w")
+
+[node name="WeaponMount" type="Marker2D" parent="."]
+position = Vector2(0, -20)
+
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "scale_component", "flash_component")]
+collision_mask = 0
+script = ExtResource("4_6y4jf")
+health_component = NodePath("../HealthComponent")
+scale_component = NodePath("../ScaleComponent")
+flash_component = NodePath("../HurtFlashComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("RectangleShape2D_mcae1")
+debug_color = Color(0.917647, 0.196078, 0.517647, 0.419608)
+
+[node name="HurtFlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("11_2kk36")
+sprite = NodePath("../SleighSprite")
+flash_duration = 0.1
+
+[node name="DestroyedComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "health_component", "destroy_effect_spawner_component")]
+script = ExtResource("6_lkdr4")
+actor = NodePath("..")
+health_component = NodePath("../HealthComponent")
+destroy_effect_spawner_component = NodePath("../ExplosionSpawnerComponent")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("11_1edf7")
+health = 30
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("7_3bsw0")
+actor = NodePath("..")
+
+[node name="MoveInputComponent" type="Node" parent="." node_paths=PackedStringArray("move_component")]
+script = ExtResource("8_47fyc")
+move_component = NodePath("../MoveComponent")
+speed = 200
+
+[node name="PositionClampComponent" type="Node2D" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("9_upmwn")
+actor = NodePath("..")
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("10_21hik")
+sprite = NodePath("../SleighSprite")
+scale_amount = Vector2(1.2, 1.2)
+
+[node name="ExplosionSpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("10_7c0i7")
+scene = ExtResource("13_oytdb")

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dup4xke6vc4ge"]
+
+[ext_resource type="PackedScene" uid="uid://c1adeqxtlje6x" path="res://stages/enemy_generator.tscn" id="1_jaa6p"]
+
+[node name="StageEUEnemyGenerator" instance=ExtResource("1_jaa6p")]
