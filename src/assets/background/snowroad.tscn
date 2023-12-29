@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl8jggbyev5gg"]
+
+[ext_resource type="Script" path="res://assets/background/snowroad.gd" id="1_x2qc6"]
+[ext_resource type="Texture2D" uid="uid://cllhya30cvsvt" path="res://assets/background/background.png" id="2_g5e2n"]
+[ext_resource type="Texture2D" uid="uid://r7hrv3yasln2" path="res://assets/background/snow.png" id="3_v8t08"]
+
+[node name="Snowroad" type="ParallaxBackground"]
+script = ExtResource("1_x2qc6")
+
+[node name="road" type="ParallaxLayer" parent="."]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 320)
+
+[node name="TextureRect" type="TextureRect" parent="road"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_g5e2n")
+
+[node name="snow" type="ParallaxLayer" parent="."]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 320)
+
+[node name="TextureRect" type="TextureRect" parent="snow"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_v8t08")
