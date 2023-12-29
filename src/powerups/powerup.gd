@@ -20,3 +20,8 @@ func _ready() -> void:
     # The `hurt_hitbox` signal sends 1 argument, so we need to unbind it since `queue_free` doesn't
     # accept any arguments.
     hitbox_component.hit_hurtbox.connect(queue_free.unbind(1))
+    
+    
+    
+    
+

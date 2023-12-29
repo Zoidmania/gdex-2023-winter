@@ -23,6 +23,6 @@ func _ready() -> void:
 ## Creates an effect from the associated `destroy_effect_spawner_component` and frees the associated
 ## `actor`.
 func destroy() -> void:
-
+    
     destroy_effect_spawner_component.spawn(actor.global_position)
     actor.queue_free()
