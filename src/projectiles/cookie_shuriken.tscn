@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://cf232gvy5u32r"]
+
+[ext_resource type="PackedScene" uid="uid://ookvicf7pm0s" path="res://projectiles/projectile.tscn" id="1_yh6be"]
+[ext_resource type="Texture2D" uid="uid://dyhpc0k0j0xlx" path="res://assets/powerup/cookieken.png" id="2_8rjqi"]
+[ext_resource type="Texture2D" uid="uid://d0xtvi8ld6w7e" path="res://assets/powerup/cookieken_45.png" id="3_dpmuh"]
+[ext_resource type="Texture2D" uid="uid://br46ywjg2v43v" path="res://assets/powerup/cookieken_135.png" id="4_3t8l4"]
+[ext_resource type="Texture2D" uid="uid://chsixqmi0288t" path="res://assets/powerup/cookieken_180.png" id="5_u2msp"]
+[ext_resource type="Texture2D" uid="uid://bky3nnge2e22h" path="res://assets/powerup/cookieken_225.png" id="6_niqq5"]
+[ext_resource type="Texture2D" uid="uid://bj0k8v3fri3qi" path="res://assets/powerup/cookieken_270.png" id="7_fus5x"]
+[ext_resource type="Texture2D" uid="uid://coph4m2pmn6am" path="res://assets/powerup/cookieken_315.png" id="8_avb4t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpfd6"]
+size = Vector2(33, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8khk8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8rjqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dpmuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3t8l4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u2msp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_niqq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fus5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_avb4t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 18.0
+}]
+
+[node name="CookieShuriken" instance=ExtResource("1_yh6be")]
+
+[node name="Sprite2D" parent="." index="0"]
+visible = false
+texture = ExtResource("2_8rjqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(1.5, -0.5)
+shape = SubResource("RectangleShape2D_gpfd6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="5"]
+sprite_frames = SubResource("SpriteFrames_8khk8")
+frame_progress = 0.905059
