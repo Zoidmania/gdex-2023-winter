@@ -26,7 +26,6 @@ default_weapon = ExtResource("3_hbrjt")
 
 [node name="SleighSprite" type="Sprite2D" parent="."]
 position = Vector2(9.53674e-07, 0)
-scale = Vector2(0.458333, 0.4375)
 texture = ExtResource("2_m5w7w")
 
 [node name="WeaponMount" type="Marker2D" parent="."]
@@ -82,3 +81,4 @@ script = ExtResource("10_7c0i7")
 scene = ExtResource("13_oytdb")
 
 [node name="Shield" parent="." instance=ExtResource("15_xh5xk")]
+scale = Vector2(1.5, 1.5)
