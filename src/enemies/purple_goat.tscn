@@ -21,11 +21,9 @@ position = Vector2(-9.53674e-07, -9.53674e-07)
 scale = Vector2(1.2, 1.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+light_mask = 33
 shape = SubResource("CircleShape2D_t10bl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
 shape = SubResource("RectangleShape2D_of1yw")
 debug_color = Color(0.945098, 0.0901961, 0.533333, 0.419608)
-
-[node name="StatsComponent" parent="." index="12"]
-health = 3

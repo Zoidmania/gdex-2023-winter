@@ -28,10 +28,10 @@ texture = ExtResource("2_g5e2n")
 
 [node name="snow" type="ParallaxLayer" parent="."]
 unique_name_in_owner = true
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="snow"]
 light_mask = 2
 visibility_layer = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="snow"]
 position = Vector2(119, 158)
 amount = 7
 process_material = SubResource("ParticleProcessMaterial_tdh8n")

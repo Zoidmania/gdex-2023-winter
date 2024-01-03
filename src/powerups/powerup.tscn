@@ -10,6 +10,7 @@ script = ExtResource("1_vewa0")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 2
 script = ExtResource("2_ydnig")
 
 [node name="MoveComponent" type="Node" parent="."]

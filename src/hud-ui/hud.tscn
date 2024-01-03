@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt47ouy0h30vr"]
+[gd_scene load_steps=5 format=3 uid="uid://dt47ouy0h30vr"]
 
 [ext_resource type="Script" path="res://hud-ui/hud.gd" id="1_wj5ib"]
 [ext_resource type="PackedScene" uid="uid://bl8jggbyev5gg" path="res://assets/background/snowroad.tscn" id="2_qawmx"]
 [ext_resource type="PackedScene" uid="uid://t7g7fre5eokw" path="res://hud-ui/health_bar.tscn" id="3_qexwg"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3x4t"]
+bg_color = Color(0.45098, 0.290196, 0.227451, 1)
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_wj5ib")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_direction = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,6 +28,7 @@ border_color = Color(0.898039, 0, 0.764706, 1)
 
 [node name="UIPanel" type="Panel" parent="HSplitContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c3x4t")
 
 [node name="HealthBar" parent="HSplitContainer/UIPanel" instance=ExtResource("3_qexwg")]
 position = Vector2(1, 270)

@@ -53,4 +53,4 @@ shape = SubResource("RectangleShape2D_gpfd6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="5"]
 sprite_frames = SubResource("SpriteFrames_8khk8")
-frame_progress = 0.905059
+frame_progress = 0.870365
