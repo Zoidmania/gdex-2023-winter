@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj1t4smrp76kg"]
+
+[ext_resource type="PackedScene" uid="uid://bsg7q3ew2mbni" path="res://assets/house/house.tscn" id="1_d1y11"]
+[ext_resource type="Texture2D" uid="uid://bpyr4yn6e3t0v" path="res://assets/house/blue_house.png" id="2_dfra5"]
+
+[node name="BlueHouse" instance=ExtResource("1_d1y11")]
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="0"]
+position = Vector2(25.5, 25.5)
+scale = Vector2(2.45, 2.55)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_dfra5")
+centered = false

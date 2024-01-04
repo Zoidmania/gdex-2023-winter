@@ -1,14 +1,12 @@
-extends Node2D
-
+extends House
+class_name DeliveryHouse
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var present_timer: Timer = $PresentTimer
 @onready var house = $House
 
 signal lockdown
+signal release
 var deliverable = false
-# Called when the node enters the scene tree for the first time.
-func _ready():
-   house.play()
     
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,3 +35,7 @@ func _on_area_2d_area_entered(area):
 func _on_area_2d_area_exited(area):
     if(area.get_parent().name == 'Sleigh'):
         deliverable = false # Replace with function body.
+
+
+func _on_present_timer_timeout():
+    release.emit() # Replace with function body.

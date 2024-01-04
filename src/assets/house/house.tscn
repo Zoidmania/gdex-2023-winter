@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsg7q3ew2mbni"]
+
+[ext_resource type="Script" path="res://assets/house/house.gd" id="1_bgkkt"]
+
+[node name="House" type="Node2D"]
+script = ExtResource("1_bgkkt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

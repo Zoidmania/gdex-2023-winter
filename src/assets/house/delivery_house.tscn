@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://by6l1oicxte2p"]
+[gd_scene load_steps=10 format=3 uid="uid://bi4ct50nogwie"]
 
 [ext_resource type="Script" path="res://assets/house/delivery_house.gd" id="1_h36dp"]
 [ext_resource type="Texture2D" uid="uid://be4qtpwsgwlsh" path="res://assets/house/rgb_1.png" id="1_hdo8e"]
+[ext_resource type="PackedScene" uid="uid://bsg7q3ew2mbni" path="res://assets/house/house.tscn" id="1_rgln3"]
 [ext_resource type="Texture2D" uid="uid://b4vbk5cplh0h4" path="res://assets/house/rgb_2.png" id="2_483vg"]
 [ext_resource type="Texture2D" uid="uid://ct1y10kymu2y8" path="res://assets/house/rgb_3.png" id="3_tv4ah"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_dx566"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbfy5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -22,43 +23,41 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uohvk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5sbe"]
 size = Vector2(51, 50)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jj8j"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ey42"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmb4y"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2qtw"]
 bg_color = Color(1, 0.145098, 0, 1)
 
-[node name="DeliveryHouse" type="Node2D"]
+[node name="DeliveryHouse" instance=ExtResource("1_rgln3")]
 script = ExtResource("1_h36dp")
 
-[node name="House" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_dx566")
-frame_progress = 0.447224
+[node name="House" type="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_sbfy5")
+autoplay = "default"
+frame_progress = 0.879031
 centered = false
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." index="2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(25.5, 25)
-shape = SubResource("RectangleShape2D_uohvk")
+shape = SubResource("RectangleShape2D_l5sbe")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="." index="3"]
 visible = false
 offset_top = 52.0
 offset_right = 51.0
 offset_bottom = 56.0
-theme_override_styles/background = SubResource("StyleBoxFlat_3jj8j")
-theme_override_styles/fill = SubResource("StyleBoxFlat_gmb4y")
+theme_override_styles/background = SubResource("StyleBoxFlat_3ey42")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q2qtw")
 max_value = 5.0
 step = -1.0
 value = 5.0
 show_percentage = false
 
-[node name="PresentTimer" type="Timer" parent="."]
+[node name="PresentTimer" type="Timer" parent="." index="4"]
 wait_time = 5.0
 one_shot = true
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
