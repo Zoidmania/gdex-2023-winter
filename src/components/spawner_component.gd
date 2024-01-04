@@ -26,7 +26,8 @@ func spawn(
 
     if not instance:
         instance = scene.instantiate()
-        parent.add_child(instance)
+        parent.call_deferred("add_child", instance)
+     
     instance.global_position = global_spawn_position
 
     return instance
