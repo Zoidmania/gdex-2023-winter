@@ -1,5 +1,6 @@
+extends Node
 class_name DestroyedComponent
-extends House
+
 ## Wires up destruction behavior when an actor runs out of health.
 ##
 ## Written by HeartBeast. Amended by Zoidmania.

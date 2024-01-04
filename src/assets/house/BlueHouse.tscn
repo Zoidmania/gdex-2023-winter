@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://djth6ix641105"]
+
+[ext_resource type="Texture2D" uid="uid://bpyr4yn6e3t0v" path="res://assets/house/blue_house.png" id="1_haoua"]
+
+[sub_resource type="GDScript" id="GDScript_eqf3o"]
+script/source = "extends House
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+    pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+    pass
+"
+
+[node name="BlueHouse" type="Node2D"]
+script = SubResource("GDScript_eqf3o")
+
+[node name="BlueHouse" type="Sprite2D" parent="."]
+texture = ExtResource("1_haoua")
+centered = false

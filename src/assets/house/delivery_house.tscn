@@ -37,7 +37,7 @@ script = ExtResource("1_h36dp")
 [node name="House" type="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_sbfy5")
 autoplay = "default"
-frame_progress = 0.879031
+frame_progress = 0.143548
 centered = false
 
 [node name="Area2D" type="Area2D" parent="." index="2"]

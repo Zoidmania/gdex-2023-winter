@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhqkhrcyiy0vg"]
+
+[ext_resource type="Texture2D" uid="uid://d0hykm0k46e3w" path="res://assets/house/green_house.png" id="1_hk5dv"]
+
+[sub_resource type="GDScript" id="GDScript_ckhvr"]
+script/source = "extends House
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+    super() # Replace with function body.
+
+
+"
+
+[node name="GreeenHouse" type="Node2D"]
+script = SubResource("GDScript_ckhvr")
+
+[node name="GreenHouse" type="Sprite2D" parent="."]
+texture = ExtResource("1_hk5dv")
+centered = false
