@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://by6l1oicxte2p"]
+
+[ext_resource type="Script" path="res://assets/house/delivery_house.gd" id="1_h36dp"]
+[ext_resource type="Texture2D" uid="uid://be4qtpwsgwlsh" path="res://assets/house/rgb_1.png" id="1_hdo8e"]
+[ext_resource type="Texture2D" uid="uid://b4vbk5cplh0h4" path="res://assets/house/rgb_2.png" id="2_483vg"]
+[ext_resource type="Texture2D" uid="uid://ct1y10kymu2y8" path="res://assets/house/rgb_3.png" id="3_tv4ah"]
+[ext_resource type="PackedScene" uid="uid://bh6x3atb6ibqq" path="res://player/sleigh.tscn" id="5_3xsij"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dx566"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hdo8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_483vg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tv4ah")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uohvk"]
+size = Vector2(51, 50)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jj8j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmb4y"]
+bg_color = Color(1, 0.145098, 0, 1)
+
+[node name="DeliveryHouse" type="Node2D"]
+script = ExtResource("1_h36dp")
+
+[node name="House" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dx566")
+frame_progress = 0.447224
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(25.5, 25)
+shape = SubResource("RectangleShape2D_uohvk")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_top = 52.0
+offset_right = 51.0
+offset_bottom = 56.0
+theme_override_styles/background = SubResource("StyleBoxFlat_3jj8j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gmb4y")
+max_value = 5.0
+step = -1.0
+value = 5.0
+show_percentage = false
+
+[node name="PresentTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Sleigh" parent="." instance=ExtResource("5_3xsij")]
+position = Vector2(53, 81)
+scale = Vector2(0.25, 0.25)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

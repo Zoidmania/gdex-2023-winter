@@ -1,8 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1op0dhpjdb7l"]
+[gd_scene load_steps=4 format=3 uid="uid://d1op0dhpjdb7l"]
 
 [ext_resource type="PackedScene" uid="uid://cv75r8ff33mru" path="res://stages/stage.tscn" id="1_v1sby"]
 [ext_resource type="PackedScene" uid="uid://cyfrv23x7cjxg" path="res://stages/stage_na_enemy_generator.tscn" id="2_3sfko"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jb6tv"]
+resource_local_to_scene = true
+emission_shape_offset = Vector3(20, -20, 0)
+angle_max = 210.3
+gravity = Vector3(-90, 90, 0)
+turbulence_enabled = true
+turbulence_noise_strength = 2.47
+turbulence_noise_scale = 2.369
+
 [node name="StageNorthAmerica" instance=ExtResource("1_v1sby")]
 
 [node name="Stage1EnemyGenerator" parent="." index="1" instance=ExtResource("2_3sfko")]
+
+[node name="Snow" parent="." index="4"]
+process_material = SubResource("ParticleProcessMaterial_jb6tv")

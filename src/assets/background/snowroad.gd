@@ -1,6 +1,6 @@
 extends ParallaxBackground
 
-@onready var snow_layer: ParallaxLayer = %snow
+
 
 @onready var road_layer: ParallaxLayer = %road
 
