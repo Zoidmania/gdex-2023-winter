@@ -6,9 +6,8 @@
 [node name="GreenHouse" instance=ExtResource("1_vbtbp")]
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="0"]
-position = Vector2(25, 26)
-scale = Vector2(2.4, 2.5)
+position = Vector2(-1.90735e-06, 32)
+scale = Vector2(2.4, 5.9)
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_s5val")
-centered = false

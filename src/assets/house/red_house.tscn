@@ -6,9 +6,8 @@
 [node name="RedHouse" instance=ExtResource("1_rvc2y")]
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="0"]
-position = Vector2(25.5, 26.5)
-scale = Vector2(2.55, 2.55)
+position = Vector2(1, 43)
+scale = Vector2(2.55, 6.7)
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_uayip")
-centered = false

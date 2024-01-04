@@ -27,8 +27,15 @@ func spawn(
 
     if not instance:
         instance = scene.instantiate()
+        if flipped:
+            for item in instance.get_children().filter(
+                func(element): 
+                    return element is AnimatedSprite2D or element is Sprite2D
+            ):
+                item.flip_h = true
         parent.call_deferred("add_child", instance)
      
     instance.global_position = global_spawn_position
 
     return instance
+    

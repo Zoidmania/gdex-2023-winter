@@ -23,9 +23,9 @@ func spawnRightHouse() -> void:
     var type = randi_range(1, 10)
     if type == 10:
         delivery_house.spawn(right_spawn.global_position, get_tree().current_scene, null, true)      
-    elif 1 <= type <= 3:
+    elif 1 <= type and type <= 3:
         red_house.spawn(right_spawn.global_position, get_tree().current_scene, null, true)
-    elif 4 <= type <= 6:
+    elif 4 <= type and type <= 6:
         blue_house.spawn(right_spawn.global_position, get_tree().current_scene, null, true)
     else:
         green_house.spawn(right_spawn.global_position, get_tree().current_scene, null, true)
@@ -34,9 +34,9 @@ func spawnLeftHouse() -> void:
     var type = randi_range(1, 10)
     if type == 10:
         delivery_house.spawn(left_spawn.global_position, get_tree().current_scene, null)      
-    elif 1 <= type <= 3:
+    elif 1 <= type and type <= 3:
         red_house.spawn(left_spawn.global_position, get_tree().current_scene, null)
-    elif 4 <= type <= 6:
+    elif 4 <= type and type <= 6:
         blue_house.spawn(left_spawn.global_position, get_tree().current_scene, null)
     else:
         green_house.spawn(left_spawn.global_position, get_tree().current_scene, null)
