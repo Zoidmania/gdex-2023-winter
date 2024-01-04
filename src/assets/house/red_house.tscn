@@ -6,6 +6,8 @@
 [node name="RedHouse" instance=ExtResource("1_rvc2y")]
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="0"]
+z_index = -1
+z_as_relative = false
 position = Vector2(1, 43)
 scale = Vector2(2.55, 6.7)
 

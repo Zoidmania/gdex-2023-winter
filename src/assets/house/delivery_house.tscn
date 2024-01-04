@@ -35,6 +35,8 @@ animations = [{
 script = ExtResource("1_h36dp")
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="0"]
+z_index = -1
+z_as_relative = false
 position = Vector2(2, 40)
 scale = Vector2(2.65, 6.6)
 
@@ -61,6 +63,8 @@ wait_time = 5.0
 one_shot = true
 
 [node name="House" type="AnimatedSprite2D" parent="." index="5"]
+z_index = -1
+z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_sbfy5")
 autoplay = "default"
 frame = 1

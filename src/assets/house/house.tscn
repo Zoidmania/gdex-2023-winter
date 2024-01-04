@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://components/move_component.gd" id="2_yjpxm"]
 
 [node name="House" type="Node2D"]
+z_index = -2
+z_as_relative = false
 script = ExtResource("1_bgkkt")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

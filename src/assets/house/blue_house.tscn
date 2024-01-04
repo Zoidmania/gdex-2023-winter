@@ -10,4 +10,6 @@ position = Vector2(1, 42)
 scale = Vector2(2.45, 6.7)
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+z_index = -1
+z_as_relative = false
 texture = ExtResource("2_dfra5")
