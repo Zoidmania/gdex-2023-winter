@@ -26,7 +26,7 @@ func _process(delta):
 
 
 func _on_area_2d_area_entered(area):
-    print(area)
+    
      # Replace with function body.
     if(area.get_parent().name == 'Sleigh'):
         deliverable = true

@@ -48,9 +48,10 @@ shape = SubResource("RectangleShape2D_l5sbe")
 
 [node name="ProgressBar" type="ProgressBar" parent="." index="2"]
 visible = false
-offset_top = 52.0
-offset_right = 51.0
-offset_bottom = 56.0
+offset_left = -25.0
+offset_top = 28.0
+offset_right = 26.0
+offset_bottom = 32.0
 theme_override_styles/background = SubResource("StyleBoxFlat_3ey42")
 theme_override_styles/fill = SubResource("StyleBoxFlat_q2qtw")
 max_value = 5.0
@@ -69,3 +70,7 @@ sprite_frames = SubResource("SpriteFrames_sbfy5")
 autoplay = "default"
 frame = 1
 frame_progress = 0.0740572
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="PresentTimer" to="." method="_on_present_timer_timeout"]
