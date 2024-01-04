@@ -4,7 +4,7 @@ extends Node2D
 @onready var present_timer: Timer = $PresentTimer
 @onready var house = $House
 
-
+signal lockdown
 var deliverable = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +17,7 @@ func _process(delta):
         if(Input.is_action_just_pressed("santa_land_or_take_off") and present_timer.is_stopped()):
             progress_bar.show()
             present_timer.start()
+            lockdown.emit()
     
     if( not present_timer.is_stopped()):
         progress_bar.value = present_timer.wait_time - present_timer.time_left  
@@ -30,11 +31,9 @@ func _on_area_2d_area_entered(area):
     
      # Replace with function body.
     if(area.get_parent().name == 'Sleigh'):
-        print('player here')
         deliverable = true
 
 
 func _on_area_2d_area_exited(area):
     if(area.get_parent().name == 'Sleigh'):
-        print('player left')
         deliverable = false # Replace with function body.
