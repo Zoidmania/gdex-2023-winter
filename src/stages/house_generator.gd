@@ -26,11 +26,31 @@ func spawnRightHouse() -> void:
             right_spawn.global_position, get_tree().current_scene, null, true)
         action_house.lockdown.connect(
             func ():
+                var tree = get_tree()
+                for house in tree.get_nodes_in_group('house'):
+                    house.move_component.velocity = Vector2.ZERO
                 
+                for timer in get_tree().get_nodes_in_group('timer'):
+                    print(timer)
+                    timer.paused = true
+                    
+                for scroller in get_tree().get_nodes_in_group('background_scroll'):
+                    
+                    scroller.move_speed = 0
+                    
                 sleigh.move_input_component.speed = 0)  
         action_house.release.connect(
             func ():
+                var tree = get_tree()
+                for house in tree.get_nodes_in_group('house'):
+                   house.move_component.velocity = Vector2(0, 20)
                 
+                for timer in get_tree().get_nodes_in_group('timer'):
+                    print(timer)
+                    timer.paused = false
+                    
+                for scroller in get_tree().get_nodes_in_group('background_scroll'):
+                    scroller.move_speed = 20
                 sleigh.move_input_component.speed = 200)     
     elif 1 <= type and type <= 3:
         red_house.spawn(right_spawn.global_position, get_tree().current_scene, null, true)
@@ -41,16 +61,36 @@ func spawnRightHouse() -> void:
 
 func spawnLeftHouse() -> void:
     var type = randi_range(1, 10)
-    if type :
+    if type == 10:
          var action_house: DeliveryHouse = delivery_house.spawn(
             left_spawn.global_position, get_tree().current_scene, null)    
          action_house.lockdown.connect(
             func ():
-                
+                var tree = get_tree()
+                for house: House in tree.get_nodes_in_group('house'):
+                    house.move_component.velocity = Vector2.ZERO
+                    
+                for timer in get_tree().get_nodes_in_group('timer'):
+                    print(timer)
+                    timer.paused = true
+                    
+                for scroller in get_tree().get_nodes_in_group('background_scroll'):
+                    print(scroller)
+                    
+                    scroller.move_speed = 0
+                    
                 sleigh.move_input_component.speed = 0)  
          action_house.release.connect(
             func ():
-                
+                var tree = get_tree()
+                for house: House in tree.get_nodes_in_group('house'):
+                    house.move_component.velocity = Vector2(0,20)
+                    
+                for timer in get_tree().get_nodes_in_group('timer'):
+                    timer.paused = false
+                    
+                for scroller in get_tree().get_nodes_in_group('background_scroll'):
+                    scroller.move_speed = 20
                 sleigh.move_input_component.speed = 200)             
     elif 1 <= type and type <= 3:
         red_house.spawn(left_spawn.global_position, get_tree().current_scene, null)

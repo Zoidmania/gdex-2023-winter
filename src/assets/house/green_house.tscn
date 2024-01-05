@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bsg7q3ew2mbni" path="res://assets/house/house.tscn" id="1_vbtbp"]
 [ext_resource type="Texture2D" uid="uid://d0hykm0k46e3w" path="res://assets/house/green_house.png" id="2_s5val"]
 
-[node name="GreenHouse" instance=ExtResource("1_vbtbp")]
+[node name="GreenHouse" groups=["house"] instance=ExtResource("1_vbtbp")]
 z_index = -1
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="0"]
