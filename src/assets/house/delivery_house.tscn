@@ -41,6 +41,7 @@ position = Vector2(2, 40)
 scale = Vector2(2.65, 6.6)
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(1, 0)

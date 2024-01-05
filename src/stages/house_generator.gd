@@ -63,7 +63,7 @@ func spawnRightHouse() -> void:
 
 func spawnLeftHouse() -> void:
     var type = randi_range(1, 10)
-    if type :
+    if type == 10 :
          var action_house: DeliveryHouse = delivery_house.spawn(
             left_spawn.global_position, get_tree().current_scene, null)    
          action_house.lockdown.connect(
