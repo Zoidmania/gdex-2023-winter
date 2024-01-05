@@ -1,10 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1op0dhpjdb7l"]
+[gd_scene load_steps=6 format=3 uid="uid://d1op0dhpjdb7l"]
 
 [ext_resource type="PackedScene" uid="uid://cv75r8ff33mru" path="res://stages/stage.tscn" id="1_v1sby"]
 [ext_resource type="PackedScene" uid="uid://cyfrv23x7cjxg" path="res://stages/stage_na_enemy_generator.tscn" id="2_3sfko"]
-[ext_resource type="PackedScene" uid="uid://y0utk1nx72vy" path="res://enemies/grey_goat.tscn" id="3_8bed5"]
+[ext_resource type="Script" path="res://stages/stage_north_america.gd" id="2_dccnt"]
+[ext_resource type="PackedScene" uid="uid://dpd5qlq771bi0" path="res://stages/house_generator.tscn" id="3_uf38x"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jb6tv"]
+resource_local_to_scene = true
+emission_shape_offset = Vector3(20, -20, 0)
+angle_max = 210.3
+gravity = Vector3(-90, 90, 0)
+turbulence_enabled = true
+turbulence_noise_strength = 2.47
+turbulence_noise_scale = 2.369
 
 [node name="StageNorthAmerica" instance=ExtResource("1_v1sby")]
+script = ExtResource("2_dccnt")
 
 [node name="Stage1EnemyGenerator" parent="." index="1" instance=ExtResource("2_3sfko")]
-grey_goat_scene = ExtResource("3_8bed5")
+
+[node name="Sleigh" parent="." index="2" groups=["sleigh"]]
+
+[node name="Snow" parent="." index="4"]
+process_material = SubResource("ParticleProcessMaterial_jb6tv")
+
+[node name="LeftSpawn" type="Marker2D" parent="." index="5"]
+z_index = -1
+z_as_relative = false
+position = Vector2(34, -30)
+
+[node name="RightSpawn" type="Marker2D" parent="." index="6"]
+z_index = -1
+z_as_relative = false
+position = Vector2(206, -30)
+
+[node name="HouseSpawn" type="Timer" parent="." index="7" groups=["timer"]]
+wait_time = 5.0
+autostart = true
+
+[node name="HouseGenerator" parent="." index="8" node_paths=PackedStringArray("houseTimer", "sleigh", "right_spawn", "left_spawn") instance=ExtResource("3_uf38x")]
+show_behind_parent = true
+z_index = -4
+houseTimer = NodePath("../HouseSpawn")
+sleigh = NodePath("../Sleigh")
+right_spawn = NodePath("../RightSpawn")
+left_spawn = NodePath("../LeftSpawn")
+
+[connection signal="done_all_deliveries" from="HUD" to="." method="_on_hud_done_all_deliveries"]
+[connection signal="delivery_completed" from="HouseGenerator" to="." method="_on_house_generator_delivery_completed"]

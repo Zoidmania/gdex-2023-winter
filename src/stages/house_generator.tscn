@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpd5qlq771bi0"]
+
+[ext_resource type="Script" path="res://stages/house_generator.gd" id="1_c4qdo"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="2_d3sog"]
+[ext_resource type="PackedScene" uid="uid://bi4ct50nogwie" path="res://assets/house/delivery_house.tscn" id="3_4v6im"]
+[ext_resource type="PackedScene" uid="uid://gxpy3518avdu" path="res://assets/house/red_house.tscn" id="4_yihrh"]
+[ext_resource type="PackedScene" uid="uid://cpio7pax60cw1" path="res://assets/house/green_house.tscn" id="5_j37v3"]
+[ext_resource type="PackedScene" uid="uid://bj1t4smrp76kg" path="res://assets/house/blue_house.tscn" id="6_qh2hf"]
+
+[node name="HouseGenerator" type="Node2D"]
+script = ExtResource("1_c4qdo")
+
+[node name="DeliveryHouse" type="Node2D" parent="."]
+script = ExtResource("2_d3sog")
+scene = ExtResource("3_4v6im")
+
+[node name="RedHouse" type="Node2D" parent="."]
+script = ExtResource("2_d3sog")
+scene = ExtResource("4_yihrh")
+
+[node name="GreenHouse" type="Node2D" parent="."]
+script = ExtResource("2_d3sog")
+scene = ExtResource("5_j37v3")
+
+[node name="BlueHouse" type="Node2D" parent="."]
+script = ExtResource("2_d3sog")
+scene = ExtResource("6_qh2hf")

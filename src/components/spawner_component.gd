@@ -19,14 +19,23 @@ extends Node2D
 func spawn(
     global_spawn_position: Vector2 = global_position,
     parent: Node = get_tree().current_scene,
-    instance: Node = null
+    instance: Node = null,
+    flipped: bool = false
 ) -> Node:
 
     assert(scene is PackedScene, "Error: The scene export was never set on this spawner component.")
 
     if not instance:
         instance = scene.instantiate()
-        parent.add_child(instance)
+        if flipped:
+            for item in instance.get_children().filter(
+                func(element): 
+                    return element is AnimatedSprite2D or element is Sprite2D
+            ):
+                item.flip_h = true
+        parent.call_deferred("add_child", instance)
+     
     instance.global_position = global_spawn_position
 
     return instance
+    

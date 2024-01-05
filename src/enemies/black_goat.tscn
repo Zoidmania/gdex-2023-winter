@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxhp2tkvgacrk"]
+[gd_scene load_steps=10 format=3 uid="uid://dxhp2tkvgacrk"]
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_rl5lf"]
 [ext_resource type="Script" path="res://enemies/black_goat.gd" id="2_kn77k"]
 [ext_resource type="Texture2D" uid="uid://c4au4tc0qqgbm" path="res://assets/goat-proto/black.png" id="3_xfeca"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="4_i4siy"]
 [ext_resource type="PackedScene" uid="uid://doawf0diikjik" path="res://projectiles/black_goat_projectile.tscn" id="5_ghwbu"]
+[ext_resource type="Script" path="res://components/destroyed_component.gd" id="6_rd5yf"]
+[ext_resource type="PackedScene" uid="uid://boluir7wkgeg5" path="res://powerups/hot_chocolate.tscn" id="7_0uy4u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_soyl6"]
 radius = 18.0
@@ -50,3 +52,13 @@ autostart = true
 
 [node name="Muzzle" type="Marker2D" parent="." index="14"]
 position = Vector2(0, 16)
+
+[node name="PowerSpawn" type="Node" parent="." index="15" node_paths=PackedStringArray("actor", "health_component", "destroy_effect_spawner_component")]
+script = ExtResource("6_rd5yf")
+actor = NodePath("..")
+health_component = NodePath("../HealthComponent")
+destroy_effect_spawner_component = NodePath("../SpawnerComponent")
+
+[node name="SpawnerComponent" type="Node2D" parent="." index="16"]
+script = ExtResource("4_i4siy")
+scene = ExtResource("7_0uy4u")

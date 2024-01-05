@@ -26,6 +26,3 @@ shape = SubResource("CircleShape2D_55eco")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
 shape = SubResource("RectangleShape2D_frijb")
 debug_color = Color(0.933333, 0.176471, 0.482353, 0.419608)
-
-[node name="StatsComponent" parent="." index="12"]
-health = 4

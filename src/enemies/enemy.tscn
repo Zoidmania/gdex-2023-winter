@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://d4du2p75v33rv" path="res://effects/explosion_effect.tscn" id="11_qjag2"]
 [ext_resource type="Script" path="res://components/health_component.gd" id="14_45fnn"]
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node2D" groups=["mobs"]]
 script = ExtResource("1_0aqhb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

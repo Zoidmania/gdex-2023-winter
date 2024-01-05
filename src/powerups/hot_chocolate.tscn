@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://boluir7wkgeg5"]
+
+[ext_resource type="PackedScene" uid="uid://cxvnxvp62n36f" path="res://powerups/powerup.tscn" id="1_dqq65"]
+[ext_resource type="Script" path="res://powerups/hot_chocolate.gd" id="2_cffyo"]
+[ext_resource type="Texture2D" uid="uid://6q60jxou7x7o" path="res://assets/powerup/big choc.png" id="2_qe7jd"]
+[ext_resource type="Texture2D" uid="uid://br14y8avn16fb" path="res://effects/effect_4.png" id="3_0ukqm"]
+[ext_resource type="Texture2D" uid="uid://bel0x8255hokn" path="res://effects/spotlight_7.png" id="4_wkvcd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2plvf"]
+size = Vector2(35, 34)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vdful"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_eepwb"]
+_data = [Vector2(0.273333, 0.736264), -0.649351, 0.0, 0, 0, Vector2(1, 0.0659341), -0.549451, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4nbmq"]
+curve = SubResource("Curve_eepwb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3d67l"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_4nbmq")
+turbulence_noise_strength = 20.0
+turbulence_noise_speed = Vector3(0, 1, 0)
+turbulence_noise_speed_random = 1.21
+turbulence_influence_min = 0.458
+turbulence_influence_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qusgn"]
+blend_mode = 1
+
+[node name="HotChocolate" instance=ExtResource("1_dqq65")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_cffyo")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_qe7jd")
+
+[node name="HitboxComponent" parent="." index="1"]
+collision_layer = 0
+damage = -1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_2plvf")
+
+[node name="MoveComponent" parent="." index="2" node_paths=PackedStringArray("actor")]
+actor = NodePath("..")
+velocity = Vector2(0, 100)
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(-0.5, -4.76837e-07)
+scale = Vector2(1.75, 1.7)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="4"]
+modulate = Color(0, 1, 0, 1)
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_vdful")
+position = Vector2(-1, 0)
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_3d67l")
+texture = ExtResource("3_0ukqm")
+local_coords = true
+trail_section_subdivisions = 1
+
+[node name="flare" type="Sprite2D" parent="." index="5"]
+modulate = Color(0.337255, 0.992157, 0.72549, 1)
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_qusgn")
+position = Vector2(-2, 2)
+scale = Vector2(0.653687, 0.63811)
+texture = ExtResource("4_wkvcd")

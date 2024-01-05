@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpio7pax60cw1"]
+
+[ext_resource type="PackedScene" uid="uid://bsg7q3ew2mbni" path="res://assets/house/house.tscn" id="1_vbtbp"]
+[ext_resource type="Texture2D" uid="uid://d0hykm0k46e3w" path="res://assets/house/green_house.png" id="2_s5val"]
+
+[node name="GreenHouse" groups=["house"] instance=ExtResource("1_vbtbp")]
+z_index = -1
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="0"]
+position = Vector2(-1.90735e-06, 32)
+scale = Vector2(2.4, 5.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+z_index = -1
+z_as_relative = false
+texture = ExtResource("2_s5val")

@@ -21,7 +21,9 @@ func _input(event: InputEvent) -> void:
     var y_axis = Input.get_axis("santa_move_up", "santa_move_down")
     var velocity = Vector2(x_axis, y_axis)
 
-    if velocity.length() > 0:
+    if velocity.length() > 0 and speed > 0:
         velocity = velocity.normalized() * speed
+    else:
+        velocity = Vector2.ZERO
 
     move_component.velocity = velocity

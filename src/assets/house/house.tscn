@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsg7q3ew2mbni"]
+
+[ext_resource type="Script" path="res://assets/house/house.gd" id="1_bgkkt"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="2_yjpxm"]
+
+[node name="House" type="Node2D"]
+z_index = -2
+z_as_relative = false
+script = ExtResource("1_bgkkt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 23.5)
+scale = Vector2(1, 3.35)
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("2_yjpxm")
+actor = NodePath("..")
+velocity = Vector2(0, 20)

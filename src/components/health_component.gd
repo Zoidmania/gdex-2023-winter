@@ -15,7 +15,7 @@ extends Node
 
         health = value
         health_changed.emit(health)
-        if health == 0:
+        if health <= 0:
             no_health.emit()
 
 
