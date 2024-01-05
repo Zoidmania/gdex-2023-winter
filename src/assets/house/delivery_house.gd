@@ -8,36 +8,42 @@ signal lockdown
 signal release
 var deliverable = false
 var delivered = false
-    
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+## Called on input events.
+func _input(event: InputEvent) -> void:
+
+    var can_start_delivering = deliverable and \
+        not delivered and \
+        event is InputEventKey and \
+        event.is_action_pressed("santa_land_or_take_off") and \
+        present_timer.is_stopped()
+
+    if can_start_delivering:
+        progress_bar.show()
+        present_timer.start()
+        lockdown.emit()
+
+
+## Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-    if(deliverable and not delivered):
-        if(Input.is_action_just_pressed("santa_land_or_take_off") and present_timer.is_stopped()):
-            progress_bar.show()
-            present_timer.start()
-            lockdown.emit()
-    
-    if( not present_timer.is_stopped()):
-        progress_bar.value = present_timer.wait_time - present_timer.time_left  
+
+    if not present_timer.is_stopped():
+        progress_bar.value = present_timer.wait_time - present_timer.time_left
     else:
         progress_bar.hide()
-        
-                  
 
 
 func _on_area_2d_area_entered(area):
-    
-     # Replace with function body.
-    if(area.get_parent().name == 'Sleigh'):
+    if area.get_parent().name == 'Sleigh':
         deliverable = true
 
 
 func _on_area_2d_area_exited(area):
-    if(area.get_parent().name == 'Sleigh'):
-        deliverable = false # Replace with function body.
+    if area.get_parent().name == 'Sleigh':
+        deliverable = false
 
 
 func _on_present_timer_timeout():
-    release.emit() # Replace with function body.
+    release.emit()
     delivered = true
