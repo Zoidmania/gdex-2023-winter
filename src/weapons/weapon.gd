@@ -29,19 +29,19 @@ func _ready() -> void:
     cooldown_timer.wait_time = fire_rate
 
 
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+## Called on input events.
+func _input(event: InputEvent) -> void:
 
-    if Input.is_action_just_pressed("santa_shoot"):
+    if event is InputEventKey and event.is_action_pressed("santa_shoot"):
 
         if not cooldown_timer.is_stopped():
             await cooldown_timer.timeout
+        else:
+            fire_projectile()
+            fire_rate_timer.start()
+            cooldown_timer.start()
 
-        fire_projectile()
-        fire_rate_timer.start()
-        cooldown_timer.start()
-
-    if Input.is_action_just_released("santa_shoot"):
+    elif event is InputEventKey and event.is_action_released("santa_shoot"):
         fire_rate_timer.stop()
 
 
