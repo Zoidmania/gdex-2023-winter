@@ -22,7 +22,16 @@ func _process(delta):
 func spawnRightHouse() -> void:
     var type = randi_range(1, 10)
     if type == 10:
-        delivery_house.spawn(right_spawn.global_position, get_tree().current_scene, null, true)      
+        var action_house: DeliveryHouse = delivery_house.spawn(
+            right_spawn.global_position, get_tree().current_scene, null, true)
+        action_house.lockdown.connect(
+            func ():
+                
+                sleigh.move_input_component.speed = 0)  
+        action_house.release.connect(
+            func ():
+                
+                sleigh.move_input_component.speed = 200)     
     elif 1 <= type and type <= 3:
         red_house.spawn(right_spawn.global_position, get_tree().current_scene, null, true)
     elif 4 <= type and type <= 6:
@@ -32,8 +41,17 @@ func spawnRightHouse() -> void:
 
 func spawnLeftHouse() -> void:
     var type = randi_range(1, 10)
-    if type == 10:
-        delivery_house.spawn(left_spawn.global_position, get_tree().current_scene, null)      
+    if type :
+         var action_house: DeliveryHouse = delivery_house.spawn(
+            left_spawn.global_position, get_tree().current_scene, null)    
+         action_house.lockdown.connect(
+            func ():
+                
+                sleigh.move_input_component.speed = 0)  
+         action_house.release.connect(
+            func ():
+                
+                sleigh.move_input_component.speed = 200)             
     elif 1 <= type and type <= 3:
         red_house.spawn(left_spawn.global_position, get_tree().current_scene, null)
     elif 4 <= type and type <= 6:

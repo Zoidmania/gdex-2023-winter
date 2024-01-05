@@ -7,11 +7,12 @@ class_name DeliveryHouse
 signal lockdown
 signal release
 var deliverable = false
+var delivered = false
     
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-    if(deliverable):
+    if(deliverable and not delivered):
         if(Input.is_action_just_pressed("santa_land_or_take_off") and present_timer.is_stopped()):
             progress_bar.show()
             present_timer.start()
@@ -39,3 +40,4 @@ func _on_area_2d_area_exited(area):
 
 func _on_present_timer_timeout():
     release.emit() # Replace with function body.
+    delivered = true
