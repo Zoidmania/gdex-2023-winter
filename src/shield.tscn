@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://shield.gd" id="1_b0wr3"]
 [ext_resource type="Script" path="res://components/health_component.gd" id="1_yxoys"]
 [ext_resource type="Script" path="res://components/hurtbox_component.gd" id="2_o5okf"]
-[ext_resource type="Texture2D" uid="uid://bu8luijd3hmmn" path="res://hud-ui/shield full.png" id="3_mccr1"]
+[ext_resource type="Texture2D" uid="uid://bu8luijd3hmmn" path="res://assets/santa-presents/shield full.png" id="3_mccr1"]
 [ext_resource type="Script" path="res://components/scale_component.gd" id="5_ashuh"]
 [ext_resource type="Script" path="res://components/flash_component.gd" id="6_8nwxi"]
 
