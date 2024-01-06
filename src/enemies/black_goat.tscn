@@ -1,35 +1,59 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxhp2tkvgacrk"]
+[gd_scene load_steps=13 format=3 uid="uid://dxhp2tkvgacrk"]
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_rl5lf"]
 [ext_resource type="Script" path="res://enemies/black_goat.gd" id="2_kn77k"]
-[ext_resource type="Texture2D" uid="uid://c4au4tc0qqgbm" path="res://assets/goat-proto/black.png" id="3_xfeca"]
+[ext_resource type="Texture2D" uid="uid://bc60djdcdlj3l" path="res://assets/enemies/elites/Black Elite_0002.png" id="3_fstqo"]
+[ext_resource type="Texture2D" uid="uid://dgbwkeau3v7q" path="res://assets/enemies/elites/Black Elite_0003.png" id="4_gi2uv"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="4_i4siy"]
+[ext_resource type="Texture2D" uid="uid://bbl6yudd24itw" path="res://assets/enemies/elites/black-elite_0001.png" id="5_76itf"]
 [ext_resource type="PackedScene" uid="uid://doawf0diikjik" path="res://projectiles/black_goat_projectile.tscn" id="5_ghwbu"]
 [ext_resource type="Script" path="res://components/destroyed_component.gd" id="6_rd5yf"]
 [ext_resource type="PackedScene" uid="uid://boluir7wkgeg5" path="res://powerups/hot_chocolate.tscn" id="7_0uy4u"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_soyl6"]
-radius = 18.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ykqs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fstqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gi2uv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_76itf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ai06l"]
-size = Vector2(36, 37)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m1l7s"]
+radius = 11.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6jrb"]
+radius = 7.0
+height = 18.0
 
 [node name="BlackGoat" instance=ExtResource("1_rl5lf")]
 script = ExtResource("2_kn77k")
 
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("3_xfeca")
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_1ykqs")
+autoplay = "default"
+frame_progress = 0.137793
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="1"]
-position = Vector2(1.43051e-06, 0.500001)
-scale = Vector2(1.8, 1.85)
+position = Vector2(1.19209e-06, -1.19209e-07)
+scale = Vector2(1.6, 1.6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
-shape = SubResource("CircleShape2D_soyl6")
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_m1l7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_ai06l")
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_v6jrb")
 debug_color = Color(0.92549, 0.196078, 0.478431, 0.419608)
 
 [node name="MoveComponent" parent="." index="6"]
@@ -51,7 +75,7 @@ one_shot = true
 autostart = true
 
 [node name="Muzzle" type="Marker2D" parent="." index="14"]
-position = Vector2(0, 16)
+position = Vector2(0, 13)
 
 [node name="PowerSpawn" type="Node" parent="." index="15" node_paths=PackedStringArray("actor", "health_component", "destroy_effect_spawner_component")]
 script = ExtResource("6_rd5yf")

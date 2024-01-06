@@ -1,31 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxa4os8bfci0x"]
+[gd_scene load_steps=7 format=3 uid="uid://dxa4os8bfci0x"]
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_fdyv6"]
 [ext_resource type="Script" path="res://enemies/blue_goat.gd" id="2_76axn"]
-[ext_resource type="Texture2D" uid="uid://cchjeeu8oeobk" path="res://assets/goat-proto/blue.png" id="2_bb8p6"]
+[ext_resource type="Texture2D" uid="uid://crkndv2ubmen1" path="res://assets/enemies/elites/Blue Elite_0001.png" id="3_wuve6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0flyx"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_chwov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wuve6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nl743"]
 radius = 12.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3jba"]
-size = Vector2(24, 24)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uhgjd"]
+radius = 7.0
+height = 22.0
 
 [node name="BlueGoat" instance=ExtResource("1_fdyv6")]
 script = ExtResource("2_76axn")
 
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_bb8p6")
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_chwov")
+autoplay = "default"
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="1"]
-position = Vector2(9.53674e-07, 9.53674e-07)
-scale = Vector2(1.2, 1.2)
+position = Vector2(2.38419e-07, 0.499999)
+scale = Vector2(1.5, 1.55)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
-shape = SubResource("CircleShape2D_0flyx")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nl743")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
-shape = SubResource("RectangleShape2D_u3jba")
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_uhgjd")
 debug_color = Color(0.952941, 0.0784314, 0.513726, 0.419608)
-
-[node name="StatsComponent" parent="." index="12"]
-health = 7

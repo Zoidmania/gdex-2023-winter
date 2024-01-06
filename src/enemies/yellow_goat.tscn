@@ -1,31 +1,53 @@
-[gd_scene load_steps=6 format=3 uid="uid://7nysilhpvktm"]
+[gd_scene load_steps=9 format=3 uid="uid://7nysilhpvktm"]
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_y31yr"]
-[ext_resource type="Texture2D" uid="uid://dnlepjgm5h04q" path="res://assets/goat-proto/yellow.png" id="2_ayh1o"]
 [ext_resource type="Script" path="res://enemies/yellow_goat.gd" id="2_kwgp4"]
+[ext_resource type="Texture2D" uid="uid://bgr0bsh2ldk0x" path="res://assets/enemies/elites/Yellow Elite_0001.png" id="3_cf7m2"]
+[ext_resource type="Texture2D" uid="uid://d21xja0s0iemq" path="res://assets/enemies/elites/Yellow Elite_0002.png" id="4_h7k4o"]
+[ext_resource type="Texture2D" uid="uid://c56smk258n2k8" path="res://assets/enemies/elites/Yellow Elite_0003.png" id="5_hof82"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o5cgq"]
-radius = 12.0416
+[sub_resource type="SpriteFrames" id="SpriteFrames_8fnab"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cf7m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h7k4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hof82")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksww4"]
-size = Vector2(24, 24)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4vhi"]
+radius = 11.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_72lah"]
+radius = 8.0
+height = 22.0
 
 [node name="YellowGoat" instance=ExtResource("1_y31yr")]
 script = ExtResource("2_kwgp4")
 
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_ayh1o")
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_8fnab")
+autoplay = "default"
+frame_progress = 0.747832
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="1"]
 position = Vector2(9.53674e-07, 9.53674e-07)
 scale = Vector2(1.2, 1.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
-shape = SubResource("CircleShape2D_o5cgq")
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_m4vhi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
-shape = SubResource("RectangleShape2D_ksww4")
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_72lah")
 debug_color = Color(0.960784, 0, 0.517647, 0.419608)
-
-[node name="StatsComponent" parent="." index="12"]
-health = 4

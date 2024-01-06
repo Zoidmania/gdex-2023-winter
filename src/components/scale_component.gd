@@ -9,7 +9,7 @@ extends Node
 ## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
-@export var sprite: Sprite2D
+@export var sprite: Node2D
 @export var scale_amount = Vector2(1.5, 1.5)
 @export var scale_duration: = 0.4
 

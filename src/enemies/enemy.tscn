@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5j0erwnwdkwd"]
+[gd_scene load_steps=14 format=3 uid="uid://b5j0erwnwdkwd"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_0aqhb"]
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="1_jqks7"]
 [ext_resource type="Script" path="res://components/hurtbox_component.gd" id="2_butr8"]
-[ext_resource type="Texture2D" uid="uid://tnet4wqa3bwx" path="res://icon.svg" id="2_xi7h8"]
 [ext_resource type="Script" path="res://components/destroyed_component.gd" id="4_6hkh1"]
 [ext_resource type="Script" path="res://components/flash_component.gd" id="5_204rd"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="6_ls6r2"]
@@ -18,8 +17,7 @@
 [node name="Enemy" type="Node2D" groups=["mobs"]]
 script = ExtResource("1_0aqhb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_xi7h8")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
@@ -43,7 +41,7 @@ destroy_effect_spawner_component = NodePath("../DestroyedSpawnerComponent")
 
 [node name="HurtFlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("5_204rd")
-sprite = NodePath("../Sprite2D")
+sprite = NodePath("../AnimatedSprite2D")
 flash_duration = 0.1
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
@@ -52,7 +50,7 @@ actor = NodePath("..")
 
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("7_ne6op")
-sprite = NodePath("../Sprite2D")
+sprite = NodePath("../AnimatedSprite2D")
 
 [node name="ScoreComponent" type="Node" parent="."]
 script = ExtResource("8_k3tsv")
@@ -60,7 +58,7 @@ game_stats = ExtResource("9_syojo")
 
 [node name="ShakeComponent" type="Node" parent="." node_paths=PackedStringArray("node")]
 script = ExtResource("9_bkvpd")
-node = NodePath("../Sprite2D")
+node = NodePath("../AnimatedSprite2D")
 
 [node name="DestroyedSpawnerComponent" type="Node2D" parent="."]
 script = ExtResource("10_cklcf")
