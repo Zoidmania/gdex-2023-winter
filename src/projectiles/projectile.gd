@@ -10,7 +10,8 @@ extends Node2D
 
 @onready var move_component: MoveComponent = $MoveComponent
 
-var velocity: Vector2
+## Used to set the velocity vector for projectiles that need to be dynamically set on spawn.
+var init_velocity: Vector2
 
 
 
@@ -25,10 +26,10 @@ func _ready() -> void:
     # accept any arguments.
     hitbox_component.hit_hurtbox.connect(queue_free.unbind(1))
 
-    if velocity:
-        move_component.velocity = velocity
+    if init_velocity:
+        move_component.velocity = init_velocity
 
 
 func set_velocity(vel: Vector2) -> void:
-    velocity = vel
+    init_velocity = vel
 
