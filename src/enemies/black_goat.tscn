@@ -59,30 +59,27 @@ debug_color = Color(0.92549, 0.196078, 0.478431, 0.419608)
 [node name="MoveComponent" parent="." index="6"]
 velocity = Vector2(0, 30)
 
-[node name="ScoreComponent" parent="." index="8"]
-adjust_amount = 10
-
-[node name="HealthComponent" parent="." index="11"]
+[node name="HealthComponent" parent="." index="10"]
 health = 10
 
-[node name="ProjectileSpawner" type="Node2D" parent="." index="12"]
+[node name="ProjectileSpawner" type="Node2D" parent="." index="11"]
 script = ExtResource("4_i4siy")
 scene = ExtResource("5_ghwbu")
 
-[node name="FireTimer" type="Timer" parent="." index="13"]
+[node name="FireTimer" type="Timer" parent="." index="12"]
 wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="Muzzle" type="Marker2D" parent="." index="14"]
+[node name="Muzzle" type="Marker2D" parent="." index="13"]
 position = Vector2(0, 13)
 
-[node name="PowerSpawn" type="Node" parent="." index="15" node_paths=PackedStringArray("actor", "health_component", "destroy_effect_spawner_component")]
+[node name="PowerSpawn" type="Node" parent="." index="14" node_paths=PackedStringArray("actor", "health_component", "destroy_effect_spawner_component")]
 script = ExtResource("6_rd5yf")
 actor = NodePath("..")
 health_component = NodePath("../HealthComponent")
 destroy_effect_spawner_component = NodePath("../SpawnerComponent")
 
-[node name="SpawnerComponent" type="Node2D" parent="." index="16"]
+[node name="SpawnerComponent" type="Node2D" parent="." index="15"]
 script = ExtResource("4_i4siy")
 scene = ExtResource("7_0uy4u")

@@ -10,6 +10,9 @@ extends Node2D
 
 @onready var move_component: MoveComponent = $MoveComponent
 
+var velocity: Vector2
+
+
 
 ## Called when the node enters the scene tree for the first time.
 ##
@@ -22,8 +25,10 @@ func _ready() -> void:
     # accept any arguments.
     hitbox_component.hit_hurtbox.connect(queue_free.unbind(1))
 
+    if velocity:
+        move_component.velocity = velocity
+
 
 func set_velocity(vel: Vector2) -> void:
-    print(vel)
-    move_component.velocity = vel
+    velocity = vel
 
