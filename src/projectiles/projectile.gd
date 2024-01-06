@@ -14,7 +14,6 @@ extends Node2D
 var init_velocity: Vector2
 
 
-
 ## Called when the node enters the scene tree for the first time.
 ##
 ## Lasers are initially flashed and scaled for a short duration and tweened down to standard size.
