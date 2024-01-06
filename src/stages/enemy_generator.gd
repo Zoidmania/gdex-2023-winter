@@ -1,6 +1,6 @@
 class_name EnemyGenerator
 extends Node2D
-## Generates enemies in a scene.
+## Generates enemies in a stage.
 ##
 ## Extend this script to customize timers for a given level/stage.
 
@@ -21,7 +21,7 @@ func _ready() -> void:
 ##
 ## The spawn rate of each enemy is roughly `time_offset / score`; increasing `time_offset` increases
 ## the time delta between spawns, and vice versa. `time_offset` must be a positive number.
-func handle_spawn(enemy_scene: PackedScene, timer: Timer, time_offset: float = 1.0) -> void:
+func handle_spawn(enemy_scene: PackedScene, timer: Timer, time_offset: float = 3.0) -> void:
 
     # instance the enemy _now_ instead of letting spawn() do it so we can access its margin values
     var instance: Enemy = enemy_scene.instantiate()
@@ -39,15 +39,12 @@ func handle_spawn(enemy_scene: PackedScene, timer: Timer, time_offset: float = 1
         instance # an instanced enemy scene
     )
 
-    # TO DO: decide whether to keep this mechanic, and whether to scale on score or time.
     # Gently increase the spawn rate based on the current score. That is, spawn rate, which is the
     # delta between when spawns occur, gets smaller, which increases spawn frequency. Asymptotically
     # approaches 0.
-    #time_offset = abs(time_offset)
-    #var spawn_rate = time_offset / (0.5 + game_stats.score * 0.01)
-    #timer.start(spawn_rate + randf_range(0.25, 0.5))
-
-    timer.start()
+    time_offset = abs(time_offset)
+    var spawn_rate = time_offset / (0.5 + game_stats.score * 0.01)
+    timer.start(spawn_rate + randf_range(0.25, 0.5))
 
 
 func update_spawn_pattern(score: int) -> void:
