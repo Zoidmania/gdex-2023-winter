@@ -60,3 +60,5 @@ text = "Press Space to Start"
 label_settings = ExtResource("3_tj51b")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]

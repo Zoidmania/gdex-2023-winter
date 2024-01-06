@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://3cqo8pvwxxkr"]
+[gd_scene load_steps=4 format=3 uid="uid://3cqo8pvwxxkr"]
 
-[ext_resource type="Texture2D" uid="uid://r7hrv3yasln2" path="res://assets/background/snow.png" id="1_8vvoc"]
+[ext_resource type="Texture2D" uid="uid://r7hrv3yasln2" path="res://assets/background/snow.png" id="1_0ogtq"]
+[ext_resource type="Script" path="res://effects/snow.gd" id="2_o4skm"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tdh8n"]
 resource_local_to_scene = true
@@ -15,8 +16,9 @@ turbulence_noise_scale = 2.369
 position = Vector2(119, 158)
 amount = 7
 process_material = SubResource("ParticleProcessMaterial_tdh8n")
-texture = ExtResource("1_8vvoc")
+texture = ExtResource("1_0ogtq")
 lifetime = 3.0
 preprocess = 12.12
 speed_scale = 1.5
 interp_to_end = 1.0
+script = ExtResource("2_o4skm")

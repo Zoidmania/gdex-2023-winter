@@ -21,24 +21,24 @@ script = ExtResource("2_dccnt")
 
 [node name="Sleigh" parent="." index="2" groups=["sleigh"]]
 
-[node name="Snow" parent="." index="4"]
+[node name="Snow" parent="." index="3"]
 process_material = SubResource("ParticleProcessMaterial_jb6tv")
 
-[node name="LeftSpawn" type="Marker2D" parent="." index="5"]
+[node name="LeftSpawn" type="Marker2D" parent="." index="4"]
 z_index = -1
 z_as_relative = false
 position = Vector2(34, -30)
 
-[node name="RightSpawn" type="Marker2D" parent="." index="6"]
+[node name="RightSpawn" type="Marker2D" parent="." index="5"]
 z_index = -1
 z_as_relative = false
 position = Vector2(206, -30)
 
-[node name="HouseSpawn" type="Timer" parent="." index="7" groups=["timer"]]
+[node name="HouseSpawn" type="Timer" parent="." index="6" groups=["timer"]]
 wait_time = 5.0
 autostart = true
 
-[node name="HouseGenerator" parent="." index="8" node_paths=PackedStringArray("houseTimer", "sleigh", "right_spawn", "left_spawn") instance=ExtResource("3_uf38x")]
+[node name="HouseGenerator" parent="." index="7" node_paths=PackedStringArray("houseTimer", "sleigh", "right_spawn", "left_spawn") instance=ExtResource("3_uf38x")]
 show_behind_parent = true
 z_index = -4
 houseTimer = NodePath("../HouseSpawn")

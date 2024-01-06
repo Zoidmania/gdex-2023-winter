@@ -28,6 +28,7 @@ window/size/viewport_height=320
 window/size/window_width_override=960
 window/size/window_height_override=960
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 window/size/playable_area_width=240
 
 [importer_defaults]

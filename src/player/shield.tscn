@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://2o46vapqr8yu"]
 
-[ext_resource type="Script" path="res://shield.gd" id="1_b0wr3"]
+[ext_resource type="Script" path="res://player/shield.gd" id="1_b0wr3"]
 [ext_resource type="Script" path="res://components/health_component.gd" id="1_yxoys"]
 [ext_resource type="Script" path="res://components/hurtbox_component.gd" id="2_o5okf"]
 [ext_resource type="Texture2D" uid="uid://bu8luijd3hmmn" path="res://assets/santa-presents/shield full.png" id="3_mccr1"]

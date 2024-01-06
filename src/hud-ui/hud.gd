@@ -1,5 +1,5 @@
 extends CanvasLayer
-class_name  game_hud
+class_name  HUD
 
 
 @onready var ui_panel = $HSplitContainer/UIPanel
@@ -13,13 +13,17 @@ class_name  game_hud
 @onready var pause_screen_layer: CanvasLayer = $PauseScreenLayer
 @onready var pause_text_layer: CanvasLayer = $PauseScreenLayer/PauseTextLayer
 
+@onready var snowroad: ParallaxBackground = $HSplitContainer/GameViewport/Snowroad
+
 @export var game_stats: GameStats
 # If it's a boss stage, set to true.
 @export var is_boss_stage:= false
 
+
 var play_area_width = ProjectSettings.get_setting("display/window/size/playable_area_width")
 
 signal done_all_deliveries
+
 
 
 ## Init.
@@ -44,15 +48,16 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+
     if Input.is_action_just_pressed("ui_cancel"):
         if get_tree().paused:
             process_mode = Node.PROCESS_MODE_PAUSABLE
             get_tree().paused = false
             pause_screen_layer.hide()
             pause_text_layer.hide()
-
         else:
             process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+            snowroad.process_mode = Node.PROCESS_MODE_PAUSABLE
             get_tree().paused = true
             pause_screen_layer.show()
             pause_text_layer.show()
