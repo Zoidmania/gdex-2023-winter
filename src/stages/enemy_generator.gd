@@ -48,5 +48,5 @@ func handle_spawn(enemy_scene: PackedScene, timer: Timer, time_offset: float = 3
 
 
 func update_spawn_pattern(score: int) -> void:
-    pass
+    assert(false, "This function is abstract and must be overridden!")
 
