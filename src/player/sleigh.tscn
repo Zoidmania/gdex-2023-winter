@@ -56,7 +56,7 @@ default_weapon = ExtResource("3_hbrjt")
 sprite_frames = SubResource("SpriteFrames_kvs5w")
 animation = &"flying"
 autoplay = "flying"
-frame_progress = 0.981997
+frame_progress = 0.501076
 
 [node name="WeaponMount" type="Marker2D" parent="."]
 position = Vector2(0, -15)
