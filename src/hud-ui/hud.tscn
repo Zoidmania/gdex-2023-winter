@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt47ouy0h30vr"]
+[gd_scene load_steps=6 format=3 uid="uid://dt47ouy0h30vr"]
 
 [ext_resource type="Script" path="res://hud-ui/hud.gd" id="1_wj5ib"]
 [ext_resource type="PackedScene" uid="uid://bl8jggbyev5gg" path="res://assets/background/snowroad.tscn" id="2_qawmx"]
+[ext_resource type="Resource" uid="uid://c7pb7has64jr8" path="res://game_stats.tres" id="2_w3hj6"]
 [ext_resource type="PackedScene" uid="uid://t7g7fre5eokw" path="res://hud-ui/health_bar.tscn" id="3_qexwg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3x4t"]
@@ -9,6 +10,7 @@ bg_color = Color(0.45098, 0.290196, 0.227451, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_wj5ib")
+game_stats = ExtResource("2_w3hj6")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 layout_direction = 1

@@ -48,7 +48,7 @@ func spawnLeftHouse() -> void:
         blue_house.spawn(left_spawn.global_position, get_tree().current_scene, null)
     else:
         green_house.spawn(left_spawn.global_position, get_tree().current_scene, null)
-        
+
 
 func enact_lockdown() -> void:
     var tree = get_tree()
@@ -65,8 +65,8 @@ func enact_lockdown() -> void:
 
     sleigh.move_input_component.speed = 0
     sleigh.sleigh_sprite.play('delivering')
-    
-        
+
+
 func lift_lockdown() -> void:
     var tree = get_tree()
     for house: House in tree.get_nodes_in_group('house'):
@@ -81,4 +81,4 @@ func lift_lockdown() -> void:
     sleigh.sleigh_sprite.play('flying')
 
     delivery_completed.emit()
-    
+

@@ -19,8 +19,6 @@ extends Node2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var destroyed_component: DestroyedComponent = $DestroyedComponent
 
-@onready var score_component: ScoreComponent = $ScoreComponent
-
 # Set in ready().
 var x_margin: int
 var y_margin: int
@@ -34,10 +32,6 @@ func _ready() -> void:
     # Set the margin for this enemy equal to half the width of the visibility notifier.
     x_margin = visible_on_screen_notifier_2d.get_rect().size.x / 2
     y_margin = visible_on_screen_notifier_2d.get_rect().size.y / 2
-
-    health_component.no_health.connect(func():
-        score_component.adjust_score()
-    )
 
     visible_on_screen_notifier_2d.screen_exited.connect(queue_free)
 

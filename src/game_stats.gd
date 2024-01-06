@@ -12,10 +12,7 @@ extends Resource
         score = value
         score_changed.emit(score)
 
-
-## The highest score acheived when any of the games ended, since the application was launched.
-@export var highscore := 0
-
+@export var required_score := 10
 
 @export var player_health:= 0:
     set(value):
@@ -25,5 +22,6 @@ extends Resource
 
 signal score_changed(new_score: int)
 signal health_changed(new_health: int)
+
 # Player emits this to prevent timing issues with initializing the HUD.
 signal health_initialized
