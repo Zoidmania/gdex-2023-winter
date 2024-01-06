@@ -2,6 +2,7 @@ extends Node
 @onready var stage_north_america = $"."
 @onready var hud: game_hud = $HUD
 
+
 func _on_hud_done_all_deliveries():
     print('boss spawn') # Replace with function body.
 
