@@ -22,3 +22,7 @@ func _ready() -> void:
     black_goat_timer.timeout.connect(
         handle_spawn.bind(black_goat_scene, black_goat_timer)
     )
+
+
+func update_spawn_pattern(score: int) -> void:
+    pass

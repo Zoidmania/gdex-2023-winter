@@ -11,11 +11,11 @@ grey_goat_scene = ExtResource("3_e1a0h")
 black_goat_scene = ExtResource("4_1ywwr")
 
 [node name="GreyGoatTimer" type="Timer" parent="." index="1" groups=["timer"]]
-wait_time = 4.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 
 [node name="BlackGoatTimer" type="Timer" parent="." index="2" groups=["timer"]]
-wait_time = 9.0
+wait_time = 6.0
 one_shot = true
 autostart = true
