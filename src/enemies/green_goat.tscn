@@ -1,28 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp4wi4mcjqf17"]
+[gd_scene load_steps=8 format=3 uid="uid://cp4wi4mcjqf17"]
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_mxpgr"]
-[ext_resource type="Texture2D" uid="uid://dhgyy2153sayg" path="res://assets/goat-proto/green.png" id="2_3gjps"]
 [ext_resource type="Script" path="res://enemies/green_goat.gd" id="2_x3y4g"]
+[ext_resource type="Texture2D" uid="uid://bqha7hd8e2i86" path="res://assets/enemies/elites/Green Elite_0001.png" id="3_ls6j7"]
+[ext_resource type="Texture2D" uid="uid://bu0yradkht1gx" path="res://assets/enemies/elites/Green Elite_0002.png" id="4_1v2v4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_55eco"]
-radius = 12.1655
+[sub_resource type="SpriteFrames" id="SpriteFrames_pi503"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ls6j7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1v2v4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_frijb"]
-size = Vector2(24, 24)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3q7hj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pcd13"]
+radius = 7.0
+height = 18.0
 
 [node name="GreenGoat" instance=ExtResource("1_mxpgr")]
 script = ExtResource("2_x3y4g")
 
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_3gjps")
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_pi503")
+autoplay = "default"
+frame_progress = 0.296898
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="1"]
-position = Vector2(9.53674e-07, 9.53674e-07)
-scale = Vector2(1.2, 1.2)
+position = Vector2(4.76837e-07, 0.5)
+scale = Vector2(1.5, 1.45)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
-shape = SubResource("CircleShape2D_55eco")
+position = Vector2(0, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3q7hj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
-shape = SubResource("RectangleShape2D_frijb")
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_pcd13")
 debug_color = Color(0.933333, 0.176471, 0.482353, 0.419608)

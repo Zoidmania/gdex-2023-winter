@@ -8,6 +8,7 @@ extends Node2D
 ## Must be a subclass of Projectile
 @export var default_weapon: PackedScene
 
+@onready var sleigh_sprite: AnimatedSprite2D = $SleighSprite
 
 @onready var scale_component: ScaleComponent = $ScaleComponent
 @onready var move_component: MoveComponent = $MoveComponent

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://g8vqepc6txaf" path="res://assets/healthBar/CANE EMPTY straight.png" id="4_8kjfr"]
 [ext_resource type="Texture2D" uid="uid://hpn4hed0upio" path="res://assets/healthBar/CANE FILLED straight.png" id="5_x6lc7"]
 
-[node name="HealthBar" type="Node2D"]
+[node name="PlayerHealthBar" type="Node2D"]
 scale = Vector2(0.15, 0.15)
 script = ExtResource("1_aqlcu")
 game_stats = ExtResource("2_rvlaa")

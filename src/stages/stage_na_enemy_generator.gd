@@ -12,6 +12,9 @@ extends EnemyGenerator
 ## Connects the spawn timers to spawn handler for each enemy type.
 func _ready() -> void:
 
+    # wire the signal from game_stats re: score changing
+    super()
+
     grey_goat_timer.timeout.connect(
         handle_spawn.bind(grey_goat_scene, grey_goat_timer)
     )

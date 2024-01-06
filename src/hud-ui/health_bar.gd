@@ -1,4 +1,4 @@
-class_name HealthBar
+class_name PlayerHealthBar
 extends Node2D
 ## A health bar UI object.
 ##

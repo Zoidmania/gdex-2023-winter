@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://components/flash_component.gd" id="6_8nwxi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbwhl"]
-radius = 19.0263
+radius = 19.0
 
 [node name="Shield" type="Node2D"]
 script = ExtResource("1_b0wr3")
@@ -27,6 +27,7 @@ flash_component = NodePath("../FlashComponent")
 shape = SubResource("CircleShape2D_vbwhl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, 1.19209e-07)
 texture = ExtResource("3_mccr1")
 
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
