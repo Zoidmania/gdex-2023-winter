@@ -32,10 +32,12 @@ border_color = Color(0.898039, 0, 0.764706, 1)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_c3x4t")
 
-[node name="HealthBar" parent="HSplitContainer/UIPanel" instance=ExtResource("3_qexwg")]
-position = Vector2(1, 270)
+[node name="DeliveryLabels" type="Control" parent="HSplitContainer/UIPanel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="totalDeliveries" type="Label" parent="HSplitContainer/UIPanel"]
+[node name="totalDeliveries" type="Label" parent="HSplitContainer/UIPanel/DeliveryLabels"]
 z_index = 4
 layout_mode = 0
 offset_left = 51.0
@@ -44,7 +46,7 @@ offset_right = 70.0
 offset_bottom = 75.0
 text = "10"
 
-[node name="Label2" type="Label" parent="HSplitContainer/UIPanel"]
+[node name="Label2" type="Label" parent="HSplitContainer/UIPanel/DeliveryLabels"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 23.0
@@ -52,7 +54,7 @@ offset_right = 79.0
 offset_bottom = 46.0
 text = "Deliveries"
 
-[node name="Label3" type="Label" parent="HSplitContainer/UIPanel"]
+[node name="Label3" type="Label" parent="HSplitContainer/UIPanel/DeliveryLabels"]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 52.0
@@ -60,7 +62,7 @@ offset_right = 49.0
 offset_bottom = 75.0
 text = "/"
 
-[node name="doneDeliveries" type="Label" parent="HSplitContainer/UIPanel"]
+[node name="doneDeliveries" type="Label" parent="HSplitContainer/UIPanel/DeliveryLabels"]
 z_index = 4
 layout_mode = 0
 offset_left = 16.0
@@ -69,3 +71,6 @@ offset_right = 40.0
 offset_bottom = 75.0
 text = "0"
 horizontal_alignment = 2
+
+[node name="PlayerHealthBar" parent="HSplitContainer/UIPanel" instance=ExtResource("3_qexwg")]
+position = Vector2(1, 270)

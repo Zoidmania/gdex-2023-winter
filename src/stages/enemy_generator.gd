@@ -12,6 +12,11 @@ extends Node2D
 var play_area_width = ProjectSettings.get_setting("display/window/size/playable_area_width")
 
 
+func _ready() -> void:
+
+    game_stats.score_changed.connect(update_spawn_pattern)
+
+
 ## Spawns enemies at a random location above the screen.
 ##
 ## The spawn rate of each enemy is roughly `time_offset / score`; increasing `time_offset` increases
@@ -43,3 +48,8 @@ func handle_spawn(enemy_scene: PackedScene, timer: Timer, time_offset: float = 1
     #timer.start(spawn_rate + randf_range(0.25, 0.5))
 
     timer.start()
+
+
+func update_spawn_pattern(score: int) -> void:
+    pass
+

@@ -8,6 +8,8 @@ extends Node2D
 @export var sleigh: Sleigh
 @export var right_spawn: Marker2D
 @export var left_spawn: Marker2D
+@export var game_stats: GameStats
+
 signal delivery_completed
 
 # Called when the node enters the scene tree for the first time.
