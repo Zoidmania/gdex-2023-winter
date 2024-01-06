@@ -24,6 +24,6 @@ func _ready() -> void:
 
 
 func set_velocity(vel: Vector2) -> void:
-
+    print(vel)
     move_component.velocity = vel
 

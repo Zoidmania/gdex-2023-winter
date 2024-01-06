@@ -16,7 +16,10 @@ func _process(delta):
 
 
 func _on_cooldown_timer_timeout():
-    var shootVector: Vector2 = target.global_position - muzzle.global_position
-    var projectile: Projectile = projectile_spawner.spawn(muzzle.global_position)
-    projectile.move_component.velocity = shootVector
-
+    var projectile: Projectile = projectile_spawner.spawn(muzzle.position)
+    print(projectile.move_component)
+    if target:
+        var shootVector: Vector2 = target.position - muzzle.position
+        print(shootVector)
+        projectile.set_velocity(shootVector)
+    

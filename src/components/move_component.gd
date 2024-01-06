@@ -7,7 +7,12 @@ extends Node
 
 
 @export var actor: Node2D
-@export var velocity: Vector2
+@export var velocity: Vector2 = Vector2.ZERO:
+    set(value):
+
+        velocity = value
+        
+        
 
 
 ## Called every frame.
