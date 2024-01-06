@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://player/sleigh.gd" id="1_1sigw"]
 [ext_resource type="Resource" uid="uid://c7pb7has64jr8" path="res://game_stats.tres" id="2_hjant"]
-[ext_resource type="Texture2D" uid="uid://7khkam8vpnix" path="res://assets/player-proto/sleigh.png" id="2_m5w7w"]
 [ext_resource type="PackedScene" uid="uid://btkcgktcgydvg" path="res://weapons/snowball_cannon.tscn" id="3_hbrjt"]
 [ext_resource type="Script" path="res://components/hurtbox_component.gd" id="4_6y4jf"]
+[ext_resource type="Texture2D" uid="uid://bq8urdtxsyuln" path="res://assets/santa-presents/Santa.png" id="4_ra4kh"]
 [ext_resource type="Script" path="res://components/destroyed_component.gd" id="6_lkdr4"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="7_3bsw0"]
 [ext_resource type="Script" path="res://components/move_input_component.gd" id="8_47fyc"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://2o46vapqr8yu" path="res://shield.tscn" id="15_xh5xk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mcae1"]
-size = Vector2(16, 19)
+size = Vector2(24, 30)
 
 [node name="Sleigh" type="Node2D"]
 script = ExtResource("1_1sigw")
@@ -26,10 +26,10 @@ default_weapon = ExtResource("3_hbrjt")
 
 [node name="SleighSprite" type="Sprite2D" parent="."]
 position = Vector2(9.53674e-07, 0)
-texture = ExtResource("2_m5w7w")
+texture = ExtResource("4_ra4kh")
 
 [node name="WeaponMount" type="Marker2D" parent="."]
-position = Vector2(0, -20)
+position = Vector2(0, -15)
 
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "scale_component", "flash_component")]
 collision_mask = 0
@@ -39,7 +39,6 @@ scale_component = NodePath("../ScaleComponent")
 flash_component = NodePath("../HurtFlashComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_mcae1")
 debug_color = Color(0.917647, 0.196078, 0.517647, 0.419608)
 
