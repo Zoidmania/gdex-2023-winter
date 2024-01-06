@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://llgf3chvic3"]
+
+[ext_resource type="PackedScene" uid="uid://ocg758a60gxi" path="res://weapons/enemyWeapon.tscn" id="1_mmgq2"]
+[ext_resource type="Script" path="res://weapons/NaughtAKidLauncher.gd" id="2_lfp5p"]
+[ext_resource type="PackedScene" uid="uid://be60mfmgvfqi8" path="res://projectiles/naught_a_kid.tscn" id="3_mwijt"]
+
+[node name="NaughtAKidLauncher" instance=ExtResource("1_mmgq2")]
+script = ExtResource("2_lfp5p")
+
+[node name="ProjectileSpawner" parent="." index="2"]
+scene = ExtResource("3_mwijt")
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

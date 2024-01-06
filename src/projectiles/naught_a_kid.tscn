@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://be60mfmgvfqi8"]
+
+[ext_resource type="PackedScene" uid="uid://ookvicf7pm0s" path="res://projectiles/projectile.tscn" id="1_7tdx6"]
+[ext_resource type="Texture2D" uid="uid://cdf7fa3oyehfl" path="res://assets/enemies/krampus/Naughty kid Projectile.png" id="2_cgjn6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xev07"]
+radius = 8.0
+height = 28.0
+
+[node name="NaughtAKid" instance=ExtResource("1_7tdx6")]
+
+[node name="Sprite2D" parent="." index="0"]
+rotation = 3.94968
+texture = ExtResource("2_cgjn6")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="1"]
+position = Vector2(0, -0.500001)
+scale = Vector2(0.8, 1.35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CapsuleShape2D_xev07")
