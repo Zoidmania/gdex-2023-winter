@@ -22,6 +22,8 @@ extends Node2D
 @onready var shield: Sheild = $Shield
 @onready var hurt_sfx: AudioStreamPlayer = $HurtSFX
 @onready var shield_break_sfx: AudioStreamPlayer = $ShieldBreakSFX
+@onready var hot_choco_sfx: AudioStreamPlayer = $HotChocoSFX
+
 
 var weapon: Weapon
 

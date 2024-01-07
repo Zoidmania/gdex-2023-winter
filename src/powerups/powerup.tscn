@@ -17,3 +17,5 @@ script = ExtResource("2_ydnig")
 script = ExtResource("3_gowge")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="PickupSFX" type="AudioStreamPlayer" parent="."]
