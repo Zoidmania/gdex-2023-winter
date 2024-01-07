@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxhp2tkvgacrk"]
+[gd_scene load_steps=14 format=3 uid="uid://dxhp2tkvgacrk"]
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_rl5lf"]
 [ext_resource type="Script" path="res://enemies/black_goat.gd" id="2_kn77k"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://doawf0diikjik" path="res://projectiles/black_goat_projectile.tscn" id="5_ghwbu"]
 [ext_resource type="Script" path="res://components/destroyed_component.gd" id="6_rd5yf"]
 [ext_resource type="PackedScene" uid="uid://boluir7wkgeg5" path="res://powerups/hot_chocolate.tscn" id="7_0uy4u"]
+[ext_resource type="AudioStream" uid="uid://cehjbajg6a5y5" path="res://assets/audio/sfx/goatshoot.wav" id="10_f5rwm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1ykqs"]
 animations = [{
@@ -83,3 +84,8 @@ destroy_effect_spawner_component = NodePath("../SpawnerComponent")
 [node name="SpawnerComponent" type="Node2D" parent="." index="15"]
 script = ExtResource("4_i4siy")
 scene = ExtResource("7_0uy4u")
+
+[node name="ProjectileFireSFX" type="AudioStreamPlayer" parent="." index="18"]
+stream = ExtResource("10_f5rwm")
+volume_db = -15.0
+bus = &"SFX"

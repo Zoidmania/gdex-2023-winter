@@ -7,6 +7,7 @@ extends Enemy
 @onready var fire_timer: Timer = $FireTimer
 @onready var projectile_spawner: SpawnerComponent = $ProjectileSpawner
 @onready var muzzle: Marker2D = $Muzzle
+@onready var projectile_fire_sfx: AudioStreamPlayer = $ProjectileFireSFX
 
 
 signal fired
@@ -27,3 +28,4 @@ func fire_projectile() -> void:
     scale_component.tween_scale()
     fire_timer.start()
     fired.emit()
+    projectile_fire_sfx.play()
