@@ -9,6 +9,8 @@ extends Enemy
 @onready var muzzle: Marker2D = $Muzzle
 @onready var projectile_fire_sfx: AudioStreamPlayer = $ProjectileFireSFX
 
+var is_destroyed := false
+
 
 signal fired
 
@@ -18,11 +20,18 @@ func _ready() -> void:
     super()
     fire_timer.timeout.connect(fire_projectile)
 
+    health_component.no_health.connect(func():
+        is_destroyed = true
+    )
+
 
 ## Causes the associated [SpawnerComponent] to create a projectile.
 ##
 ## The projectile's speed is controlled by the [Projectile]'s [MoveComponent].
 func fire_projectile() -> void:
+
+    if is_destroyed:
+        return
 
     projectile_spawner.spawn(muzzle.global_position)
     scale_component.tween_scale()
