@@ -14,8 +14,11 @@ extends Resource
 
 @export var required_score := 10
 
-@export var player_health:= 0:
+@export var max_health:= 20
+
+@export var player_health:= 20:
     set(value):
+        print(value)
         player_health = value
         health_changed.emit(player_health)
 
