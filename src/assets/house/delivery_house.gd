@@ -46,4 +46,5 @@ func _on_area_2d_area_exited(area):
 
 func _on_present_timer_timeout():
     release.emit()
+    house.play('depleted')
     delivered = true
