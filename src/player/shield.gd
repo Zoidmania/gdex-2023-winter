@@ -18,9 +18,9 @@ func _on_health_component_health_changed(health):
 
     if health <= maxHealth/2:
         cracked = true
-        sprite_2d.texture = load('res://assets/powerup/shield cracked.png')
+        sprite_2d.texture = preload('res://assets/powerup/shield cracked.png')
 
-    if health == 0:
+    if health <= 0:
         destroyed.emit()
         queue_free()
     elif cracked:

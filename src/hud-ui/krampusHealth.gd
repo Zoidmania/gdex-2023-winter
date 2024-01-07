@@ -35,6 +35,8 @@ func configure_bounds() -> void:
 ## Updates the tracked health value to the new one.
 func set_health(new_health: int) -> void:
 
+    print("New KHB Value: ", new_health)
+
     # Ensure health is within bounds.
     # Nota Bene: even though the values on the health bars themselves are clamped, it's still good
     # practice to check your vars.

@@ -26,6 +26,7 @@ script = ExtResource("2_o5okf")
 health_component = NodePath("../HealthComponent")
 scale_component = NodePath("../ScaleComponent")
 flash_component = NodePath("../FlashComponent")
+is_shield = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CircleShape2D_vbwhl")

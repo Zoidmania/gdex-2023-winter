@@ -62,8 +62,9 @@ func _ready() -> void:
     )
 
     # Destroy self when self's hitbox collides with a hurtbox (player)
-    hitbox_component.hit_hurtbox.connect(destroyed_component.destroy.unbind(1))
     hitbox_component.hit_hurtbox.connect(func(_ignored):
+        ## deal remaining self health to collided target
+        hitbox_component.damage = health_component.health
         hitbox_component.queue_free()
         hurtbox_component.queue_free()
         animated_sprite_2d.hide()

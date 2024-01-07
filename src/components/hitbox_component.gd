@@ -10,6 +10,8 @@ extends Area2D
 ## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
+@export var health_component: HealthComponent
+
 ## The amount of damage this hitbox deals.
 @export var damage = 1.0
 

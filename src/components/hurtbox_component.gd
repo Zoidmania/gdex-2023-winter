@@ -9,6 +9,10 @@ extends Area2D
 @export var health_component: HealthComponent
 @export var scale_component: ScaleComponent
 @export var flash_component: FlashComponent
+
+@export var is_shield := false
+@export var is_player := false
+
 var game_stats: GameStats = preload("res://game_stats.tres")
 
 ## Indicates that this [HurtboxComponent] cannot be damaged, meaning that all child collision shapes
@@ -24,6 +28,7 @@ var is_invincible = false :
             child.set_deferred("disabled", is_invincible)
 
 
+
 ## Emitted when this [HurtBoxComponent] is hurt. The only argument of this signal is an assoicated
 ## [HitBoxComponent], indicating that that [HitBoxComponent] collided with this [HurtBoxComponent].
 signal hurt(hitbox: HitboxComponent)
@@ -35,12 +40,26 @@ signal hurt(hitbox: HitboxComponent)
 ## equal to the damage from the associated [HitBoxComponent].
 func _ready() -> void:
 
-    self.hurt.connect(
-        func(hitbox_component: HitboxComponent):
-            if game_stats.player_health - hitbox_component.damage <= game_stats.max_player_health:
+    if is_player:
+        self.hurt.connect(
+            func(hitbox_component: HitboxComponent):
+                if game_stats.player_health - hitbox_component.damage <= game_stats.max_player_health:
+                    health_component.health -= hitbox_component.damage
+                    scale_component.tween_scale()
+                    flash_component.flash()
+                else:
+                    health_component.health = game_stats.max_player_health
+        )
+
+    elif is_shield:
+        self.hurt.connect(
+            func(hitbox_component: HitboxComponent):
                 health_component.health -= hitbox_component.damage
                 scale_component.tween_scale()
                 flash_component.flash()
-            else:
-                health_component.health = game_stats.max_player_health
-    )
+        )
+    else:
+        self.hurt.connect(
+            func(hitbox_component: HitboxComponent):
+                health_component.health -= hitbox_component.damage
+        )

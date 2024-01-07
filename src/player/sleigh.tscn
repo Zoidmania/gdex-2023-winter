@@ -70,6 +70,7 @@ script = ExtResource("4_6y4jf")
 health_component = NodePath("../HealthComponent")
 scale_component = NodePath("../ScaleComponent")
 flash_component = NodePath("../HurtFlashComponent")
+is_player = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("RectangleShape2D_mcae1")
