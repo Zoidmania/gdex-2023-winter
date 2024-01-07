@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://gqp77vxm1wit"]
+[gd_scene load_steps=6 format=3 uid="uid://gqp77vxm1wit"]
+
+[ext_resource type="Script" path="res://hud-ui/BossTransition.gd" id="1_gklen"]
 
 [sub_resource type="Animation" id="Animation_o40p3"]
 resource_name = "fade"
@@ -46,10 +48,10 @@ tracks/3/path = NodePath("ColorRect/TopText:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.3, 2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.3, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(50, 121), Vector2(100, 121)]
+"values": [Vector2(50, 121), Vector2(100, 121), Vector2(1000, 121)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -58,10 +60,10 @@ tracks/4/path = NodePath("ColorRect/BottomText:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.3, 2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.3, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(100, 157), Vector2(50, 157)]
+"values": [Vector2(100, 157), Vector2(50, 157), Vector2(-1000, 157)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g7fdl"]
@@ -83,9 +85,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gklen")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -100,8 +103,10 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_g7fdl")
 }
+autoplay = "fade"
 
 [node name="TopText" type="Label" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
 top_level = true
 layout_mode = 1
 anchors_preset = 8
@@ -109,9 +114,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
+offset_left = -110.0
 offset_top = -39.0
-offset_right = 107.0
+offset_right = 57.001
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -121,12 +126,15 @@ text = "HO HO OH NO"
 label_settings = SubResource("LabelSettings_8o241")
 
 [node name="BottomText" type="Label" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
 top_level = true
 layout_mode = 0
-offset_left = 50.0
+offset_left = 100.0
 offset_top = 157.0
-offset_right = 231.0
+offset_right = 281.0
 offset_bottom = 191.0
 text = "IT'S KRAMPUS!!!
 "
 label_settings = SubResource("LabelSettings_5ewwb")
+
+[connection signal="animation_finished" from="ColorRect/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

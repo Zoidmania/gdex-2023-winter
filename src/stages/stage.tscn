@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dt47ouy0h30vr" path="res://hud-ui/hud.tscn" id="1_ofi62"]
 [ext_resource type="PackedScene" uid="uid://bh6x3atb6ibqq" path="res://player/sleigh.tscn" id="2_ch66l"]
 [ext_resource type="Resource" uid="uid://c7pb7has64jr8" path="res://game_stats.tres" id="2_i7ojo"]
-[ext_resource type="PackedScene" uid="uid://3cqo8pvwxxkr" path="res://effects/snow.tscn" id="4_obbyb"]
+[ext_resource type="PackedScene" path="res://effects/snow.tscn" id="4_obbyb"]
 [ext_resource type="AudioStream" uid="uid://bxhopo0hrbys8" path="res://assets/audio/music/dougrestyegerrymentlemen.ogg" id="5_ghlan"]
 [ext_resource type="AudioStream" uid="uid://jo5v0xqte5yu" path="res://assets/audio/sfx/santadeath.wav" id="7_prh7i"]
 

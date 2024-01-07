@@ -37,37 +37,37 @@ signal hurt(new_health: int)
 ## Ensures that the enemy dequeues when leaving the viewport, or is destroyed.
 func _ready() -> void:
 
-	# Set the margin for this enemy equal to half the width of the visibility notifier.
-	x_margin = visible_on_screen_notifier_2d.get_rect().size.x / 2
-	y_margin = visible_on_screen_notifier_2d.get_rect().size.y / 2
+    # Set the margin for this enemy equal to half the width of the visibility notifier.
+    x_margin = visible_on_screen_notifier_2d.get_rect().size.x / 2
+    y_margin = visible_on_screen_notifier_2d.get_rect().size.y / 2
 
-	visible_on_screen_notifier_2d.screen_exited.connect(queue_free)
+    visible_on_screen_notifier_2d.screen_exited.connect(queue_free)
 
-	hurtbox_component.hurt.connect(func(hitbox: HitboxComponent):
-		scale_component.tween_scale()
-		flash_component.flash()
-		shake_component.tween_shake()
-		hurt.emit(health_component.health)
-		hurt_sfx.play()
-	)
+    hurtbox_component.hurt.connect(func(hitbox: HitboxComponent):
+        scale_component.tween_scale()
+        flash_component.flash()
+        shake_component.tween_shake()
+        hurt.emit(health_component.health)
+        hurt_sfx.play()
+    )
 
-	death_sfx.finished.connect(queue_free)
+    death_sfx.finished.connect(queue_free)
 
-	health_component.no_health.connect(func():
-		hitbox_component.queue_free()
-		hurtbox_component.queue_free()
-		animated_sprite_2d.hide()
-		move_component.velocity = Vector2(0, 0)
-		death_sfx.play()
-	)
+    health_component.no_health.connect(func():
+        hitbox_component.queue_free()
+        hurtbox_component.queue_free()
+        animated_sprite_2d.hide()
+        move_component.velocity = Vector2(0, 0)
+        death_sfx.play()
+    )
 
-	# Destroy self when self's hitbox collides with a hurtbox (player)
-	hitbox_component.hit_hurtbox.connect(destroyed_component.destroy.unbind(1))
-	hitbox_component.hit_hurtbox.connect(func(_ignored):
-		hitbox_component.queue_free()
-		hurtbox_component.queue_free()
-		animated_sprite_2d.hide()
-		move_component.velocity = Vector2(0, 0)
-		death_sfx.play()
-		destroyed_component.destroy()
-	)
+    # Destroy self when self's hitbox collides with a hurtbox (player)
+    hitbox_component.hit_hurtbox.connect(destroyed_component.destroy.unbind(1))
+    hitbox_component.hit_hurtbox.connect(func(_ignored):
+        hitbox_component.queue_free()
+        hurtbox_component.queue_free()
+        animated_sprite_2d.hide()
+        move_component.velocity = Vector2(0, 0)
+        death_sfx.play()
+        destroyed_component.destroy()
+    )

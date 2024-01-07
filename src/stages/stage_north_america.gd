@@ -4,8 +4,7 @@ extends Stage
 
 
 func _on_hud_done_all_deliveries():
-
-    get_tree().change_scene_to_file('res://stages/stage_antarctica.tscn')
+    get_tree().change_scene_to_file('res://hud-ui/BossTransition.tscn')
 
 
 func _on_house_generator_delivery_completed():

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://t7g7fre5eokw" path="res://hud-ui/health_bar.tscn" id="3_qexwg"]
 [ext_resource type="LabelSettings" uid="uid://bexwfm4yo3lau" path="res://menus/start_label_settings.tres" id="4_nbh4n"]
 [ext_resource type="LabelSettings" uid="uid://dptaysfdj8xre" path="res://menus/title_label_settings.tres" id="5_6sp2r"]
-[ext_resource type="PackedScene" path="res://hud-ui/krampusHealth.tscn" id="5_23lft"]
+[ext_resource type="PackedScene" uid="uid://dfogjb03qwg7i" path="res://hud-ui/krampusHealth.tscn" id="5_23lft"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3x4t"]
 bg_color = Color(0.45098, 0.290196, 0.227451, 1)
