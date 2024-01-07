@@ -41,4 +41,6 @@ func _ready() -> void:
                 health_component.health -= hitbox_component.damage
                 scale_component.tween_scale()
                 flash_component.flash()
+            else:
+                health_component.health = game_stats.max_health
     )
