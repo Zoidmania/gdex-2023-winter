@@ -2,6 +2,16 @@
 
 #####
 #
+# Project-Specific Ignores
+#
+#####
+
+# Export path
+exports/*
+!exports/.gitkeep
+
+#####
+#
 # Godot Template
 #
 #####
