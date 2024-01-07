@@ -33,6 +33,5 @@ func _ready() -> void:
 
 
 func _on_audio_player_finished(player: AudioStreamPlayer):
-    print("loop")
     player.stream_paused = false
     player.play()
