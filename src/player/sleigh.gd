@@ -19,6 +19,8 @@ extends Node2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var destroyed_component: DestroyedComponent = $DestroyedComponent
 
+@onready var hurt_sfx: AudioStreamPlayer = $HurtSFX
+
 
 var weapon: Weapon
 
@@ -32,7 +34,6 @@ var top_border = 0
 var bottom_border = ProjectSettings.get_setting("display/window/size/viewport_height")
 
 
-signal finished_dying
 signal dead
 
 
@@ -52,7 +53,10 @@ func _ready() -> void:
     health_component.health = game_stats.player_health
     game_stats.health_initialized.emit()
     health_component.health_changed.connect(func(health):
+        if health < game_stats.player_health:
+            hurt_sfx.play()
         game_stats.player_health = health
+
     )
 
     # handle death
