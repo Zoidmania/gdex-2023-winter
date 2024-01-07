@@ -44,7 +44,7 @@ func _ready() -> void:
     switch_weapon(default_weapon)
 
     # Configure the health bar
-    health_component.health = game_stats.player_health  
+    health_component.health = game_stats.player_health
     game_stats.health_initialized.emit()
     health_component.health_changed.connect(func(health):
         game_stats.player_health = health

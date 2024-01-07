@@ -45,6 +45,14 @@ func _input(event: InputEvent) -> void:
         fire_rate_timer.stop()
 
 
+func _notification(what: int) -> void:
+
+    # Nota bene: Fixes an issue where pausing the game while holding the fire button then letting
+    # go of the firing button before unpausing causes the weapon to continue firing.
+    if what == NOTIFICATION_PAUSED:
+        fire_rate_timer.stop()
+
+
 ## Causes the associated [SpawnerComponent] to create a projectile.
 ##
 ## The projectile's speed is controlled by the [Projectile]'s [MoveComponent].

@@ -5,8 +5,8 @@ extends Stage
 
 func _on_hud_done_all_deliveries():
     print('boss spawn') # Replace with function body.
-   
-    
+
+
     get_tree().change_scene_to_file('res://stages/stage_antarctica.tscn')
 
 
