@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8yr060te5x73"]
+[gd_scene load_steps=9 format=3 uid="uid://b8yr060te5x73"]
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_uiddd"]
+[ext_resource type="Script" path="res://enemies/krampus.gd" id="2_a4kgy"]
 [ext_resource type="Texture2D" uid="uid://c8v142xgqvdrp" path="res://assets/enemies/krampus/Krampus 2.png" id="2_kg57a"]
 [ext_resource type="Texture2D" uid="uid://cosgyhcuhqj1h" path="res://assets/enemies/krampus/Krampus 3.png" id="3_kxryr"]
 [ext_resource type="Texture2D" uid="uid://d0j2ere72xqse" path="res://assets/enemies/krampus/Krampus.png" id="4_028ho"]
+[ext_resource type="PackedScene" uid="uid://dgpgjipwbutng" path="res://weapons/NaughtAKidLauncher.tscn" id="5_mu1mg"]
+[ext_resource type="Script" path="res://components/border_bounce_component.gd" id="7_6afif"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0j8ms"]
 animations = [{
@@ -23,6 +26,8 @@ animations = [{
 }]
 
 [node name="Krampus" instance=ExtResource("1_uiddd")]
+scale = Vector2(2, 2)
+script = ExtResource("2_a4kgy")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_0j8ms")
@@ -45,8 +50,25 @@ visible = false
 scale = Vector2(1.88, 2.4)
 polygon = PackedVector2Array(-3.72341, -10, -1.06383, -7.5, -1.06383, -6.66666, -2.12766, -5.83333, -2.12766, -5.41666, -1.59575, -5, 1.59575, -5, 2.12766, -5.41666, 2.12766, -5.83333, 1.06383, -6.66666, 1.06383, -7.5, 3.72341, -10, 4.25532, -10, 4.25532, -8.33333, 3.72341, -7.5, 3.72341, -6.66666, 4.78724, -6.25, 4.78724, -5.41666, 3.72341, -4.16667, 3.72341, -3.75, 4.25532, -3.33333, 4.78724, -3.33333, 7.44681, -7.91666, 7.97873, -7.91666, 8.51064, -7.08333, 8.51064, -5.41666, 6.9149, -0.833333, 6.38298, -0.416667, 3.19149, -0.416667, 3.19149, 0.416667, 5.85107, 1.25, 8.51064, 1.25, 10.1064, 2.5, 10.1064, 4.58333, 8.51064, 4.58333, 6.38298, 6.25, 5.31915, 6.25, 4.25532, 5.41666, 4.25532, 8.75, 3.19149, 10, -2.65958, 10, -4.25532, 8.75, -4.25532, 5, -6.38298, 6.66666, -7.97873, 5, -10.1064, 5, -10.1064, 2.91667, -7.44681, 0.833333, -4.78724, 0, -4.78724, -0.416667, -6.38298, -0.416667, -8.51064, -5.41666, -8.51064, -7.08333, -7.97873, -7.91666, -7.44681, -7.91666, -4.78724, -3.33333, -4.25532, -3.33333, -3.72341, -3.75, -5.31915, -6.25, -3.72341, -7.08333, -3.72341, -7.5, -4.25532, -8.33333, -4.25532, -10)
 
+[node name="MoveComponent" parent="." index="6"]
+velocity = Vector2(50, 0)
+
 [node name="DestroyedSpawnerComponent" parent="." index="9"]
 scale = Vector2(3, 3)
 
 [node name="HealthComponent" parent="." index="10"]
 health = 100
+
+[node name="MouthLauncher" parent="." index="11" instance=ExtResource("5_mu1mg")]
+position = Vector2(0, 6)
+
+[node name="LeftHandLauncher" parent="." index="12" instance=ExtResource("5_mu1mg")]
+position = Vector2(-13, 9.5)
+
+[node name="RightHandLauncher" parent="." index="13" instance=ExtResource("5_mu1mg")]
+position = Vector2(13.5, 9.5)
+
+[node name="BorderBounceComponent" type="Node" parent="." index="14" node_paths=PackedStringArray("actor", "move_component")]
+script = ExtResource("7_6afif")
+actor = NodePath("..")
+move_component = NodePath("../MoveComponent")

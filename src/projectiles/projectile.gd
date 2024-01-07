@@ -8,6 +8,11 @@ extends Node2D
 
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
 
+@onready var move_component: MoveComponent = $MoveComponent
+
+## Used to set the velocity vector for projectiles that need to be dynamically set on spawn.
+var init_velocity: Vector2
+
 
 ## Called when the node enters the scene tree for the first time.
 ##
@@ -19,3 +24,11 @@ func _ready() -> void:
     # The `hurt_hitbox` signal sends 1 argument, so we need to unbind it since `queue_free` doesn't
     # accept any arguments.
     hitbox_component.hit_hurtbox.connect(queue_free.unbind(1))
+
+    if init_velocity:
+        move_component.velocity = init_velocity
+
+
+func set_velocity(vel: Vector2) -> void:
+    init_velocity = vel
+

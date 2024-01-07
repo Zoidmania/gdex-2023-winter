@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdcj5lytm5658"]
+[gd_scene load_steps=6 format=3 uid="uid://cdcj5lytm5658"]
 
 [ext_resource type="PackedScene" uid="uid://cv75r8ff33mru" path="res://stages/stage.tscn" id="1_t5mki"]
+[ext_resource type="Script" path="res://stages/stage_antarctica.gd" id="2_11x70"]
 [ext_resource type="PackedScene" uid="uid://3yahcs5b6i42" path="res://stages/stage_antarctica_enemy_generator.tscn" id="2_ci7bq"]
 [ext_resource type="PackedScene" uid="uid://b8yr060te5x73" path="res://enemies/krampus.tscn" id="3_qiw3l"]
 
@@ -14,14 +15,17 @@ turbulence_noise_strength = 2.47
 turbulence_noise_scale = 2.369
 
 [node name="StageAntarctica" instance=ExtResource("1_t5mki")]
+script = ExtResource("2_11x70")
 
 [node name="HUD" parent="." index="0"]
 is_boss_stage = true
 
 [node name="StageAntarcticaEnemyGenerator" parent="." index="1" instance=ExtResource("2_ci7bq")]
 
-[node name="Snow" parent="." index="4"]
+[node name="Snow" parent="." index="3"]
+amount = 10
 process_material = SubResource("ParticleProcessMaterial_jb6tv")
 
-[node name="Krampus" parent="." index="5" instance=ExtResource("3_qiw3l")]
-position = Vector2(120, 33)
+[node name="Krampus" parent="." index="5" node_paths=PackedStringArray("target") instance=ExtResource("3_qiw3l")]
+position = Vector2(120, 48)
+target = NodePath("../Sleigh")
