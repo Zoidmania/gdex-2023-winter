@@ -14,8 +14,6 @@ extends Resource
 ## The score required to complete the stage.
 @export var required_score := 10
 
-<<<<<<< HEAD
-@export var max_health:= 20
 
 ## Globally track the player's health.
 @export var player_health:= 20:
