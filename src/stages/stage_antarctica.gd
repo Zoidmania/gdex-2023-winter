@@ -1,6 +1,5 @@
 extends Stage
 @onready var krampus:Krampus = $Krampus
-@onready var sleigh = $Sleigh
 
 
 # Called when the node enters the scene tree for the first time.
