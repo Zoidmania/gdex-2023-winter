@@ -1,20 +1,30 @@
 extends Node2D
+class_name Sheild
+
+
+@onready var dmg_sfx: AudioStreamPlayer = $DmgSFX
+@onready var crack_sfx: AudioStreamPlayer = $CrackSFX
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 
 var maxHealth = 4
-# Called when the node enters the scene tree for the first time.
-func _ready():
-    pass # Replace with function body.
+var cracked = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-    pass
+signal destroyed
 
 
 func _on_health_component_health_changed(health):
-    if(health <= maxHealth/2):
-        $Sprite2D.texture = load('res://assets/powerup/shield cracked.png')
-    if(health == 0):
-        queue_free()
 
+    if health <= maxHealth/2:
+        cracked = true
+        sprite_2d.texture = load('res://assets/powerup/shield cracked.png')
+
+    if health == 0:
+        destroyed.emit()
+        queue_free()
+    elif cracked:
+        crack_sfx.play()
+    else:
+        dmg_sfx.play()
 

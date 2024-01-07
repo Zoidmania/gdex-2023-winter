@@ -38,6 +38,7 @@ bus = &"Music"
 [node name="DeathPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_prh7i")
 volume_db = -15.0
+bus = &"SFX"
 
 [node name="DeathTransitionTimer" type="Timer" parent="."]
 wait_time = 3.0

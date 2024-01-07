@@ -19,8 +19,9 @@ extends Node2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var destroyed_component: DestroyedComponent = $DestroyedComponent
 
+@onready var shield: Sheild = $Shield
 @onready var hurt_sfx: AudioStreamPlayer = $HurtSFX
-
+@onready var shield_break_sfx: AudioStreamPlayer = $ShieldBreakSFX
 
 var weapon: Weapon
 
@@ -56,7 +57,11 @@ func _ready() -> void:
         if health < game_stats.player_health:
             hurt_sfx.play()
         game_stats.player_health = health
+    )
 
+    # handle sheild break
+    shield.destroyed.connect(func():
+        shield_break_sfx.play()
     )
 
     # handle death
