@@ -5,7 +5,7 @@ extends Control
 
 func _ready() -> void:
 
-    game_stats.player_health = game_stats.max_health
+    game_stats.player_health = game_stats.max_player_health
 
 
 func _process(delta: float) -> void:

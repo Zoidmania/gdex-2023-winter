@@ -69,6 +69,7 @@ func _ready() -> void:
     # handle death
     health_component.no_health.connect(func():
         dead.emit()
+        move_component.velocity = Vector2(0, 0)
     )
 
 

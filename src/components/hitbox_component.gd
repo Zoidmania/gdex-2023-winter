@@ -14,7 +14,7 @@ extends Area2D
 @export var damage = 1.0
 
 ## Emitted when this hitbox hits a "hurtbox".
-signal hit_hurtbox(hurtbox)
+signal hit_hurtbox(hurtbox: HurtboxComponent)
 
 
 ## Init.
