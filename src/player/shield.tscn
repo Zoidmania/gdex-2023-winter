@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2o46vapqr8yu"]
+[gd_scene load_steps=10 format=3 uid="uid://cw1q3k25mmxr"]
 
 [ext_resource type="Script" path="res://player/shield.gd" id="1_b0wr3"]
 [ext_resource type="Script" path="res://components/health_component.gd" id="1_yxoys"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bu8luijd3hmmn" path="res://assets/santa-presents/shield full.png" id="3_mccr1"]
 [ext_resource type="Script" path="res://components/scale_component.gd" id="5_ashuh"]
 [ext_resource type="Script" path="res://components/flash_component.gd" id="6_8nwxi"]
+[ext_resource type="AudioStream" uid="uid://cpcj2860diw84" path="res://assets/audio/sfx/shielddamage.wav" id="7_6spgt"]
+[ext_resource type="AudioStream" uid="uid://cp6wvp1cd5ne0" path="res://assets/audio/sfx/shield_crack.wav" id="8_ydhy3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbwhl"]
 radius = 19.0
@@ -18,10 +20,13 @@ script = ExtResource("1_yxoys")
 health = 4
 
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "scale_component", "flash_component")]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("2_o5okf")
 health_component = NodePath("../HealthComponent")
 scale_component = NodePath("../ScaleComponent")
 flash_component = NodePath("../FlashComponent")
+is_shield = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CircleShape2D_vbwhl")
@@ -37,6 +42,16 @@ sprite = NodePath("../Sprite2D")
 [node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("6_8nwxi")
 sprite = NodePath("../Sprite2D")
+
+[node name="DmgSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6spgt")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="CrackSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ydhy3")
+volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]
 [connection signal="hurt" from="HurtboxComponent" to="." method="_on_hurtbox_component_hurt"]

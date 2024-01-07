@@ -21,7 +21,7 @@ func _ready() -> void:
 ##
 ## The spawn rate of each enemy is roughly `time_offset / score`; increasing `time_offset` increases
 ## the time delta between spawns, and vice versa. `time_offset` must be a positive number.
-func handle_spawn(enemy_scene: PackedScene, timer: Timer, time_offset: float = 3.0) -> void:
+func handle_spawn(enemy_scene: PackedScene, timer: Timer, time_offset: float = 2.0) -> void:
 
     # instance the enemy _now_ instead of letting spawn() do it so we can access its margin values
     var instance: Enemy = enemy_scene.instantiate()

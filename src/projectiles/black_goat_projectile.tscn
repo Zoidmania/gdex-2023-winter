@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://doawf0diikjik"]
+[gd_scene load_steps=5 format=3 uid="uid://doawf0diikjik"]
 
 [ext_resource type="PackedScene" uid="uid://ookvicf7pm0s" path="res://projectiles/projectile.tscn" id="1_xm74n"]
 [ext_resource type="Texture2D" uid="uid://c2t76e6ujbowk" path="res://assets/goat-proto/black-projectile.png" id="2_ag4k0"]
+[ext_resource type="AudioStream" uid="uid://begysoma34ddx" path="res://assets/audio/sfx/goatshothit.wav" id="3_hhm7j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_67lka"]
 radius = 6.0
@@ -16,10 +17,13 @@ position = Vector2(2.38419e-07, 2.38419e-07)
 scale = Vector2(0.8, 0.8)
 
 [node name="HitboxComponent" parent="." index="3"]
-collision_mask = 1
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_67lka")
 
 [node name="MoveComponent" parent="." index="4"]
 velocity = Vector2(0, 250)
+
+[node name="ImpactSFX" parent="." index="5"]
+stream = ExtResource("3_hhm7j")

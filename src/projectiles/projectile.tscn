@@ -26,3 +26,6 @@ script = ExtResource("4_ti51q")
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("1_summs")
 actor = NodePath("..")
+
+[node name="ImpactSFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

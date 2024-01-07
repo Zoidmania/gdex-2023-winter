@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://btkcgktcgydvg"]
+[gd_scene load_steps=5 format=3 uid="uid://btkcgktcgydvg"]
 
 [ext_resource type="PackedScene" uid="uid://ckh3rdrsh87s7" path="res://weapons/weapon.tscn" id="1_7sp4p"]
 [ext_resource type="Texture2D" uid="uid://5rulcv7ablph" path="res://assets/santa-presents/Snow_Canon.png" id="2_s35ne"]
 [ext_resource type="PackedScene" uid="uid://i2xyvfr5imbt" path="res://projectiles/snowball_projectile.tscn" id="3_taycd"]
+[ext_resource type="AudioStream" uid="uid://cmrjfw7whcy8g" path="res://assets/audio/sfx/snowballfire.wav" id="4_t0wy6"]
 
 [node name="SnowballCannon" instance=ExtResource("1_7sp4p")]
 fire_rate = 0.25
@@ -15,3 +16,7 @@ position = Vector2(0, -6)
 
 [node name="ProjectileSpawner" parent="." index="2"]
 scene = ExtResource("3_taycd")
+
+[node name="FireSFX" parent="." index="6"]
+stream = ExtResource("4_t0wy6")
+volume_db = -10.0

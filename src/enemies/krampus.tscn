@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8yr060te5x73"]
+[gd_scene load_steps=11 format=3 uid="uid://b8yr060te5x73"]
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_uiddd"]
 [ext_resource type="Script" path="res://enemies/krampus.gd" id="2_a4kgy"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://d0j2ere72xqse" path="res://assets/enemies/krampus/Krampus.png" id="4_028ho"]
 [ext_resource type="PackedScene" uid="uid://dgpgjipwbutng" path="res://weapons/NaughtAKidLauncher.tscn" id="5_mu1mg"]
 [ext_resource type="Script" path="res://components/border_bounce_component.gd" id="7_6afif"]
+[ext_resource type="AudioStream" uid="uid://bwe12ei8k603o" path="res://assets/audio/sfx/krampusdamage.wav" id="8_of8hh"]
+[ext_resource type="AudioStream" uid="uid://bhma5w8jewqj6" path="res://assets/audio/sfx/krampusdeath.wav" id="9_63fkq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0j8ms"]
 animations = [{
@@ -72,3 +74,9 @@ position = Vector2(13.5, 9.5)
 script = ExtResource("7_6afif")
 actor = NodePath("..")
 move_component = NodePath("../MoveComponent")
+
+[node name="HurtSFX" parent="." index="15"]
+stream = ExtResource("8_of8hh")
+
+[node name="DeathSFX" parent="." index="16"]
+stream = ExtResource("9_63fkq")

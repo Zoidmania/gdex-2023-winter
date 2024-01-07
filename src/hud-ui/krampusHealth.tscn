@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgl4faumqyx3s"]
+
+[ext_resource type="Script" path="res://hud-ui/krampusHealth.gd" id="1_v4djh"]
+[ext_resource type="Texture2D" uid="uid://dupqxg5iqx2m7" path="res://assets/enemies/krampus/KrampusHealth Empty Curve.png" id="2_y12xp"]
+[ext_resource type="Texture2D" uid="uid://dsadom5m88l88" path="res://assets/enemies/krampus/KrampusHeath curve filled.png" id="3_4d0u4"]
+[ext_resource type="Texture2D" uid="uid://4ibm3ocudu6k" path="res://assets/enemies/krampus/KrampusHealth Empty.png" id="4_jqfa4"]
+[ext_resource type="Texture2D" uid="uid://bkjdk1hpklnrt" path="res://assets/enemies/krampus/KrampusHealth FILLED straight.png" id="5_u20c1"]
+
+[node name="KrampusHealth" type="Node2D"]
+scale = Vector2(0.15, 0.15)
+script = ExtResource("1_v4djh")
+
+[node name="CurveHealth" type="TextureProgressBar" parent="."]
+offset_right = 512.0
+offset_bottom = 308.0
+size_flags_horizontal = 0
+min_value = 50.0
+value = 50.0
+fill_mode = 4
+texture_under = ExtResource("2_y12xp")
+texture_progress = ExtResource("3_4d0u4")
+radial_fill_degrees = 180.0
+radial_center_offset = Vector2(58.7, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="StraightHealth" type="TextureProgressBar" parent="."]
+offset_right = 329.0
+offset_bottom = 70.0
+max_value = 50.0
+texture_under = ExtResource("4_jqfa4")
+texture_progress = ExtResource("5_u20c1")
+metadata/_edit_use_anchors_ = true

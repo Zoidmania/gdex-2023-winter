@@ -7,3 +7,4 @@ script = ExtResource("1_6amvq")
 score = 0
 required_score = 10
 player_health = 20
+max_player_health = 20

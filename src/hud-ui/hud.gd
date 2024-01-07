@@ -4,11 +4,14 @@ class_name  HUD
 
 @onready var ui_panel = $HSplitContainer/UIPanel
 @onready var delivery_labels: Control = $HSplitContainer/UIPanel/DeliveryLabels
-@onready var total_deliveries: Label = $HSplitContainer/UIPanel/DeliveryLabels/totalDeliveries
-@onready var done_deliveries: Label = $HSplitContainer/UIPanel/DeliveryLabels/doneDeliveries
+@onready var done_deliveries: Label = %DoneDeliveries
+@onready var total_deliveries: Label = %TotalDeliveries
+@onready var win_label: RichTextLabel = %WinLabel
+
 
 @onready var h_split_container: HSplitContainer = $HSplitContainer
 @onready var health_bar: PlayerHealthBar = $HSplitContainer/UIPanel/PlayerHealthBar
+@onready var krampus_health: KrampusHealthBar = $HSplitContainer/UIPanel/KrampusHealth
 
 @onready var pause_screen_layer: CanvasLayer = $PauseScreenLayer
 @onready var pause_text_layer: CanvasLayer = $PauseScreenLayer/PauseTextLayer
@@ -22,8 +25,8 @@ class_name  HUD
 
 var play_area_width = ProjectSettings.get_setting("display/window/size/playable_area_width")
 
-signal done_all_deliveries
 
+signal done_all_deliveries
 
 
 ## Init.
@@ -37,6 +40,7 @@ func _ready() -> void:
     if is_boss_stage:
 
         delivery_labels.hide()
+        krampus_health.show()
 
     else:
 
@@ -67,6 +71,10 @@ func complete_delivery() -> void:
 
     game_stats.score += 1
     done_deliveries.text = str(game_stats.score)
-    if game_stats.score == 1:
+    if game_stats.score == game_stats.required_score:
         done_all_deliveries.emit()
 
+
+func update_krampus_health(new_health: int) -> void:
+
+    krampus_health.set_health(new_health)

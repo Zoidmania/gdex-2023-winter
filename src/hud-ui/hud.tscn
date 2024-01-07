@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt47ouy0h30vr"]
+[gd_scene load_steps=10 format=3 uid="uid://dt47ouy0h30vr"]
 
 [ext_resource type="Script" path="res://hud-ui/hud.gd" id="1_wj5ib"]
 [ext_resource type="PackedScene" uid="uid://bl8jggbyev5gg" path="res://assets/background/snowroad.tscn" id="2_qawmx"]
 [ext_resource type="Resource" uid="uid://c7pb7has64jr8" path="res://game_stats.tres" id="2_w3hj6"]
 [ext_resource type="PackedScene" uid="uid://t7g7fre5eokw" path="res://hud-ui/health_bar.tscn" id="3_qexwg"]
+[ext_resource type="LabelSettings" uid="uid://bexwfm4yo3lau" path="res://menus/start_label_settings.tres" id="4_nbh4n"]
 [ext_resource type="LabelSettings" uid="uid://dptaysfdj8xre" path="res://menus/title_label_settings.tres" id="5_6sp2r"]
+[ext_resource type="PackedScene" uid="uid://bgl4faumqyx3s" path="res://hud-ui/krampusHealth.tscn" id="5_23lft"]
+[ext_resource type="FontFile" uid="uid://bsd3ypakiyuvr" path="res://fonts/Kenney Pixel.ttf" id="7_7bjmr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3x4t"]
 bg_color = Color(0.45098, 0.290196, 0.227451, 1)
@@ -34,48 +37,78 @@ border_color = Color(0.898039, 0, 0.764706, 1)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_c3x4t")
 
-[node name="DeliveryLabels" type="Control" parent="HSplitContainer/UIPanel"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="DeliveryLabels" type="VBoxContainer" parent="HSplitContainer/UIPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.5
+offset_top = 29.745
+offset_right = 34.5
+offset_bottom = 69.745
+grow_horizontal = 2
 
-[node name="totalDeliveries" type="Label" parent="HSplitContainer/UIPanel/DeliveryLabels"]
+[node name="DeliveriesLabel" type="Label" parent="HSplitContainer/UIPanel/DeliveryLabels"]
+layout_mode = 2
+text = "DELIVERIES"
+label_settings = ExtResource("4_nbh4n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/UIPanel/DeliveryLabels"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="DoneDeliveries" type="Label" parent="HSplitContainer/UIPanel/DeliveryLabels/HBoxContainer"]
+unique_name_in_owner = true
 z_index = 4
-layout_mode = 0
-offset_left = 51.0
-offset_top = 52.0
-offset_right = 70.0
-offset_bottom = 75.0
-text = "10"
-
-[node name="Label2" type="Label" parent="HSplitContainer/UIPanel/DeliveryLabels"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 23.0
-offset_right = 79.0
-offset_bottom = 46.0
-text = "Deliveries"
-
-[node name="Label3" type="Label" parent="HSplitContainer/UIPanel/DeliveryLabels"]
-layout_mode = 0
-offset_left = 42.0
-offset_top = 52.0
-offset_right = 49.0
-offset_bottom = 75.0
-text = "/"
-
-[node name="doneDeliveries" type="Label" parent="HSplitContainer/UIPanel/DeliveryLabels"]
-z_index = 4
-layout_mode = 0
-offset_left = 16.0
-offset_top = 52.0
-offset_right = 40.0
-offset_bottom = 75.0
+layout_mode = 2
 text = "0"
+label_settings = ExtResource("4_nbh4n")
 horizontal_alignment = 2
 
+[node name="SlashLabel" type="Label" parent="HSplitContainer/UIPanel/DeliveryLabels/HBoxContainer"]
+layout_mode = 2
+text = "/"
+label_settings = ExtResource("4_nbh4n")
+
+[node name="TotalDeliveries" type="Label" parent="HSplitContainer/UIPanel/DeliveryLabels/HBoxContainer"]
+unique_name_in_owner = true
+z_index = 4
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("4_nbh4n")
+
 [node name="PlayerHealthBar" parent="HSplitContainer/UIPanel" instance=ExtResource("3_qexwg")]
-position = Vector2(1, 270)
+position = Vector2(2, 268)
+
+[node name="KrampusHealth" parent="HSplitContainer/UIPanel" instance=ExtResource("5_23lft")]
+visible = false
+position = Vector2(2, 10)
+
+[node name="WinLabel" type="RichTextLabel" parent="HSplitContainer/UIPanel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.466667, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("7_7bjmr")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = " [wave]You Win![/wave]"
 
 [node name="PauseScreenLayer" type="CanvasLayer" parent="."]
 layer = 3

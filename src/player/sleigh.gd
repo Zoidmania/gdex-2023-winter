@@ -15,8 +15,14 @@ extends Node2D
 @onready var bounding_box: CollisionShape2D = $HurtboxComponent/CollisionShape2D
 @onready var weapon_mount: Marker2D = $WeaponMount
 @onready var move_input_component = $MoveInputComponent
-
+@onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var destroyed_component: DestroyedComponent = $DestroyedComponent
+
+@onready var shield: Sheild = $Shield
+@onready var hurt_sfx: AudioStreamPlayer = $HurtSFX
+@onready var shield_break_sfx: AudioStreamPlayer = $ShieldBreakSFX
+@onready var hot_choco_sfx: AudioStreamPlayer = $HotChocoSFX
 
 
 var weapon: Weapon
@@ -29,6 +35,9 @@ var left_border = 0
 var right_border = ProjectSettings.get_setting("display/window/size/playable_area_width")
 var top_border = 0
 var bottom_border = ProjectSettings.get_setting("display/window/size/viewport_height")
+
+
+signal dead
 
 
 ## Called when the node enters the scene tree for the first time.
@@ -44,10 +53,23 @@ func _ready() -> void:
     switch_weapon(default_weapon)
 
     # Configure the health bar
-    health_component.health = game_stats.player_health  
+    health_component.health = game_stats.player_health
     game_stats.health_initialized.emit()
     health_component.health_changed.connect(func(health):
+        if health < game_stats.player_health:
+            hurt_sfx.play()
         game_stats.player_health = health
+    )
+
+    # handle sheild break
+    shield.destroyed.connect(func():
+        shield_break_sfx.play()
+    )
+
+    # handle death
+    health_component.no_health.connect(func():
+        dead.emit()
+        move_component.velocity = Vector2(0, 0)
     )
 
 
@@ -81,5 +103,3 @@ func _process(delta: float) -> void:
     self.global_position.y = clamp(
         self.global_position.y, top_border+y_margin, bottom_border-y_margin
     )
-
-

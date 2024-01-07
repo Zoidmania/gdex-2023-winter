@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5j0erwnwdkwd"]
+[gd_scene load_steps=13 format=3 uid="uid://b5j0erwnwdkwd"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_0aqhb"]
 [ext_resource type="Script" path="res://components/hitbox_component.gd" id="1_jqks7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://components/shake_component.gd" id="9_bkvpd"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="10_cklcf"]
 [ext_resource type="PackedScene" uid="uid://d4du2p75v33rv" path="res://effects/explosion_effect.tscn" id="11_qjag2"]
+[ext_resource type="AudioStream" uid="uid://78g0hauu467f" path="res://assets/audio/sfx/goatdamage.wav" id="12_bj7ly"]
 [ext_resource type="Script" path="res://components/health_component.gd" id="14_45fnn"]
 
 [node name="Enemy" type="Node2D" groups=["mobs"]]
@@ -19,9 +20,11 @@ script = ExtResource("1_0aqhb")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="HitboxComponent" type="Area2D" parent="."]
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 collision_layer = 0
+collision_mask = 5
 script = ExtResource("1_jqks7")
+health_component = NodePath("../HealthComponent")
 
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "scale_component", "flash_component")]
 collision_layer = 2
@@ -60,3 +63,13 @@ scene = ExtResource("11_qjag2")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("14_45fnn")
+
+[node name="HurtSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_bj7ly")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="DeathSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_bj7ly")
+volume_db = -10.0
+bus = &"SFX"

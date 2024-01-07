@@ -1,13 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://boluir7wkgeg5"]
+[gd_scene load_steps=13 format=3 uid="uid://boluir7wkgeg5"]
 
 [ext_resource type="PackedScene" uid="uid://cxvnxvp62n36f" path="res://powerups/powerup.tscn" id="1_dqq65"]
 [ext_resource type="Script" path="res://powerups/hot_chocolate.gd" id="2_cffyo"]
 [ext_resource type="Texture2D" uid="uid://6q60jxou7x7o" path="res://assets/powerup/big choc.png" id="2_qe7jd"]
 [ext_resource type="Texture2D" uid="uid://br14y8avn16fb" path="res://effects/effect_4.png" id="3_0ukqm"]
 [ext_resource type="Texture2D" uid="uid://bel0x8255hokn" path="res://effects/spotlight_7.png" id="4_wkvcd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2plvf"]
-size = Vector2(35, 34)
+[ext_resource type="AudioStream" uid="uid://dv2vuy2kixdyb" path="res://assets/audio/sfx/santasip.wav" id="6_l5t2y"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vdful"]
 blend_mode = 1
@@ -33,6 +31,9 @@ turbulence_influence_max = 1.0
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qusgn"]
 blend_mode = 1
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2plvf"]
+size = Vector2(35, 34)
+
 [node name="HotChocolate" instance=ExtResource("1_dqq65")]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("2_cffyo")
@@ -40,9 +41,28 @@ script = ExtResource("2_cffyo")
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_qe7jd")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite2D" index="0"]
+modulate = Color(0, 1, 0, 1)
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_vdful")
+position = Vector2(-1, 0)
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_3d67l")
+texture = ExtResource("3_0ukqm")
+local_coords = true
+trail_section_subdivisions = 1
+
+[node name="flare" type="Sprite2D" parent="Sprite2D" index="1"]
+modulate = Color(0.337255, 0.992157, 0.72549, 1)
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_qusgn")
+position = Vector2(-2, 2)
+scale = Vector2(0.653687, 0.63811)
+texture = ExtResource("4_wkvcd")
+
 [node name="HitboxComponent" parent="." index="1"]
 collision_layer = 0
-damage = -1.0
+damage = -3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 position = Vector2(-0.5, 0)
@@ -56,21 +76,5 @@ velocity = Vector2(0, 100)
 position = Vector2(-0.5, -4.76837e-07)
 scale = Vector2(1.75, 1.7)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="4"]
-modulate = Color(0, 1, 0, 1)
-show_behind_parent = true
-material = SubResource("CanvasItemMaterial_vdful")
-position = Vector2(-1, 0)
-amount = 5
-process_material = SubResource("ParticleProcessMaterial_3d67l")
-texture = ExtResource("3_0ukqm")
-local_coords = true
-trail_section_subdivisions = 1
-
-[node name="flare" type="Sprite2D" parent="." index="5"]
-modulate = Color(0.337255, 0.992157, 0.72549, 1)
-show_behind_parent = true
-material = SubResource("CanvasItemMaterial_qusgn")
-position = Vector2(-2, 2)
-scale = Vector2(0.653687, 0.63811)
-texture = ExtResource("4_wkvcd")
+[node name="PickupSFX" parent="." index="4"]
+stream = ExtResource("6_l5t2y")

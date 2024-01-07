@@ -9,14 +9,16 @@ extends Node
 ## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
+var dead := false
+
 ## Dynamically sets this actor's health, and emits signals.
 @export var health:= 1:
     set(value):
-
         health = value
         health_changed.emit(health)
-        if health <= 0:
-            no_health.emit()
+        if health <= 0 and not dead:
+                no_health.emit()
+                dead = true
 
 
 signal health_changed(health: int)

@@ -1,13 +1,22 @@
 extends Stage
-@onready var krampus:Krampus = $Krampus
-@onready var sleigh = $Sleigh
 
 
-# Called when the node enters the scene tree for the first time.
+@onready var krampus: Krampus = $Krampus
+
+
 func _ready():
-    super() # Replace with function body.
-    
+    super()
+    krampus.hurt.connect(hud.update_krampus_health)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-    pass
+    sleigh.dead.connect(func():
+        krampus.move_component.velocity = Vector2(0, 0)
+        krampus.mouth_launcher.queue_free()
+        krampus.right_hand_launcher.queue_free()
+        krampus.left_hand_launcher.queue_free()
+    )
+
+    krampus.dead.connect(func():
+        hud.win_label.show()
+        await get_tree().create_timer(5.0).timeout
+        get_tree().change_scene_to_file('res://menus/main_menu.tscn')
+    )

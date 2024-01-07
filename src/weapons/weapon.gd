@@ -9,6 +9,7 @@ extends Node2D
 ##
 ## Set on init.
 @onready var fire_rate_timer: Timer = $FireRateTimer
+@onready var fire_sfx: AudioStreamPlayer = $FireSFX
 
 ## Used to prevent firing another shot faster than the weapon's fire rate.
 ##
@@ -18,6 +19,8 @@ extends Node2D
 @onready var muzzle: Marker2D = $Muzzle
 @onready var projectile_spawner: SpawnerComponent = $ProjectileSpawner
 @onready var scale_component: ScaleComponent = $ScaleComponent
+
+var disabled := false
 
 
 signal fired
@@ -45,12 +48,23 @@ func _input(event: InputEvent) -> void:
         fire_rate_timer.stop()
 
 
+func _notification(what: int) -> void:
+
+    # Nota bene: Fixes an issue where pausing the game while holding the fire button then letting
+    # go of the firing button before unpausing causes the weapon to continue firing.
+    if what == NOTIFICATION_PAUSED:
+        fire_rate_timer.stop()
+
+
 ## Causes the associated [SpawnerComponent] to create a projectile.
 ##
 ## The projectile's speed is controlled by the [Projectile]'s [MoveComponent].
 func fire_projectile() -> void:
 
-    projectile_spawner.spawn(muzzle.global_position)
-    scale_component.tween_scale()
-    fire_rate_timer.start()
-    fired.emit()
+    if not disabled:
+
+        projectile_spawner.spawn(muzzle.global_position)
+        scale_component.tween_scale()
+        fire_rate_timer.start()
+        fired.emit()
+        fire_sfx.play()

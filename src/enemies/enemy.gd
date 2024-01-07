@@ -10,6 +10,8 @@ extends Node2D
 
 @onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 @onready var flash_component: FlashComponent = $HurtFlashComponent
 @onready var scale_component: ScaleComponent = $ScaleComponent
 @onready var shake_component: ShakeComponent = $ShakeComponent
@@ -19,9 +21,15 @@ extends Node2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var destroyed_component: DestroyedComponent = $DestroyedComponent
 
+@onready var hurt_sfx: AudioStreamPlayer = $HurtSFX
+@onready var death_sfx: AudioStreamPlayer = $DeathSFX
+
 # Set in ready().
 var x_margin: int
 var y_margin: int
+
+
+signal hurt(new_health: int)
 
 
 ## Called when the node enters the scene tree for the first time.
@@ -39,7 +47,28 @@ func _ready() -> void:
         scale_component.tween_scale()
         flash_component.flash()
         shake_component.tween_shake()
+        hurt.emit(health_component.health)
+        hurt_sfx.play()
     )
 
-    health_component.no_health.connect(queue_free)
-    hitbox_component.hit_hurtbox.connect(destroyed_component.destroy.unbind(1))
+    death_sfx.finished.connect(queue_free)
+
+    health_component.no_health.connect(func():
+        hitbox_component.queue_free()
+        hurtbox_component.queue_free()
+        animated_sprite_2d.hide()
+        move_component.velocity = Vector2(0, 0)
+        death_sfx.play()
+    )
+
+    # Destroy self when self's hitbox collides with a hurtbox (player)
+    hitbox_component.hit_hurtbox.connect(func(_ignored):
+        ## deal remaining self health to collided target
+        hitbox_component.damage = health_component.health
+        hitbox_component.queue_free()
+        hurtbox_component.queue_free()
+        animated_sprite_2d.hide()
+        move_component.velocity = Vector2(0, 0)
+        death_sfx.play()
+        destroyed_component.destroy()
+    )

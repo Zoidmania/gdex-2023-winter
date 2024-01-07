@@ -10,11 +10,13 @@ extends Area2D
 ## @tutorial: https://www.youtube.com/playlist?list=PL9FzW-m48fn09w6j8NowI_pSBVcsb3V78
 
 
+@export var health_component: HealthComponent
+
 ## The amount of damage this hitbox deals.
 @export var damage = 1.0
 
 ## Emitted when this hitbox hits a "hurtbox".
-signal hit_hurtbox(hurtbox)
+signal hit_hurtbox(hurtbox: HurtboxComponent)
 
 
 ## Init.
