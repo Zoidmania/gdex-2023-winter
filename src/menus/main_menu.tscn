@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4f7j8h3nnnuy"]
+[gd_scene load_steps=6 format=3 uid="uid://d4f7j8h3nnnuy"]
 
 [ext_resource type="Texture2D" uid="uid://boilaefyu1g7x" path="res://assets/santa-cover.png" id="1_3veor"]
 [ext_resource type="Script" path="res://menus/main_menu.gd" id="1_t014m"]
 [ext_resource type="LabelSettings" uid="uid://dptaysfdj8xre" path="res://menus/title_label_settings.tres" id="2_iycee"]
 [ext_resource type="LabelSettings" uid="uid://bexwfm4yo3lau" path="res://menus/start_label_settings.tres" id="3_tj51b"]
+[ext_resource type="AudioStream" uid="uid://b7ahaa8q6a55b" path="res://assets/audio/music/opening.wav" id="5_x162g"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -62,3 +63,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_x162g")
+volume_db = -15.0
+autoplay = true
+bus = &"Music"

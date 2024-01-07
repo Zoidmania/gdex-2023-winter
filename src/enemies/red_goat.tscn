@@ -26,8 +26,6 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c56rl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ihs7f"]
-radius = 6.0
-height = 18.0
 
 [node name="RedGoat" instance=ExtResource("1_ihi6f")]
 script = ExtResource("2_248rr")
@@ -47,7 +45,10 @@ position = Vector2(0, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_c56rl")
 
+[node name="HurtboxComponent" parent="." index="3"]
+rotation = 1.5708
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
-position = Vector2(0, 4)
+position = Vector2(3, 0)
 shape = SubResource("CapsuleShape2D_ihs7f")
 debug_color = Color(0.960784, 0, 0.521569, 0.419608)
