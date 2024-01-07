@@ -1,13 +1,26 @@
 extends House
 class_name DeliveryHouse
+
+
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var present_timer: Timer = $PresentTimer
 @onready var house = $House
+@onready var delivery_sfx: AudioStreamPlayer = $DeliverySFX
+
+var deliverable = false
+var delivered = false
+
 
 signal lockdown
 signal release
-var deliverable = false
-var delivered = false
+
+
+func _ready() -> void:
+
+    # poor man's looping effect
+    delivery_sfx.finished.connect(func():
+        delivery_sfx.play()
+    )
 
 
 ## Called on input events.
@@ -22,6 +35,7 @@ func _input(event: InputEvent) -> void:
     if can_start_delivering:
         progress_bar.show()
         present_timer.start()
+        delivery_sfx.play()
         lockdown.emit()
 
 
@@ -48,3 +62,4 @@ func _on_present_timer_timeout():
     release.emit()
     house.play('depleted')
     delivered = true
+    delivery_sfx.stop()

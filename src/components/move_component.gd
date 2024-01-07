@@ -11,8 +11,6 @@ extends Node
     set(value):
 
         velocity = value
-        
-        
 
 
 ## Called every frame.

@@ -12,8 +12,6 @@ class_name DestroyedComponent
 # Export and grab access to a spawner component so we can create an effect on death
 @export var destroy_effect_spawner_component: SpawnerComponent
 
-@export var is_player: bool = false
-
 
 ## Init.
 ##
@@ -21,9 +19,6 @@ class_name DestroyedComponent
 func _ready() -> void:
 
     health_component.no_health.connect(destroy)
-
-    #if is_player:
-        #var music =
 
 
 ## Creates an effect from the associated `destroy_effect_spawner_component` and frees the associated

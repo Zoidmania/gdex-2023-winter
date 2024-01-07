@@ -17,6 +17,9 @@ extends Node2D
 @onready var move_input_component = $MoveInputComponent
 
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var destroyed_component: DestroyedComponent = $DestroyedComponent
+
+@onready var hurt_sfx: AudioStreamPlayer = $HurtSFX
 
 
 var weapon: Weapon
@@ -29,6 +32,9 @@ var left_border = 0
 var right_border = ProjectSettings.get_setting("display/window/size/playable_area_width")
 var top_border = 0
 var bottom_border = ProjectSettings.get_setting("display/window/size/viewport_height")
+
+
+signal dead
 
 
 ## Called when the node enters the scene tree for the first time.
@@ -47,7 +53,15 @@ func _ready() -> void:
     health_component.health = game_stats.player_health
     game_stats.health_initialized.emit()
     health_component.health_changed.connect(func(health):
+        if health < game_stats.player_health:
+            hurt_sfx.play()
         game_stats.player_health = health
+
+    )
+
+    # handle death
+    health_component.no_health.connect(func():
+        dead.emit()
     )
 
 
@@ -81,5 +95,3 @@ func _process(delta: float) -> void:
     self.global_position.y = clamp(
         self.global_position.y, top_border+y_margin, bottom_border-y_margin
     )
-
-

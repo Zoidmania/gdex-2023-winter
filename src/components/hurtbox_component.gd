@@ -37,7 +37,7 @@ func _ready() -> void:
 
     self.hurt.connect(
         func(hitbox_component: HitboxComponent):
-            if game_stats.player_health - hitbox_component.damage <= game_stats.max_health: 
+            if game_stats.player_health - hitbox_component.damage <= game_stats.max_health:
                 health_component.health -= hitbox_component.damage
                 scale_component.tween_scale()
                 flash_component.flash()

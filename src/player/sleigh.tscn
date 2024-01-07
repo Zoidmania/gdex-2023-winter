@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bh6x3atb6ibqq"]
+[gd_scene load_steps=22 format=3 uid="uid://bh6x3atb6ibqq"]
 
 [ext_resource type="Script" path="res://player/sleigh.gd" id="1_1sigw"]
 [ext_resource type="Resource" uid="uid://c7pb7has64jr8" path="res://game_stats.tres" id="2_hjant"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://components/flash_component.gd" id="11_2kk36"]
 [ext_resource type="PackedScene" uid="uid://d4du2p75v33rv" path="res://effects/explosion_effect.tscn" id="13_oytdb"]
 [ext_resource type="PackedScene" uid="uid://cw1q3k25mmxr" path="res://player/shield.tscn" id="15_xh5xk"]
+[ext_resource type="AudioStream" uid="uid://bdt6dd58owlne" path="res://assets/audio/sfx/santadamage.wav" id="19_ai8lm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kvs5w"]
 animations = [{
@@ -111,3 +112,7 @@ scene = ExtResource("13_oytdb")
 
 [node name="Shield" parent="." instance=ExtResource("15_xh5xk")]
 scale = Vector2(1.5, 1.5)
+
+[node name="HurtSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_ai8lm")
+volume_db = -10.0
