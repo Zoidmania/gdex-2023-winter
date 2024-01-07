@@ -110,6 +110,7 @@ toggle_pause_menu={
 
 2d_physics/layer_1="player_hurtbox"
 2d_physics/layer_2="enemy_hurtbox"
+2d_physics/layer_3="Shield"
 
 [rendering]
 

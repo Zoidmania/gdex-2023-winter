@@ -9,7 +9,7 @@ extends Area2D
 @export var health_component: HealthComponent
 @export var scale_component: ScaleComponent
 @export var flash_component: FlashComponent
-
+var game_stats: GameStats = preload("res://game_stats.tres")
 
 ## Indicates that this [HurtboxComponent] cannot be damaged, meaning that all child collision shapes
 ## should be disabled.
@@ -37,7 +37,8 @@ func _ready() -> void:
 
     self.hurt.connect(
         func(hitbox_component: HitboxComponent):
-            health_component.health -= hitbox_component.damage
-            scale_component.tween_scale()
-            flash_component.flash()
+            if game_stats.player_health - hitbox_component.damage <= game_stats.max_health: 
+                health_component.health -= hitbox_component.damage
+                scale_component.tween_scale()
+                flash_component.flash()
     )
