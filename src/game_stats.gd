@@ -2,18 +2,19 @@ class_name GameStats
 extends Resource
 ## Keeps track of scores for the current game session.
 ##
-## Scores are not serialized to disk. Highscore is initialized when the game starts, and isn't
-## persistent when the application closes.
+## Score reflects the number of houses that have been delivered to.
 
 
-## The current score for this particular game.
+## The current score.
 @export var score := 0:
     set(value):
         score = value
         score_changed.emit(score)
 
+## The score required to complete the stage.
 @export var required_score := 10
 
+## Globally track the player's health.
 @export var player_health:= 0:
     set(value):
         player_health = value
