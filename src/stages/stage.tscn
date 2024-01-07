@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dt47ouy0h30vr" path="res://hud-ui/hud.tscn" id="1_ofi62"]
 [ext_resource type="PackedScene" uid="uid://bh6x3atb6ibqq" path="res://player/sleigh.tscn" id="2_ch66l"]
 [ext_resource type="PackedScene" uid="uid://3cqo8pvwxxkr" path="res://effects/snow.tscn" id="4_obbyb"]
-[ext_resource type="AudioStream" uid="uid://ckx6qma0eq145" path="res://assets/audio/music/dougrestyegerrymentlemen.wav" id="5_mbeo0"]
+[ext_resource type="AudioStream" uid="uid://bxhopo0hrbys8" path="res://assets/audio/music/dougrestyegerrymentlemen.ogg" id="5_ghlan"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jb6tv"]
 resource_local_to_scene = true
@@ -27,7 +27,7 @@ position = Vector2(120, 290)
 process_material = SubResource("ParticleProcessMaterial_jb6tv")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_mbeo0")
+stream = ExtResource("5_ghlan")
 volume_db = -15.0
 autoplay = true
 bus = &"Music"
