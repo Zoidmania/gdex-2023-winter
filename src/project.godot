@@ -10,12 +10,13 @@ config_version=5
 
 [application]
 
-config/name="gdex-winter-2023"
+config/name="G.I.V.E.R"
 config/description="Created for the GDEX Winter 2023 game jam.
 https://zoidmania.itch.io/winter-gdex-2023"
+config/version="0.1.0.0"
 run/main_scene="res://menus/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/icons/beeg-chungus.png"
 
 [autoload]
 
