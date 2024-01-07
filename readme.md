@@ -15,9 +15,9 @@ We registered as Team Beeg Chungus. Team members and responsibilities:
 
 | **Member**       | **Role**      |
 |------------------|---------------|
-| Zoidmania        | Programming   |
-| jgotty777        | Programming   |
-| LordAmonkira     | Programming   |
+| Zoidmania        | Programming, SFX |
+| jgotty777        | Programming, Art, SFX |
+| LordAmonkira     | Art |
 | Shawnedia        | Art           |
 | EasterIslandDice | Music and SFX |
 
