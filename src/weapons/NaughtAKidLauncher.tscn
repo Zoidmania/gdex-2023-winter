@@ -4,10 +4,8 @@
 [ext_resource type="Script" path="res://weapons/NaughtAKidLauncher.gd" id="2_lfp5p"]
 [ext_resource type="PackedScene" uid="uid://bx67kbnwss28j" path="res://projectiles/naught_a_kid.tscn" id="3_mwijt"]
 
-[node name="NaughtAKidLauncher" node_paths=PackedStringArray("target") instance=ExtResource("1_mmgq2")]
-position = Vector2(147, 39)
+[node name="NaughtAKidLauncher" instance=ExtResource("1_mmgq2")]
 script = ExtResource("2_lfp5p")
-target = NodePath("")
 
 [node name="ProjectileSpawner" parent="." index="2"]
 scene = ExtResource("3_mwijt")

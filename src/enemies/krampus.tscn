@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8yr060te5x73"]
+[gd_scene load_steps=8 format=3 uid="uid://b8yr060te5x73"]
 
 [ext_resource type="PackedScene" uid="uid://b5j0erwnwdkwd" path="res://enemies/enemy.tscn" id="1_uiddd"]
+[ext_resource type="Script" path="res://enemies/krampus.gd" id="2_a4kgy"]
 [ext_resource type="Texture2D" uid="uid://c8v142xgqvdrp" path="res://assets/enemies/krampus/Krampus 2.png" id="2_kg57a"]
 [ext_resource type="Texture2D" uid="uid://cosgyhcuhqj1h" path="res://assets/enemies/krampus/Krampus 3.png" id="3_kxryr"]
 [ext_resource type="Texture2D" uid="uid://d0j2ere72xqse" path="res://assets/enemies/krampus/Krampus.png" id="4_028ho"]
-[ext_resource type="PackedScene" uid="uid://ckh3rdrsh87s7" path="res://weapons/weapon.tscn" id="5_7is1w"]
+[ext_resource type="PackedScene" uid="uid://dgpgjipwbutng" path="res://weapons/NaughtAKidLauncher.tscn" id="5_mu1mg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0j8ms"]
 animations = [{
@@ -25,6 +26,7 @@ animations = [{
 
 [node name="Krampus" instance=ExtResource("1_uiddd")]
 scale = Vector2(2, 2)
+script = ExtResource("2_a4kgy")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_0j8ms")
@@ -53,5 +55,14 @@ scale = Vector2(3, 3)
 [node name="HealthComponent" parent="." index="10"]
 health = 100
 
-[node name="Weapon" parent="." index="11" instance=ExtResource("5_7is1w")]
+[node name="MouthLauncher" parent="." index="11" instance=ExtResource("5_mu1mg")]
 position = Vector2(0, 6)
+fire_rate = 1.0
+
+[node name="LeftHandLauncher" parent="." index="12" instance=ExtResource("5_mu1mg")]
+position = Vector2(-13, 9.5)
+fire_rate = 1.0
+
+[node name="RightHandLauncher" parent="." index="13" instance=ExtResource("5_mu1mg")]
+position = Vector2(13.5, 9.5)
+fire_rate = 1.0

@@ -40,6 +40,6 @@ func complete_delivery() -> void:
 
     game_stats.score += 1
     done_deliveries.text = str(game_stats.score)
-    if game_stats.score == 10:
+    if game_stats.score == 1:
         done_all_deliveries.emit()
 

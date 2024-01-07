@@ -18,8 +18,8 @@ func _process(delta):
 func _on_cooldown_timer_timeout():
     
     if target != null:
-        var projectile: Projectile = projectile_spawner.spawn(muzzle.position)
-        var shootVector: Vector2 = target.position - muzzle.position
+        var projectile: Projectile = projectile_spawner.spawn(muzzle.global_position)
+        var shootVector: Vector2 = target.global_position - muzzle.global_position
         #this essentially makes a vector that points in teh correct direction with a "speed" of 250
         shootVector = shootVector.normalized() * 250 
         projectile.set_velocity(shootVector)
