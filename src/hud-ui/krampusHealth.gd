@@ -5,34 +5,25 @@ extends Node2D
 ## Written by jgotty777. Amended by Zoidmania.
 
 
-
-
-
 @onready var curved_part: TextureProgressBar = $CurveHealth
 @onready var straight_part: TextureProgressBar = $StraightHealth
 
 
-## Max health of the player.
-##
-## Set by [method HealthBar.configure_bounds].
-var max_health: int
+## Max health of Krampus.
+@export var max_health := 100
 
 
 ## Init.
-##
-## Sets the maximum health of the player.
 func _ready() -> void:
 
-   
-    configure_bounds(100)
-    
+    configure_bounds()
+    set_health(max_health)
+
 
 ## Configures boundaries of the health bar components given a maximum value.
 ##
-## Should only be called when the maximum health of the player changes, like on instantiation.
-func configure_bounds(new_max_health: int) -> void:
-
-    max_health = new_max_health
+## Should only be called when the maximum health of Krampus changes, like on instantiation.
+func configure_bounds() -> void:
 
     var mid_point: int = max_health / 2
     straight_part.min_value = 0

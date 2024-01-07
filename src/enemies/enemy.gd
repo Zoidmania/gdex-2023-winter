@@ -24,6 +24,9 @@ var x_margin: int
 var y_margin: int
 
 
+signal hurt(new_health: int)
+
+
 ## Called when the node enters the scene tree for the first time.
 ##
 ## Ensures that the enemy dequeues when leaving the viewport, or is destroyed.
@@ -39,6 +42,7 @@ func _ready() -> void:
         scale_component.tween_scale()
         flash_component.flash()
         shake_component.tween_shake()
+        hurt.emit(health_component.health)
     )
 
     health_component.no_health.connect(queue_free)

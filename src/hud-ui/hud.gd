@@ -72,3 +72,7 @@ func complete_delivery() -> void:
     if game_stats.score == game_stats.required_score:
         done_all_deliveries.emit()
 
+
+func update_krampus_health(new_health: int) -> void:
+
+    krampus_health.set_health(new_health)
