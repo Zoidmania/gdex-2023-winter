@@ -16,3 +16,8 @@ func _ready():
     right_hand_launcher.target = target # Replace with function body.
     left_hand_launcher.target = target # Replace with function body.
 
+    health_component.no_health.connect(func():
+        mouth_launcher.queue_free()
+        right_hand_launcher.queue_free()
+        left_hand_launcher.queue_free()
+    )
