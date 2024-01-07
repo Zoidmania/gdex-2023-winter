@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://stages/stage.gd" id="1_npg2w"]
 [ext_resource type="PackedScene" uid="uid://dt47ouy0h30vr" path="res://hud-ui/hud.tscn" id="1_ofi62"]
 [ext_resource type="PackedScene" uid="uid://bh6x3atb6ibqq" path="res://player/sleigh.tscn" id="2_ch66l"]
-[ext_resource type="PackedScene" uid="uid://3cqo8pvwxxkr" path="res://effects/snow.tscn" id="4_obbyb"]
+[ext_resource type="PackedScene" path="res://effects/snow.tscn" id="4_obbyb"]
 [ext_resource type="AudioStream" uid="uid://bxhopo0hrbys8" path="res://assets/audio/music/dougrestyegerrymentlemen.ogg" id="5_ghlan"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jb6tv"]
