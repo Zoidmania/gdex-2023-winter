@@ -30,8 +30,5 @@ process_material = SubResource("ParticleProcessMaterial_jb6tv")
 position = Vector2(120, 48)
 target = NodePath("../Sleigh")
 
-[node name="DeathPlayer" parent="." index="6"]
-volume_db = 0.0
-
 [node name="DeathTransitionTimer" parent="." index="7"]
 wait_time = 2.0

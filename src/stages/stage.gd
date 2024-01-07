@@ -3,7 +3,7 @@ class_name Stage
 
 @onready var hud: HUD = $HUD
 @onready var music: AudioStreamPlayer = $Music
-@onready var death_player: AudioStreamPlayer = $DeathPlayer
+@onready var death_player: AudioStreamPlayer = $SantaDeathPlayer
 @onready var death_transition_timer: Timer = $DeathTransitionTimer
 @onready var sleigh: Sleigh = $Sleigh
 

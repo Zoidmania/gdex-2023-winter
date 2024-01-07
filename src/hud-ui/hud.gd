@@ -6,6 +6,7 @@ class_name  HUD
 @onready var delivery_labels: Control = $HSplitContainer/UIPanel/DeliveryLabels
 @onready var done_deliveries: Label = %DoneDeliveries
 @onready var total_deliveries: Label = %TotalDeliveries
+@onready var win_label: RichTextLabel = %WinLabel
 
 
 @onready var h_split_container: HSplitContainer = $HSplitContainer

@@ -14,7 +14,6 @@ var dead := false
 ## Dynamically sets this actor's health, and emits signals.
 @export var health:= 1:
     set(value):
-        print("New health: ", value)
         health = value
         health_changed.emit(health)
         if health <= 0 and not dead:

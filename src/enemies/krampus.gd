@@ -9,6 +9,9 @@ class_name Krampus
 @export var target: Node2D
 
 
+signal dead
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     super()
@@ -20,4 +23,6 @@ func _ready():
         mouth_launcher.queue_free()
         right_hand_launcher.queue_free()
         left_hand_launcher.queue_free()
+        dead.emit()
     )
+
