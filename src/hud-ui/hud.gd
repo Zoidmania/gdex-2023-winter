@@ -9,6 +9,7 @@ class_name  HUD
 
 @onready var h_split_container: HSplitContainer = $HSplitContainer
 @onready var health_bar: PlayerHealthBar = $HSplitContainer/UIPanel/PlayerHealthBar
+@onready var krampus_health: KrampusHealthBar = $HSplitContainer/UIPanel/KrampusHealth
 
 @onready var pause_screen_layer: CanvasLayer = $PauseScreenLayer
 @onready var pause_text_layer: CanvasLayer = $PauseScreenLayer/PauseTextLayer
@@ -22,8 +23,8 @@ class_name  HUD
 
 var play_area_width = ProjectSettings.get_setting("display/window/size/playable_area_width")
 
-signal done_all_deliveries
 
+signal done_all_deliveries
 
 
 ## Init.
@@ -37,6 +38,7 @@ func _ready() -> void:
     if is_boss_stage:
 
         delivery_labels.hide()
+        krampus_health.show()
 
     else:
 
