@@ -21,6 +21,8 @@ extends Resource
         player_health = value
         health_changed.emit(player_health)
 
+@export var max_player_health := 20
+
 
 signal score_changed(new_score: int)
 signal health_changed(new_health: int)

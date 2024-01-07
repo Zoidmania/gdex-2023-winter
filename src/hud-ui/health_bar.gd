@@ -24,7 +24,7 @@ var max_health: int
 func _ready() -> void:
 
     await game_stats.health_initialized
-    configure_bounds(game_stats.max_health)
+    configure_bounds(game_stats.max_player_health)
     game_stats.health_changed.connect(set_health)
     set_health(game_stats.player_health)
 
