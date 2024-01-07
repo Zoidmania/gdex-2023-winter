@@ -4,8 +4,9 @@ class_name  HUD
 
 @onready var ui_panel = $HSplitContainer/UIPanel
 @onready var delivery_labels: Control = $HSplitContainer/UIPanel/DeliveryLabels
-@onready var total_deliveries: Label = $HSplitContainer/UIPanel/DeliveryLabels/totalDeliveries
-@onready var done_deliveries: Label = $HSplitContainer/UIPanel/DeliveryLabels/doneDeliveries
+@onready var done_deliveries: Label = %DoneDeliveries
+@onready var total_deliveries: Label = %TotalDeliveries
+
 
 @onready var h_split_container: HSplitContainer = $HSplitContainer
 @onready var health_bar: PlayerHealthBar = $HSplitContainer/UIPanel/PlayerHealthBar
