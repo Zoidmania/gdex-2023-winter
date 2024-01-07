@@ -60,7 +60,7 @@ debug_color = Color(0.92549, 0.196078, 0.478431, 0.419608)
 velocity = Vector2(0, 30)
 
 [node name="HealthComponent" parent="." index="10"]
-health = 10
+health = 5
 
 [node name="ProjectileSpawner" type="Node2D" parent="." index="11"]
 script = ExtResource("4_i4siy")

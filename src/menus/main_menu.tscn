@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://d4f7j8h3nnnuy"]
+[gd_scene load_steps=5 format=3 uid="uid://d4f7j8h3nnnuy"]
+
+[ext_resource type="Texture2D" uid="uid://boilaefyu1g7x" path="res://assets/santa-cover.png" id="1_3veor"]
+[ext_resource type="Script" path="res://menus/main_menu.gd" id="1_t014m"]
+[ext_resource type="LabelSettings" uid="uid://dptaysfdj8xre" path="res://menus/title_label_settings.tres" id="2_iycee"]
+[ext_resource type="LabelSettings" uid="uid://bexwfm4yo3lau" path="res://menus/start_label_settings.tres" id="3_tj51b"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +12,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_t014m")
+
+[node name="BGCanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="BGTextureRect" type="TextureRect" parent="BGCanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3veor")
+expand_mode = 2
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="TitleLabel" type="Label" parent="UILayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 65.895
+offset_right = 95.0
+offset_bottom = 125.895
+grow_horizontal = 2
+size_flags_vertical = 0
+text = "G.I.V.E.R."
+label_settings = ExtResource("2_iycee")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartLabel" type="Label" parent="UILayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -37.19
+offset_right = 95.0
+offset_bottom = -14.19
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press Space to Start"
+label_settings = ExtResource("3_tj51b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]

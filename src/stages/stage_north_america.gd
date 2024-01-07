@@ -1,6 +1,6 @@
-extends Node
+extends Stage
+
 @onready var stage_north_america = $"."
-@onready var hud: game_hud = $HUD
 
 
 func _on_hud_done_all_deliveries():
