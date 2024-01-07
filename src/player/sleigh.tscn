@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://components/health_component.gd" id="11_1edf7"]
 [ext_resource type="Script" path="res://components/flash_component.gd" id="11_2kk36"]
 [ext_resource type="PackedScene" uid="uid://d4du2p75v33rv" path="res://effects/explosion_effect.tscn" id="13_oytdb"]
-[ext_resource type="PackedScene" uid="uid://2o46vapqr8yu" path="res://shield.tscn" id="15_xh5xk"]
+[ext_resource type="PackedScene" uid="uid://2o46vapqr8yu" path="res://player/shield.tscn" id="15_xh5xk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kvs5w"]
 animations = [{

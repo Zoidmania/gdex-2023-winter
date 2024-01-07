@@ -13,7 +13,7 @@ config_version=5
 config/name="gdex-winter-2023"
 config/description="Created for the GDEX Winter 2023 game jam.
 https://zoidmania.itch.io/winter-gdex-2023"
-run/main_scene="res://stages/stage_north_america.tscn"
+run/main_scene="res://menus/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -28,6 +28,7 @@ window/size/viewport_height=320
 window/size/window_width_override=960
 window/size/window_height_override=960
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 window/size/playable_area_width=240
 
 [importer_defaults]

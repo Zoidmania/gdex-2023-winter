@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://2o46vapqr8yu"]
+
+[ext_resource type="Script" path="res://player/shield.gd" id="1_b0wr3"]
+[ext_resource type="Script" path="res://components/health_component.gd" id="1_yxoys"]
+[ext_resource type="Script" path="res://components/hurtbox_component.gd" id="2_o5okf"]
+[ext_resource type="Texture2D" uid="uid://bu8luijd3hmmn" path="res://assets/santa-presents/shield full.png" id="3_mccr1"]
+[ext_resource type="Script" path="res://components/scale_component.gd" id="5_ashuh"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="6_8nwxi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vbwhl"]
+radius = 19.0
+
+[node name="Shield" type="Node2D"]
+script = ExtResource("1_b0wr3")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("1_yxoys")
+health = 4
+
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component", "scale_component", "flash_component")]
+script = ExtResource("2_o5okf")
+health_component = NodePath("../HealthComponent")
+scale_component = NodePath("../ScaleComponent")
+flash_component = NodePath("../FlashComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_vbwhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, 1.19209e-07)
+texture = ExtResource("3_mccr1")
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("5_ashuh")
+sprite = NodePath("../Sprite2D")
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("6_8nwxi")
+sprite = NodePath("../Sprite2D")
+
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]
+[connection signal="hurt" from="HurtboxComponent" to="." method="_on_hurtbox_component_hurt"]
