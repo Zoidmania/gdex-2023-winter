@@ -9,6 +9,7 @@ extends Node2D
 ##
 ## Set on init.
 @onready var fire_rate_timer: Timer = $FireRateTimer
+@onready var fire_sfx: AudioStreamPlayer = $FireSFX
 
 ## Used to prevent firing another shot faster than the weapon's fire rate.
 ##
@@ -62,3 +63,4 @@ func fire_projectile() -> void:
     scale_component.tween_scale()
     fire_rate_timer.start()
     fired.emit()
+    fire_sfx.play()

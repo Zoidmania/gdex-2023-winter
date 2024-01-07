@@ -50,6 +50,7 @@ bus = &"SFX"
 [node name="CrackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ydhy3")
 volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]
 [connection signal="hurt" from="HurtboxComponent" to="." method="_on_hurtbox_component_hurt"]

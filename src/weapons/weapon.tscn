@@ -24,4 +24,7 @@ one_shot = true
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="FireSFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
 [connection signal="timeout" from="FireRateTimer" to="." method="fire_projectile"]

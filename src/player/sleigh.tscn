@@ -122,3 +122,4 @@ bus = &"SFX"
 [node name="ShieldBreakSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_q8pms")
 volume_db = -10.0
+bus = &"SFX"
