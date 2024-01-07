@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw55ew0sqlqc4"]
+
+[ext_resource type="Script" path="res://credits_scroller.gd" id="1_70dco"]
+[ext_resource type="LabelSettings" uid="uid://b0w3lkbl7edk3" path="res://menus/credit_section_label_settings.tres" id="2_c0yka"]
+[ext_resource type="LabelSettings" uid="uid://caio0v7ej5cfg" path="res://menus/credit_label_settings.tres" id="2_uv1ae"]
+
+[node name="CreditsScroller" type="Node2D"]
+script = ExtResource("1_70dco")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 1)
+
+[node name="CreditsContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Line" type="Label" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+size_flags_horizontal = 3
+label_settings = ExtResource("2_uv1ae")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SectionLabel" type="Label" parent="CreditsContainer"]
+visible = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 21.0
+offset_right = 60.0
+offset_bottom = 44.0
+text = " Test
+"
+label_settings = ExtResource("2_c0yka")

@@ -18,5 +18,5 @@ func _ready():
     krampus.dead.connect(func():
         hud.win_label.show()
         await get_tree().create_timer(5.0).timeout
-        get_tree().change_scene_to_file('res://menus/main_menu.tscn')
+        get_tree().change_scene_to_file('res://menus/credits.tscn')
     )
