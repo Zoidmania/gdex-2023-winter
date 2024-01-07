@@ -16,6 +16,8 @@ https://zoidmania.itch.io/winter-gdex-2023"
 config/version="0.1.0.0"
 run/main_scene="res://menus/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
+boot_splash/image="res://assets/santa-cover.png"
 config/icon="res://assets/icons/beeg-chungus.png"
 
 [autoload]
