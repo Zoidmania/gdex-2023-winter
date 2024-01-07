@@ -20,7 +20,7 @@ fill_mode = 4
 texture_under = ExtResource("2_y12xp")
 texture_progress = ExtResource("3_4d0u4")
 radial_fill_degrees = 180.0
-radial_center_offset = Vector2(-62, 0)
+radial_center_offset = Vector2(58.7, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="StraightHealth" type="TextureProgressBar" parent="."]
