@@ -10,6 +10,8 @@ extends Node2D
 
 @onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 @onready var flash_component: FlashComponent = $HurtFlashComponent
 @onready var scale_component: ScaleComponent = $ScaleComponent
 @onready var shake_component: ShakeComponent = $ShakeComponent
@@ -18,6 +20,9 @@ extends Node2D
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var destroyed_component: DestroyedComponent = $DestroyedComponent
+
+@onready var hurt_sfx: AudioStreamPlayer = $HurtSFX
+@onready var death_sfx: AudioStreamPlayer = $DeathSFX
 
 # Set in ready().
 var x_margin: int
@@ -43,7 +48,17 @@ func _ready() -> void:
         flash_component.flash()
         shake_component.tween_shake()
         hurt.emit(health_component.health)
+        hurt_sfx.play()
     )
 
-    health_component.no_health.connect(queue_free)
+    death_sfx.finished.connect(queue_free)
+
+    health_component.no_health.connect(func():
+        hitbox_component.queue_free()
+        hurtbox_component.queue_free()
+        animated_sprite_2d.hide()
+        death_sfx.play()
+    )
+
+    # Destroy self when self's hitbox collides with a hurtbox (player)
     hitbox_component.hit_hurtbox.connect(destroyed_component.destroy.unbind(1))

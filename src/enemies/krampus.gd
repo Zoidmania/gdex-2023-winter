@@ -16,9 +16,3 @@ func _ready():
     right_hand_launcher.target = target # Replace with function body.
     left_hand_launcher.target = target # Replace with function body.
 
-    print("Krampus health: ", health_component.health)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-    pass

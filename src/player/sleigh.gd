@@ -15,7 +15,7 @@ extends Node2D
 @onready var bounding_box: CollisionShape2D = $HurtboxComponent/CollisionShape2D
 @onready var weapon_mount: Marker2D = $WeaponMount
 @onready var move_input_component = $MoveInputComponent
-
+@onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var destroyed_component: DestroyedComponent = $DestroyedComponent
 

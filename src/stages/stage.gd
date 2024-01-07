@@ -16,6 +16,10 @@ func _ready() -> void:
 
     sleigh.dead.connect(func():
         death_player.play()
+        sleigh.hide()
+        sleigh.hurtbox_component.queue_free()
+        sleigh.move_input_component.queue_free()
+        sleigh.weapon.disabled = true
         music.volume_db = -25.0
     )
 

@@ -20,6 +20,8 @@ extends Node2D
 @onready var projectile_spawner: SpawnerComponent = $ProjectileSpawner
 @onready var scale_component: ScaleComponent = $ScaleComponent
 
+var disabled := false
+
 
 signal fired
 
@@ -59,8 +61,10 @@ func _notification(what: int) -> void:
 ## The projectile's speed is controlled by the [Projectile]'s [MoveComponent].
 func fire_projectile() -> void:
 
-    projectile_spawner.spawn(muzzle.global_position)
-    scale_component.tween_scale()
-    fire_rate_timer.start()
-    fired.emit()
-    fire_sfx.play()
+    if not disabled:
+
+        projectile_spawner.spawn(muzzle.global_position)
+        scale_component.tween_scale()
+        fire_rate_timer.start()
+        fired.emit()
+        fire_sfx.play()
