@@ -18,7 +18,6 @@ extends Resource
 
 @export var player_health:= 20:
     set(value):
-        print(value)
         player_health = value
         health_changed.emit(player_health)
 
