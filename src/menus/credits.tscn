@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://w178a7nvuxnw"]
+
+[ext_resource type="PackedScene" uid="uid://bw55ew0sqlqc4" path="res://credits_scroller.tscn" id="1_2m2ts"]
+[ext_resource type="PackedScene" uid="uid://3cqo8pvwxxkr" path="res://effects/snow.tscn" id="1_kv4ey"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7hp8a"]
+resource_local_to_scene = true
+emission_shape_offset = Vector3(20, -20, 0)
+angle_max = 210.3
+gravity = Vector3(-90, 90, 0)
+turbulence_enabled = true
+turbulence_noise_strength = 2.47
+turbulence_noise_scale = 2.369
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("1_kv4ey")]
+position = Vector2(251, 82)
+amount = 14
+process_material = SubResource("ParticleProcessMaterial_7hp8a")
+lifetime = 5.0
+preprocess = 12.0
+speed_scale = 2.0
+randomness = 0.44
+
+[node name="CreditsScroller" parent="." instance=ExtResource("1_2m2ts")]
+position = Vector2(164, 367)

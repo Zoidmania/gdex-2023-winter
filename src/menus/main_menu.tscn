@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://menus/main_menu.gd" id="1_t014m"]
 [ext_resource type="LabelSettings" uid="uid://dptaysfdj8xre" path="res://menus/title_label_settings.tres" id="2_iycee"]
 [ext_resource type="Resource" uid="uid://c7pb7has64jr8" path="res://game_stats.tres" id="2_uxxaj"]
-[ext_resource type="LabelSettings" uid="uid://bexwfm4yo3lau" path="res://menus/start_label_settings.tres" id="3_tj51b"]
+[ext_resource type="LabelSettings" uid="uid://b0w3lkbl7edk3" path="res://menus/credit_section_label_settings.tres" id="5_3fs4d"]
 [ext_resource type="AudioStream" uid="uid://b2ycqqfp7vpn8" path="res://assets/audio/music/opening.ogg" id="5_nkc0j"]
 
 [node name="MainMenu" type="Control"]
@@ -60,7 +60,7 @@ offset_bottom = 151.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Press Space to Start"
-label_settings = ExtResource("3_tj51b")
+label_settings = ExtResource("5_3fs4d")
 horizontal_alignment = 1
 vertical_alignment = 1
 
