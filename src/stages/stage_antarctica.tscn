@@ -21,7 +21,8 @@ is_boss_stage = true
 [node name="StageAntarcticaEnemyGenerator" parent="." index="1" instance=ExtResource("2_ci7bq")]
 
 [node name="Snow" parent="." index="4"]
+amount = 30
 process_material = SubResource("ParticleProcessMaterial_jb6tv")
 
 [node name="Krampus" parent="." index="5" instance=ExtResource("3_qiw3l")]
-position = Vector2(120, 33)
+position = Vector2(120, 48)
